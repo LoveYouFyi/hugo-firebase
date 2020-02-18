@@ -6,14 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "del-cli public/**/** !public/**/firebase.json",
+    "comment create sites": "*************************************************",
+    "comment sites": "siteA:dev -starts local server, siteA:build -creates site at public/",
     "siteA:dev": "hugo server -D --port 9091 --source=\"sites/siteA\"",
-    "siteB:dev": "hugo server -D --port 9092 --source=\"sites/siteB\"",
-    "site1:dev": "hugo server -D --port 9093 --source=\"sites/site1\"",
-    "site2:dev": "hugo server -D --port 9094 --source=\"sites/site2\"",
     "siteA:build": "hugo --source=\"sites/siteA\"",
+    "siteB:dev": "hugo server -D --port 9092 --source=\"sites/siteB\"",
     "siteB:build": "hugo --source=\"sites/siteB\"",
+    "site1:dev": "hugo server -D --port 9093 --source=\"sites/site1\"",
     "site1:build": "hugo --source=\"sites/site1\"",
-    "site2:build": "hugo --source=\"sites/site2\""
+    "site2:dev": "hugo server -D --port 9094 --source=\"sites/site2\"",
+    "site2:build": "hugo --source=\"sites/site2\"",
+    "comment deploy sites": "*************************************************",
+    "comment deploy": "deploy:dev:project1 -upload to dev server all sites in public/project1",
+    "deploy:dev:project1": "cd public/project1 && firebase use multisite-hosting-dev && firebase deploy",
+    "deploy:prod:project1": "cd public/project1 && firebase use multisite-hosting && firebase deploy",
+    "deploy:dev:project2": "cd public/project2 && firebase use multisite-hosting-2-dev && firebase deploy",
+    "deploy:prod:project2": "cd public/project2 && firebase use multisite-hosting-2 && firebase deploy",
+    "deploy:dev": "npm run deploy:dev:project1 && npm run deploy:dev:project2",
+    "deploy:prod": "npm run deploy:prod:project1 && npm run deploy:prod:project2"
   },
   "repository": {
     "type": "git",
