@@ -1,0 +1,27 @@
+{
+  "name": "sites",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "del-cli public/**/** !public/**/firebase.json",
+    "siteA:dev": "hugo server -D --port 9091 --source=\"sites/siteA\"",
+    "siteB:dev": "hugo server -D --port 9092 --source=\"sites/siteB\"",
+    "siteA:build": "hugo --source=\"sites/siteA\"",
+    "siteB:build": "hugo --source=\"sites/siteB\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nerikh/hugo-qs2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nerikh/hugo-qs2/issues"
+  },
+  "homepage": "https://github.com/nerikh/hugo-qs2#readme",
+  "devDependencies": {
+    "del-cli": "^3.0.0"
+  }
+}

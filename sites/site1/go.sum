@@ -1,0 +1,15 @@
+github.com/FortAwesome/Font-Awesome v0.0.0-20200205143640-0d1f27efb836/go.mod h1:IUgezN/MFpCDIlFezw3L8j83oeiIuYoj28Miwr/KUYo=
+github.com/alpinejs/alpine v1.9.7/go.mod h1:BKI81egATMnaKqFeX5HEfYMnjZjcjcZmrYAu5Nck+EY=
+github.com/bep/hugo-bulma-hero v0.3.0 h1:BAeOK4ZzBS2evI7vTPwu40+kMd0lw0Hv5cxXcwXa6F0=
+github.com/bep/hugo-bulma-hero v0.3.0/go.mod h1:mN425XrPY0oP3/zSAZDmmEwEpDthqsTu7huPvcAXO2I=
+github.com/bep/hugo-bulma-hero v0.4.0 h1:FvcAoe9XAp37/CCdUq6BByI03mRd1zXttIRgbe2UsNU=
+github.com/bep/hugo-bulma-hero v0.4.0/go.mod h1:mN425XrPY0oP3/zSAZDmmEwEpDthqsTu7huPvcAXO2I=
+github.com/bep/hugo-bulma-hero v0.5.0 h1:iuY7eko2E4JweCy0rwoHQC1L5cGGfbUoIy1jnQeYedk=
+github.com/bep/hugo-bulma-hero v0.5.0/go.mod h1:DoxkMMGICjymzSK1e2lV1k21sRmVVweO89Qb+kn4qgc=
+github.com/bep/hugo-dummy-content v0.0.0-20200213100835-767c80cfe937/go.mod h1:xoSEb9mk9xkY7Sd0oN6AB8gDsvbal8YKKIicKcsrqcA=
+github.com/bep/hugo-dummy-content v0.0.0-20200213160018-e1f679033bf4/go.mod h1:xoSEb9mk9xkY7Sd0oN6AB8gDsvbal8YKKIicKcsrqcA=
+github.com/bep/hugo-jslibs/alpinejs v0.1.0/go.mod h1:lsA5YidERLfH5waalbVhqmzDY7RElccnQzIrsEmMKSs=
+github.com/bep/hugo-jslibs/alpinejs_turbolinks v0.2.0/go.mod h1:7ezFucxdiCYdrQE8LtGhvBCk+TQ7s1LwMjslEMGv3c0=
+github.com/bep/hugo-jslibs/turbolinks v0.1.0/go.mod h1:CQHa51PjmF5gavvhS3JKSE9ywo8h7QgOj3D88ry6qu0=
+github.com/jgthms/bulma v0.0.0-20200206142631-0c43b9e4663a/go.mod h1:89FLBKXYFKfOKAoDeUT26V0pHGwzr205cMXAEqtAVOI=
+github.com/turbolinks/turbolinks-source-gem v5.2.0+incompatible/go.mod h1:Cl0Br9tUXkQvxumVNGTvyaa7dqpFC2kPMrsS0Ttc94U=

@@ -1,0 +1,28 @@
+// Overrides https://github.com/bep/hugo-bulma-hero/blob/master/assets/scss/_hero_variables.scss
+
+// Colors
+
+// Hero Theme colors
+$h-bg-color: $white-ter;
+
+// Bulma color variables
+
+// Also see https://bulma.io/documentation/customize/variables/
+
+
+$blue:#91AAAF;
+$green: #253F41;
+$pink: #854E6F;
+$yellow: #CE8F33;
+$info: $blue;
+$primary: $green;
+$link: $pink;
+
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,900,900i&display=swap);
+
+$weight-bold: 900;
+
+$family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+"Helvetica Neue", sans-serif;

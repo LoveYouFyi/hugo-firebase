@@ -1,0 +1,28 @@
+{
+  "projects": {
+    "default": "multisite-hosting",
+    "dev": "multisite-hosting-dev"
+  },
+  "targets": {
+    "multisite-hosting": {
+      "hosting": {
+        "siteA": [
+          "site-a-multisite"
+        ],
+        "siteB": [
+          "site-b-multisite"
+        ]
+      }
+    },
+    "multisite-hosting-dev": {
+      "hosting": {
+        "siteA": [
+          "site-a-dev"
+        ],
+        "siteB": [
+          "site-b-dev"
+        ]
+      }
+    }
+  }
+}

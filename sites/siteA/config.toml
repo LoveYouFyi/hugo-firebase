@@ -1,0 +1,73 @@
+title = "Site A"
+baseURL = "https://site-a-multisite.web.app"
+languageCode = "en-us"
+themesdir = "../themes/"
+theme = "loveyou"
+publishDir = "../public/project1/siteA"
+
+MetaDataFormat = "yaml"
+#SectionPagesMenu = "main"
+Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+googleAnalytics = ""
+enableRobotsTXT = true
+
+# Adds the top level sections to the main menu.
+# Note: This config needs to be done per site.
+# The [menu] config will be merged from any theme.
+sectionPagesMenu = "main"
+
+[imaging]
+# The default Hugo resample filter is a little rough.
+# Note: Image config needs to be done per site.
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+[module]
+# The imports have a presedence from top to bottom. If you want *your* layouts to be used instead of some other, pull it upwards.
+# You can also mount only specific subfolders, map non-Hugo projects etc, see https://gohugo.io/hugo-modules/configuration/#module-config-mounts
+# Some useful Hugo info commands:
+# hugo mod graph
+# hugo config mounts
+[[module.imports]]
+path="common"
+[[module.imports]]
+## NEH: Had to comment this out would site build would not run
+#path="github.com/bep/hugo-bulma-hero"
+[[module.imports]]
+path="loveyou"
+
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+[params]
+
+  # Override theme settings. See common/config.toml for the common overrides.
+  [params.hero_site]
+    name="SiteA"
+    [params.hero_content]
+    [params.hero_content.hero]
+    title="This is Site A"
+    subtitle="""Some cool slogan about site A. Some **bold text**.
+    """
+    logo="https://logoipsum.com/assets/logo/logo-1.svg"
+  ####  
+
+  favicon = ""
+  description = "The last theme you'll ever need. Maybe. Site A"
+  facebook = ""
+  twitter = "https://twitter.com/GoHugoIO"
+  instagram = ""
+  youtube = ""
+  github = ""
+  gitlab = ""
+  linkedin = ""
+  mastodon = ""
+  slack = ""
+  stackoverflow = ""
+  # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
+  background_color_class = "bg-black"
+  featured_image = "/images/gohugo-default-sample-hero-image.jpg"
+  recent_posts_number = 2

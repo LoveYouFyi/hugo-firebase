@@ -1,0 +1,17 @@
+
+# Common params shared by all (or most) sites.
+[params]
+[params.hero_site]
+name="Demo"
+[params.hero_queries]
+[[params.hero_queries.featured_articles]]
+key="Type"
+operator="in"
+match=["blog"]
+[params.hero_content]
+[params.hero_content.hero]
+title="The world’s fastest framework for building websites"
+subtitle="""Hugo is **one of the most popular** open-source static site generators. 
+With its **amazing speed and flexibility**, Hugo makes building websites fun again.
+"""
+logo="images/hero/logo.svg"
