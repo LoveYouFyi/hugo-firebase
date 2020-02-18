@@ -8,8 +8,12 @@
     "clean": "del-cli public/**/** !public/**/firebase.json",
     "siteA:dev": "hugo server -D --port 9091 --source=\"sites/siteA\"",
     "siteB:dev": "hugo server -D --port 9092 --source=\"sites/siteB\"",
+    "site1:dev": "hugo server -D --port 9093 --source=\"sites/site1\"",
+    "site2:dev": "hugo server -D --port 9094 --source=\"sites/site2\"",
     "siteA:build": "hugo --source=\"sites/siteA\"",
-    "siteB:build": "hugo --source=\"sites/siteB\""
+    "siteB:build": "hugo --source=\"sites/siteB\"",
+    "site1:build": "hugo --source=\"sites/site1\"",
+    "site2:build": "hugo --source=\"sites/site2\""
   },
   "repository": {
     "type": "git",

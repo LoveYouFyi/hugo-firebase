@@ -1,9 +1,9 @@
 title = "Site 2"
 baseURL = "https://site-2-multisite.web.app"
 languageCode = "en-us"
-themesdir = "../themes/"
+themesdir = "../../themes/"
 theme = "loveyou"
-publishDir = "../public/project2/site2"
+publishDir = "../../public/project2/site2"
 
 MetaDataFormat = "yaml"
 #SectionPagesMenu = "main"
