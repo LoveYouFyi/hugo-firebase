@@ -1,3 +1,39 @@
+/*!
+ * Serialize all form data into a query string
+ * (c) 2018 Chris Ferdinandi, MIT License, https://gomakethings.com
+ * @param  {Node}   form The form to serialize
+ * @return {String}      The serialized form data
+ */
+var serialize = function (form) {
+
+	// Setup our serialized data
+	var serialized = [];
+
+	// Loop through each field in the form
+	for (var i = 0; i < form.elements.length; i++) {
+
+		var field = form.elements[i];
+
+		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+
+		// If a multi-select, get all selections
+		if (field.type === 'select-multiple') {
+			for (var n = 0; n < field.options.length; n++) {
+				if (!field.options[n].selected) continue;
+				serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+			}
+		}
+
+		// Convert field data to a query string
+		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+			serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+		}
+	}
+
+	return serialized.join('&');
+
+};
 /**
  * Ajax Vanilla
  */
@@ -11,6 +47,10 @@ function listenTest(formID, request) {
 }
 
 function youTube() {
+
+  var form = document.querySelector('#contact');
+  var formData = serialize(form);
+  console.log("formData $$$$$$$$$$$$$$$$$$$$$$$$ ", formData);
   var xhr = new XMLHttpRequest();
 
   xhr.onload = function() {
@@ -20,7 +60,8 @@ function youTube() {
 
   xhr.open("POST", 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send("app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU");
+  //xhr.send("app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU");
+  xhr.send(formData);
 }
 youTube();
 //listenTest('#contact', youTube);
