@@ -1,3 +1,69 @@
+/**
+ * Ajax Vanilla
+ */
+
+function listenTest(formID, request) {
+  var form = document.querySelector(formID);
+  if (form.addEventListener) {
+    var added = form.addEventListener; console.log("added $$$$$$$$$$$ ", added);
+    form.addEventListener("submit", request(form), false);  //Modern browsers
+  }
+}
+
+function youTube() {
+  var xhr = new XMLHttpRequest();
+
+  xhr.onload = function() {
+    var serverResponse = document.getElementById("serverResponse");
+    serverResponse.innerHTML = this.responseText;
+  }
+
+  xhr.open("POST", 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send("app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU");
+}
+youTube();
+//listenTest('#contact', youTube);
+//////////////
+
+function ajaxToo(form) {
+  var formData = new FormData(form);
+  console.log("formData $$$$$$$$$$$$$$$$$$$ ", formData);
+  var request = new XMLHttpRequest();
+  request.onreadystatechange = function() {
+    if (request.readyState == request.DONE && request.status == 200) {
+        alert(request.responseText);
+    }
+  };
+  request.open("POST", 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
+  request.send(formData);
+}
+
+//listenTest('#contact', ajaxToo);
+
+///////////////////////////////////
+
+function ajaxMe(string) {
+  // Request
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
+  xhr.send(string);
+
+  // Response
+  xhr.onreadystatechange = function () {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+      if (xhr.status === OK) {
+        console.log(xhr.responseText); // 'This is the returned text.'
+      } else {
+        console.log('Error: ' + xhr.status); // An error occurred during the request.
+      }
+    }
+  }
+};
+
+//listentest('#contact', ajaxme);
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +106,7 @@ function submitFormContact(formContact){
 
 // Contact Form: Function Call
 // first parameter selects form to listen to, second parameter is function to attach to form
-listenForm('#contact', submitFormContact);
+// listenForm('#contact', submitFormContact);
 
 //
 //
