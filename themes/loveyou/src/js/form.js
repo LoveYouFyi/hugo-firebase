@@ -46,9 +46,9 @@ function listenTest(formID, request) {
   }
 }
 
-function youTube() {
-
-  var form = document.querySelector('#contact');
+function youTube(form) {
+  console.log("form 11111111111111111111111111 ", form);
+//  var form = document.querySelector('#contact');
   var formData = serialize(form);
   console.log("formData $$$$$$$$$$$$$$$$$$$$$$$$ ", formData);
   var xhr = new XMLHttpRequest();
@@ -63,8 +63,8 @@ function youTube() {
   //xhr.send("app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU");
   xhr.send(formData);
 }
-youTube();
-//listenTest('#contact', youTube);
+//youTube();
+listenTest('#contact', youTube);
 //////////////
 
 function ajaxToo(form) {
