@@ -1,5 +1,6 @@
 import './../css/bundle.scss';
 
+import './form.js';
 
 // NOTE: TO use Jquery, just call the modules you want
 // var $ = require('jquery/src/core');
@@ -14,3 +15,4 @@ import './../css/bundle.scss';
 //
 // You can also "require" any script from its location in the node modules folder. Webpack often knows what to look for, but you can add a script directly like this:
 // var javascriptthingy = require('name/folder/file.js');
+

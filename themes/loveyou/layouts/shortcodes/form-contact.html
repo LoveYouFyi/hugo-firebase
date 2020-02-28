@@ -1,3 +1,52 @@
+<div class="form-wrapper">
+  <h2 class="js-success contact" style="display: none;">Message Received!</h2>
+  <form name="contact" method="POST" id="contact" class=" forms">
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-input-wrapper ">
+              <input name="name" value="" type="text" class=" form-text form-item" placeholder="Your name*" autocomplete="on" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Phone <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-input-wrapper ">
+              <input name="phone" value="" type="text" class=" form-text form-item" placeholder="Your phone numbere*" autocomplete="on" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Email <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="email" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-input-wrapper ">
+              <input name="email" value="" type="email" class=" form-email form-item" placeholder="Your email address*" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Message <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-textarea-wrapper ">
+              <textarea name="message" class=" form-textarea" placeholder="Your message*" required="required"></textarea>
+          </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit" type="submit">Submit</button>
+    </div>
+    <input type="hidden" name="__unique_form_id__" value="uGzCUH4i736nVE2Llagx"><input type="hidden" name="form-nonce" value="4b7729d1b665f20936568384d0238fb0">
+    <!-- Hidden *********************************** -->
+    <input type="hidden" name="app" value="AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU" />
+    <!--  <input type="hidden" name="app" value="ASHFORDQadbLqQPE9Tpe4eKK8MHuB3K2EMKFE2mbhEU9yBVUBgwh7nV8J4BR5STXhQfNdYW2qZrWvt" /> -->
+    <input type="hidden" name="template" value="contactDefault" />
+    <input type="hidden" name="webformId" value="contact1" />
+  </form>
+  <h2 class="js-success contact" style="display: none;">Message Received!</h2>
+</div>
+
+<!--
 {{ $.Scratch.Add "labelClasses" "f6 b db mb1 mt3 sans-serif mid-gray" }}
 {{ $.Scratch.Add "inputClasses" "w-100 f5 pv3 ph3 bg-light-gray bn" }}
 
@@ -18,3 +67,5 @@
     <input class="db w-100 mv2 white pa3 bn hover-shadow hover-bg-blck bg-animate bg-black" type="submit" value="{{ i18n "send" }}" />
 
 </form>
+-->
+
