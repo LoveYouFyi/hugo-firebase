@@ -56,8 +56,12 @@ function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared
   // FIXME make form id dynamic 
   var form = document.querySelector('#contact');
+  //  var formData = serialize(form);
+  var me = Object.values(form).reduce((string, field) => { 
+    string += field.name + '=' + field.value + "&"; 
+    return string;
+  }, '');
 
-  var formData = serialize(form);
   var xhr = new XMLHttpRequest();
 
   xhr.onload = function() {
@@ -66,7 +70,9 @@ function ajaxRequest(event) {
 
   xhr.open("POST", 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhr.send(formData);
+  // Format must be as:
+  // name=hi&phone=8&email=hi%40hi.com&message=hi&__unique_form_id__=uGzCUH4i736nVE2Llagx&form-nonce=4b7729d1b665f20936568384d0238fb0&app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU&template=contactDefault&webformId=contact1
+  xhr.send(me);
 }
 
 listenFormSubmit('#contact', ajaxRequest);
