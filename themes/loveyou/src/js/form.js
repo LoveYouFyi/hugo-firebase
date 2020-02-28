@@ -34,6 +34,17 @@ var serialize = function (form) {
 	return serialized.join('&');
 
 };
+
+// MOZILLA
+function logSubmit(event) {
+  log.textContent = `Form Submitted! Time stamp: ${event.timeStamp}`;
+  event.preventDefault();
+}
+
+const form = document.getElementById('contact');
+const log = document.getElementById('serverResponse');
+form.addEventListener('submit', logSubmit);
+
 /**
  * Ajax Vanilla
  */
@@ -42,13 +53,17 @@ function listenTest(formID, request) {
   var form = document.querySelector(formID);
   if (form.addEventListener) {
     var added = form.addEventListener; console.log("added $$$$$$$$$$$ ", added);
-    form.addEventListener("submit", request(form), false);  //Modern browsers
+    form.addEventListener("submit", request, false);  //Modern browsers
   }
 }
 
 function youTube(form) {
-  console.log("form 11111111111111111111111111 ", form);
+  form.preventDefault();
+//  console.log("form 11111111111111111111111111 ", form);
 //  var form = document.querySelector('#contact');
+  var form = document.querySelector('#contact');
+  console.log("Object.values $$$$$$$$$$$$$$$$$", Object.values(form));
+
   var formData = serialize(form);
   console.log("formData $$$$$$$$$$$$$$$$$$$$$$$$ ", formData);
   var xhr = new XMLHttpRequest();
