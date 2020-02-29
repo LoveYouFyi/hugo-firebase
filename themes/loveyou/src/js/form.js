@@ -18,7 +18,8 @@ function successNotice(jsClass) {
 function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared
   // FIXME make form id dynamic 
-  var form = document.querySelector('#contact');
+  const form = document.querySelector('#contact');
+  const formUrl = document.querySelector('#contact').action;
   // Serialize form, format must be string:
   // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
   // ie11 cannot use Object.values and babel is not transpiling it
@@ -32,7 +33,7 @@ function ajaxRequest(event) {
     successNotice(".js-success.contact");
   }
 
-  xhr.open("POST", 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
+  xhr.open("POST", formUrl);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   // Format must be as:
   xhr.send(formData);

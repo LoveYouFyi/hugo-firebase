@@ -1,6 +1,8 @@
 
 # Common params shared by all (or most) sites.
 [params]
+[params.form]
+url="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler"
 [params.hero_site]
 name="Demo"
 [params.hero_queries]
