@@ -32,7 +32,13 @@ function ajaxRequest(event) {
   
   var xhr = new XMLHttpRequest();
   xhr.onload = function() {
-    successNotice(".js-success.contact");
+    var res = JSON.parse(xhr.response); // response is string, so convert to json
+    if (res.data.redirect) {
+      window.location.href = res.data.redirect;
+    } else {
+      // data.form contains the HTML for the replacement form
+      // $("#myform").replaceWith(data.form);
+    }
   }
 
   xhr.open("POST", url);
