@@ -10,16 +10,18 @@ function successNotice(jsClass) {
 
 function listenFormSubmit(ajaxRequest) {
   var forms = document.querySelector('#contact');
+  var formId = '#contact';
   console.log("form ", forms);
   if (forms.addEventListener) {
     forms.addEventListener("submit", ajaxRequest, false);
+    forms.formId = formId;
   }
 }
 
-function ajaxRequest() {
+function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared
   // FIXME make form id dynamic 
-  const form = document.querySelector('#contact');
+  const form = document.querySelector(event.currentTarget.formId);
   let url = "";
   // Serialize form, format must be string:
   // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
