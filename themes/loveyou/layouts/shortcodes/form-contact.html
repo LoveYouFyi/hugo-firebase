@@ -1,6 +1,6 @@
 <div class="form-wrapper">
   <h2 class="js-success contact" style="display: none;">Message Received!</h2>
-  <form id="contact" class=" forms" name="contact" method="POST" action="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler">
+  <form id="contact" class=" forms" name="contact" method="POST">
     <div class="form-field ">
         <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
         <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
@@ -37,6 +37,7 @@
         <button class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit" type="submit">Submit</button>
     </div>
     <!-- Hidden *********************************** -->
+    <input type="hidden" name="actionUrl" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
     <!-- START: google recaptch, not implemented -->
     <input type="hidden" name="__unique_form_id__" value="uGzCUH4i736nVE2Llagx"><input type="hidden" name="form-nonce" value="4b7729d1b665f20936568384d0238fb0">
     <!-- END: google recaptch, not implemented -->
@@ -50,7 +51,7 @@
 <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
 <div class="form-wrapper">
   <h2 class="js-success contact" style="display: none;">Message Received!</h2>
-  <form id="contactToo" class=" forms" name="contact" method="POST" action="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler">
+  <form id="contactToo" class=" forms" name="contact" method="POST">
     <div class="form-field ">
         <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
         <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
@@ -87,6 +88,7 @@
         <button class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit" type="submit">Submit</button>
     </div>
     <!-- Hidden *********************************** -->
+    <input type="hidden" name="actionUrl" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
     <!-- START: google recaptch, not implemented -->
     <input type="hidden" name="__unique_form_id__" value="uGzCUH4i736nVE2Llagx"><input type="hidden" name="form-nonce" value="4b7729d1b665f20936568384d0238fb0">
     <!-- END: google recaptch, not implemented -->
