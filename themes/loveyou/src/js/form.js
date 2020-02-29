@@ -16,7 +16,7 @@ function listenFormSubmit(ajaxRequest) {
   }
 }
 
-function ajaxRequest(event) {
+function ajaxRequest() {
   event.preventDefault(); // stop submit so input values do not get cleared
   // FIXME make form id dynamic 
   const form = document.querySelector('#contact');
