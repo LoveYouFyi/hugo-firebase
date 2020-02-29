@@ -9,15 +9,13 @@ function successNotice(jsClass) {
 }
 
 function listenFormSubmit(ajaxRequest) {
-  var forms = document.querySelector('#contact');
-  if (forms.addEventListener) {
-    forms.addEventListener("submit", ajaxRequest, false);
-  }
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener("submit", ajaxRequest, false);
+  })
 }
 
 function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared
-  // FIXME make form id dynamic 
   const formId = "#" + event.currentTarget.id;
   const form = document.querySelector(formId);
   let url = "";
