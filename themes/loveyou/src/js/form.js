@@ -4,7 +4,8 @@
  * @param  {Node}   form The form to serialize
  * @return {String}      The serialized form data
  */
-var serialize = function (form) {
+/*
+ var serialize = function (form) {
 
 	// Setup our serialized data
 	var serialized = [];
@@ -57,13 +58,14 @@ function ajaxRequest(event) {
   // FIXME make form id dynamic 
   var form = document.querySelector('#contact');
   //  var formData = serialize(form);
-  var me = Object.values(form).reduce((string, field) => { 
+  // Serialize form, format must be:
+  // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU&template=contactDefault&webformId=contact1&
+  var formData = Object.values(form).reduce((string, field) => { 
     string += field.name + '=' + field.value + "&"; 
     return string;
   }, '');
-
+  
   var xhr = new XMLHttpRequest();
-
   xhr.onload = function() {
     successNotice(".js-success.contact");
   }
@@ -71,13 +73,12 @@ function ajaxRequest(event) {
   xhr.open("POST", 'https://us-central1-loveyou-forms.cloudfunctions.net/formHandler');
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   // Format must be as:
-  // name=hi&phone=8&email=hi%40hi.com&message=hi&__unique_form_id__=uGzCUH4i736nVE2Llagx&form-nonce=4b7729d1b665f20936568384d0238fb0&app=AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU&template=contactDefault&webformId=contact1
-  xhr.send(me);
+  xhr.send(formData);
 }
 
 listenFormSubmit('#contact', ajaxRequest);
 
-
+/**********
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 // Contact Form: Submit to database to send on to email address
@@ -119,9 +120,8 @@ function submitFormContact(formContact){
 
 // Contact Form: Function Call
 // first parameter selects form to listen to, second parameter is function to attach to form
-//
-// listenForm('#contact', submitFormContact);
-//
+listenForm('#contact', submitFormContact);
+**************/
 
 //
 //
