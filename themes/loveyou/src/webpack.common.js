@@ -23,6 +23,29 @@ module.exports = {
    module: {
     rules: [
       {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                // browser compatibility list is in package.js
+                '@babel/preset-env',
+                {
+                  useBuiltIns: 'entry',
+                  exclude: [
+                    //"transform-regenerator",
+                    //"transform-async-to-generator",
+                    //"transform-arrow-functions"
+                  ]
+                }
+              ]
+            ]
+          }
+        }
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [

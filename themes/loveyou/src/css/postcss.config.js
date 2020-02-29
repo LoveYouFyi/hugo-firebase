@@ -16,7 +16,7 @@ module.exports = {
     },
     // Modern CSS Today: https://github.com/csstools/postcss-preset-env
     'postcss-preset-env': {
-      browsers: "last 2 versions"
+      // browsers list is in package.js
     },
     // PostCSS autoprefixer options: https://github.com/csstools/postcss-preset-env#autoprefixer
     autoprefixer: { grid: true }
