@@ -29,11 +29,12 @@ function ajaxRequest(event) {
     string += field.name + '=' + field.value + "&"; 
     return string;
   }, '');
-  
+
   var xhr = new XMLHttpRequest();
   xhr.onload = function() {
     var res = JSON.parse(xhr.response); // response is string, so convert to json
-    if (res.data.redirect) {
+    // if urlRedirect value is 'false' do not redirect, otherwise redirect to url
+    if (res.data.redirect !== "false") {
       window.location.href = res.data.redirect;
     } else {
       // data.form contains the HTML for the replacement form
