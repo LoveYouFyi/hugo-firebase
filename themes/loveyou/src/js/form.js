@@ -5,7 +5,7 @@
  // Success Message Function (called after AJAX Success)
 function successNotice(jsClass) {
   let elementSuccess = document.querySelectorAll(jsClass);
-  $(elementSuccess).show(0); // to hide after 5 seconds append .delay(5000).hide(0)
+  $(elementSuccess).show(0).delay(5000).hide(0); // to hide after 5 seconds append .delay(5000).hide(0)
 }
 
 function listenFormSubmit(ajaxRequest) {
@@ -19,7 +19,7 @@ function ajaxRequest(event) {
   const formId = "#" + event.currentTarget.id;
   const form = document.querySelector(formId);
   let url = "";
-  // Serialize form, format must be string:
+  // Serialize form as string (could also be json?)
   // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
   // ie11 cannot use Object.values and babel is not transpiling it
   var formData = Object.values(form).reduce((string, field) => { 
@@ -39,6 +39,7 @@ function ajaxRequest(event) {
     } else {
       // data.form contains the HTML for the replacement form
       // $("#myform").replaceWith(data.form);
+      successNotice(".js-success.contact");
     }
   }
 
