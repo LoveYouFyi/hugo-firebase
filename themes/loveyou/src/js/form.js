@@ -25,9 +25,34 @@ function successNotice(formId) {
   }, 5000); 
 }
 
+function indicateRequestStart(formId) {
+  var parent = document.querySelector(formId).parentNode; // get form parent element
+  var elementSuccess =  parent.querySelectorAll('.js-progress-form'); // select child elements
+  // display messages
+  elementSuccess.forEach(form => {
+    form.style.display = 'block';
+  });
+}
+function indicateResponseReceived(formId) {
+  var parent = document.querySelector(formId).parentNode; // get form parent element
+  var elementSuccess =  parent.querySelectorAll('.js-progress-form'); // select child elements
+  elementSuccess.forEach(form => {
+    form.style.display = 'none';
+  });
+}
+
+function indicateError(formId) {
+  var parent = document.querySelector(formId).parentNode; // get form parent element
+  var elementSuccess =  parent.querySelectorAll('.js-error-form'); // select child elements
+  // display messages
+  elementSuccess.forEach(form => {
+    form.style.display = 'block';
+  });
+}
+
 
 function ajaxRequest(event) {
-  event.preventDefault(); // stop submit so input values do not get cleared
+  event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
   const formId = '#' + event.currentTarget.id; // returns id without preceeding #
   const form = document.querySelector(formId);
   let url = "";
@@ -42,17 +67,29 @@ function ajaxRequest(event) {
     return string;
   }, '');
 
+  // Ajax Request Object
   var xhr = new XMLHttpRequest();
+  // initiate request = onloadstart
+  xhr.onloadstart = function() {
+    indicateRequestStart(formId); 
+  }
+  // error returned with response = onerror
+  xhr.onerror = function () {
+    indicateError(formId); 
+  }
+  // successful response = onload
   xhr.onload = function() {
     var res = JSON.parse(xhr.response); // response is string, so convert to json
     // if urlRedirect value is 'false' do not redirect, otherwise redirect to url
     if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
     } else {
+      indicateResponseReceived(formId);
       successNotice(formId);
     }
   }
 
+  // Send Request
   xhr.open('POST', url);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(formData);
