@@ -2,37 +2,43 @@
  * AJAX Vanilla
  */
 
- // Success Message Function (called after AJAX Success)
-function successNotice(formId) {
-
-
- console.log("formId ", formId);
- var p = document.getElementById('contact').parentNode;
-
-  let elementSuccess =  p.querySelector('.js-success-form');
-  // FIXME JQUERY convert to JS
-  $(elementSuccess).show(0).delay(5000).hide(0); // to hide after 5 seconds append .delay(5000).hide(0)
-}
-
+// Form 'submit' listeners
 function listenFormSubmit(ajaxRequest) {
   document.querySelectorAll('form').forEach(form => {
-    form.addEventListener("submit", ajaxRequest, false);
+    form.addEventListener('submit', ajaxRequest, false);
   })
 }
 
+// Success messages (called after AJAX Success)
+function successNotice(formId) {
+  var parent = document.querySelector(formId).parentNode; // get form parent element
+  var elementSuccess =  parent.querySelectorAll('.js-success-form'); // select child elements
+  // display messages
+  elementSuccess.forEach(form => {
+    form.style.display = 'block';
+  });
+  // hide messages after x time
+  setTimeout(function(){
+    elementSuccess.forEach(form => {
+      form.style.display = 'none';
+    });
+  }, 5000); 
+}
+
+
 function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared
-  const formId = "#" + event.currentTarget.id;
+  const formId = '#' + event.currentTarget.id; // returns id without preceeding #
   const form = document.querySelector(formId);
   let url = "";
-  // Serialize form as string (could also be json?)
+  // Serialize form as string (could also be json?):
   // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
   // ie11 cannot use Object.values and babel is not transpiling it
   var formData = Object.values(form).reduce((string, field) => { 
     if (field.name == 'actionUrl') {
       url = field.value;
     }
-    string += field.name + '=' + field.value + "&"; 
+    string += field.name + '=' + field.value + '&'; 
     return string;
   }, '');
 
@@ -40,19 +46,15 @@ function ajaxRequest(event) {
   xhr.onload = function() {
     var res = JSON.parse(xhr.response); // response is string, so convert to json
     // if urlRedirect value is 'false' do not redirect, otherwise redirect to url
-    if (res.data.redirect !== "false") {
+    if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
     } else {
-      // data.form contains the HTML for the replacement form
-      // $("#myform").replaceWith(data.form);
-      let messageSelector =  "#contact .js-success-form";
       successNotice(formId);
     }
   }
 
-  xhr.open("POST", url);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  // Format must be as:
+  xhr.open('POST', url);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(formData);
 }
 
