@@ -2,7 +2,7 @@
  * AJAX Vanilla
  */
 
-// Form 'submit' listeners
+// Form listeners 'submit'
 function listenFormSubmit(ajaxRequest) {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', ajaxRequest, false);
@@ -25,6 +25,16 @@ function alert(formId, action, delay, message) {
   }, delay); 
 }
 
+// Clear Form Values
+function formValuesClear(formId) {
+  var parent = document.querySelector(formId).parentNode; // get form parent element
+  var elements =  parent.querySelectorAll('input, textarea'); // select child elements
+  // set elements innerHTML to empty string
+  elements.forEach(e => {
+    e.value = '';
+  });
+}
+
 function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
   const formId = '#' + event.currentTarget.id; // returns id without preceeding #
@@ -34,7 +44,7 @@ function ajaxRequest(event) {
   // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
   // ie11 cannot use Object.values and babel is not transpiling it
   var formData = Object.values(form).reduce((string, field) => { 
-    if (field.name == 'actionUrl') {
+    if (field.name == 'urlAction') {
       url = field.value;
     }
     string += field.name + '=' + field.value + '&'; 
@@ -58,6 +68,7 @@ function ajaxRequest(event) {
     if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
     } else {
+      formValuesClear(formId);
       alert(formId, 'none', 4000, 'Message Received!'); 
     }
   }
