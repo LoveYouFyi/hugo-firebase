@@ -9,38 +9,20 @@ function listenFormSubmit(ajaxRequest) {
   })
 }
 
-// Success messages (called after AJAX Success)
-function indicateSuccess(formId) {
+// Alerts (client-side)
+function alert(formId, action, delay, message) {
   var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-form-success'); // select child elements
-  // display messages
-  elementSuccess.forEach(form => {
-    form.style.display = 'block';
+  var elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
+  // set elements innerHTML
+  elements.forEach(e => {
+    e.innerHTML = message;
   });
-  // hide messages after x time
+  // show/hide elements
   setTimeout(function(){
-    elementSuccess.forEach(form => {
-      form.style.display = 'none';
+    elements.forEach(e => {
+      e.style.display = action;
     });
-  }, 4000); 
-}
-
-function indicateError(formId) {
-  var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-form-error'); // select child elements
-  // display messages
-  elementSuccess.forEach(form => {
-    form.style.display = 'block';
-  });
-}
-
-function indicators(formId, className, action) {
-  var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll(className); // select child elements
-  // display messages
-  elementSuccess.forEach(form => {
-    form.style.display = action;
-  });
+  }, delay); 
 }
 
 function ajaxRequest(event) {
@@ -63,13 +45,11 @@ function ajaxRequest(event) {
   var xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
-//    indicateRequestStart(formId); 
-    indicators(formId, '.js-form-progress', 'block'); 
+    alert(formId, 'block', 0, 'Processing...'); 
   }
   // error returned with response = onerror
   xhr.onerror = function () {
-    //indicateError(formId); 
-    indicators(formId); 
+    alert(formId, 'block', 0, 'Error: Apologies, something went wrong. Please try again.'); 
   }
   // successful response = onload
   xhr.onload = function() {
@@ -78,8 +58,7 @@ function ajaxRequest(event) {
     if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
     } else {
-      indicators(formId, '.js-form-progress', 'none'); 
-      indicateSuccess(formId);
+      alert(formId, 'none', 4000, 'Message Received!'); 
     }
   }
 
