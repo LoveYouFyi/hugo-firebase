@@ -3,16 +3,16 @@
  */
 
 // Form listeners 'submit'
-function listenFormSubmit(ajaxRequest) {
+let listenFormSubmit = ajaxRequest => {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', ajaxRequest, false);
   })
 }
 
 // Alerts (client-side)
-function alert(formId, action, delay, message) {
-  var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
+let alert = (formId, action, delay, message) => {
+  let parent = document.querySelector(formId).parentNode; // get form parent element
+  let elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
   // set elements innerHTML
   elements.forEach(e => {
     e.innerHTML = message;
@@ -26,33 +26,47 @@ function alert(formId, action, delay, message) {
 }
 
 // Clear Form Values
-function formValuesClear(formId) {
-  var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elements =  parent.querySelectorAll('input, textarea'); // select child elements
+let formValuesClear = formId => {
+  let parent = document.querySelector(formId).parentNode; // get form parent element
+  let elements =  parent.querySelectorAll('input, textarea'); // select child elements
   // set elements innerHTML to empty string
   elements.forEach(e => {
     e.value = '';
   });
 }
 
-function ajaxRequest(event) {
-  event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
-  const formId = '#' + event.currentTarget.id; // returns id without preceeding #
-  const form = document.querySelector(formId);
-  let formUrlAction = form.querySelector('[name=urlAction]').value;
-  // Serialize form as string (could also be json?):
-  // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
-  // ie11 cannot use Object.values and babel is not transpiling it
-  var formData = Object.values(form).reduce((string, field) => { 
-    if (field.name == 'urlAction') {
-      formUrlAction = field.value;
-    }
-    string += field.name + '=' + field.value + '&'; 
-    return string;
-  }, '');
+// Serialize form for ajax submit (longform because babel does not convert Object.values w/ 'reduce' for ie11)
+let serializeForm = form => {
+	// Setup our serialized data
+	let serialized = [];
+	// Loop through each field in the form
+	for (let i = 0; i < form.elements.length; i++) {
+		let field = form.elements[i];
+		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
+		// If a multi-select, get all selections
+		if (field.type === 'select-multiple') {
+			for (let n = 0; n < field.options.length; n++) {
+				if (!field.options[n].selected) continue;
+				serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+			}
+		}
+		// Convert field data to a query string
+		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+			serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+		}
+	}
+	return serialized.join('&');
+};
 
+let ajaxRequest = event => {
+  event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
+  let formId = '#' + event.currentTarget.id; // returns id without preceeding #
+  let form = document.querySelector(formId);
+  let formUrlAction = form.querySelector('[name=urlAction]').value;
+  let formData = serializeForm(form);
   // Ajax Request Object
-  var xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
     alert(formId, 'block', 0, 'Processing...'); 
@@ -63,7 +77,7 @@ function ajaxRequest(event) {
   }
   // successful response = onload
   xhr.onload = function() {
-    var res = JSON.parse(xhr.response); // response is string, so convert to json
+    let res = JSON.parse(xhr.response); // response is string, so convert to json
     // if urlRedirect value is 'false' do not redirect, otherwise redirect to url
     if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
