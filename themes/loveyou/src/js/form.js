@@ -10,9 +10,9 @@ function listenFormSubmit(ajaxRequest) {
 }
 
 // Success messages (called after AJAX Success)
-function successNotice(formId) {
+function indicateSuccess(formId) {
   var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-success-form'); // select child elements
+  var elementSuccess =  parent.querySelectorAll('.js-form-success'); // select child elements
   // display messages
   elementSuccess.forEach(form => {
     form.style.display = 'block';
@@ -22,12 +22,12 @@ function successNotice(formId) {
     elementSuccess.forEach(form => {
       form.style.display = 'none';
     });
-  }, 5000); 
+  }, 4000); 
 }
 
 function indicateRequestStart(formId) {
   var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-progress-form'); // select child elements
+  var elementSuccess =  parent.querySelectorAll('.js-form-progress'); // select child elements
   // display messages
   elementSuccess.forEach(form => {
     form.style.display = 'block';
@@ -35,7 +35,7 @@ function indicateRequestStart(formId) {
 }
 function indicateResponseReceived(formId) {
   var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-progress-form'); // select child elements
+  var elementSuccess =  parent.querySelectorAll('.js-form-progress'); // select child elements
   elementSuccess.forEach(form => {
     form.style.display = 'none';
   });
@@ -43,7 +43,7 @@ function indicateResponseReceived(formId) {
 
 function indicateError(formId) {
   var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-error-form'); // select child elements
+  var elementSuccess =  parent.querySelectorAll('.js-form-error'); // select child elements
   // display messages
   elementSuccess.forEach(form => {
     form.style.display = 'block';
@@ -85,7 +85,7 @@ function ajaxRequest(event) {
       window.location.href = res.data.redirect;
     } else {
       indicateResponseReceived(formId);
-      successNotice(formId);
+      indicateSuccess(formId);
     }
   }
 
