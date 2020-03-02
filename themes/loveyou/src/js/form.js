@@ -25,22 +25,6 @@ function indicateSuccess(formId) {
   }, 4000); 
 }
 
-function indicateRequestStart(formId) {
-  var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-form-progress'); // select child elements
-  // display messages
-  elementSuccess.forEach(form => {
-    form.style.display = 'block';
-  });
-}
-function indicateResponseReceived(formId) {
-  var parent = document.querySelector(formId).parentNode; // get form parent element
-  var elementSuccess =  parent.querySelectorAll('.js-form-progress'); // select child elements
-  elementSuccess.forEach(form => {
-    form.style.display = 'none';
-  });
-}
-
 function indicateError(formId) {
   var parent = document.querySelector(formId).parentNode; // get form parent element
   var elementSuccess =  parent.querySelectorAll('.js-form-error'); // select child elements
@@ -50,6 +34,14 @@ function indicateError(formId) {
   });
 }
 
+function indicators(formId, className, action) {
+  var parent = document.querySelector(formId).parentNode; // get form parent element
+  var elementSuccess =  parent.querySelectorAll(className); // select child elements
+  // display messages
+  elementSuccess.forEach(form => {
+    form.style.display = action;
+  });
+}
 
 function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
@@ -71,11 +63,13 @@ function ajaxRequest(event) {
   var xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
-    indicateRequestStart(formId); 
+//    indicateRequestStart(formId); 
+    indicators(formId, '.js-form-progress', 'block'); 
   }
   // error returned with response = onerror
   xhr.onerror = function () {
-    indicateError(formId); 
+    //indicateError(formId); 
+    indicators(formId); 
   }
   // successful response = onload
   xhr.onload = function() {
@@ -84,7 +78,7 @@ function ajaxRequest(event) {
     if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
     } else {
-      indicateResponseReceived(formId);
+      indicators(formId, '.js-form-progress', 'none'); 
       indicateSuccess(formId);
     }
   }
