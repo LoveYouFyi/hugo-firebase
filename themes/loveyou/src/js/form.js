@@ -39,13 +39,13 @@ function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
   const formId = '#' + event.currentTarget.id; // returns id without preceeding #
   const form = document.querySelector(formId);
-  let url = "";
+  let formUrlAction = form.querySelector('[name=urlAction]').value;
   // Serialize form as string (could also be json?):
   // name=Jimmy Flash&phone=999.555.1212&email=jimmy@flash.com&message=Hey, how are you doing?&template=contactDefault& etc...
   // ie11 cannot use Object.values and babel is not transpiling it
   var formData = Object.values(form).reduce((string, field) => { 
     if (field.name == 'urlAction') {
-      url = field.value;
+      formUrlAction = field.value;
     }
     string += field.name + '=' + field.value + '&'; 
     return string;
@@ -74,7 +74,7 @@ function ajaxRequest(event) {
   }
 
   // Send Request
-  xhr.open('POST', url);
+  xhr.open('POST', formUrlAction);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.send(formData);
 }
