@@ -3,8 +3,14 @@
  */
 
  // Success Message Function (called after AJAX Success)
-function successNotice(jsClass) {
-  let elementSuccess = document.querySelectorAll(jsClass);
+function successNotice(formId) {
+
+
+ console.log("formId ", formId);
+ var p = document.getElementById('contact').parentNode;
+
+  let elementSuccess =  p.querySelector('.js-success-form');
+  // FIXME JQUERY convert to JS
   $(elementSuccess).show(0).delay(5000).hide(0); // to hide after 5 seconds append .delay(5000).hide(0)
 }
 
@@ -39,7 +45,8 @@ function ajaxRequest(event) {
     } else {
       // data.form contains the HTML for the replacement form
       // $("#myform").replaceWith(data.form);
-      successNotice(".js-success.contact");
+      let messageSelector =  "#contact .js-success-form";
+      successNotice(formId);
     }
   }
 
@@ -49,4 +56,4 @@ function ajaxRequest(event) {
   xhr.send(formData);
 }
 
-listenFormSubmit(ajaxRequest);
+document.onload = listenFormSubmit(ajaxRequest);
