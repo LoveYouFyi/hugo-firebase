@@ -42,9 +42,14 @@ let serializeForm = form => {
 	// Loop through each field in the form
 	for (let i = 0; i < form.elements.length; i++) {
 		let field = form.elements[i];
-		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
-    if (!field.name || field.disabled || field.type === 'file' || 
-      field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue; // 'continue 'jumps over' one iteration in the loop, here, it skips the element if not of this type
+    // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+    if (!field.name 
+      || field.disabled 
+      || field.type === 'file' 
+      || field.type === 'reset' 
+      || field.type === 'submit' 
+      || field.type === 'button'
+    ) continue; // 'continue 'jumps over' one iteration in the loop, here, it skips the element if not of this type
 		// If a multi-select, get all selections
 		if (field.type === 'select-multiple') {
 			for (let n = 0; n < field.options.length; n++) {
