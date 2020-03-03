@@ -2,14 +2,16 @@
  * AJAX Form Submissions (Vanilla JS)
  */
 
- let check = event => {
-  document.querySelectorAll('.radio').forEach(e => {
-    e.setAttribute('checked', 'false')
+let check = event => {
+  // remove checked from all
+  let grandParent = event.target.parentNode.parentNode; // get form parent element
+  grandParent.querySelectorAll('.radio').forEach(e => {
+    e.removeAttribute('checked');
   });
-  event.target.setAttribute('checked', 'true');
+  // check selected
+  event.target.setAttribute('checked', "true")
 }
 
-// Radio Select checked
 document.querySelectorAll('.radio').forEach(e => {
   e.addEventListener('click', check);
 })
