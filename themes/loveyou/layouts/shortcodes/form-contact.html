@@ -1,3 +1,4 @@
+<!-- field name="..." must match field name in database formField -->
 <div class="form-wrapper">
   <p class="js-form-alerts contact" style="display: none;"></p>
   <form id="contact" class=" forms" name="contact" method="POST">
@@ -30,6 +31,21 @@
         <div class="form-data ">
           <div class="form-textarea-wrapper ">
               <textarea name="message" class=" form-textarea" placeholder="Your message*" required="required"></textarea>
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Select <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-input-wrapper ">
+              <select name="selectService" type="select" required="required">
+                <option value="">Select Service</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile Development">Mobile Development</option>
+                <option value="Pay-Per-Click">Pay-Per-Click</option>
+                <option value="SEO">SEO</option>
+              </select>
           </div>
         </div>
     </div>
