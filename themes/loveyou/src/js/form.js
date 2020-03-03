@@ -25,10 +25,10 @@ const alert = (formId, action, delay, message) => {
   }, delay); 
 }
 
-// Clear form values
-const formValuesClear = formId => {
+// Reset form values
+const formReset = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('input:not([type="hidden"]), textarea'); // all <input>'s except hidden
+  let elements =  parent.querySelectorAll('input:not([type="hidden"]), select, textarea'); // all <input>'s except hidden
   // set elements innerHTML to empty string
   elements.forEach(e => {
     e.value = '';
@@ -103,7 +103,7 @@ const ajaxRequest = event => {
     } 
     // if no urlRedirect
     else {
-      formValuesClear(formId);
+      formReset(formId);
       alert(formId, 'none', 4000, 'Message Received!'); 
     } 
   }
