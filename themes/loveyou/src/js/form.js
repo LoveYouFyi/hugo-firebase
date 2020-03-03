@@ -87,7 +87,7 @@ const ajaxRequest = event => {
   xhr.onload = function() {
     let res = JSON.parse(xhr.response); // response is string, so convert to json
     // error handling
-    if (res.data.errors) {
+    if (res.data.error) {
       alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
     }
     // if urlRedirect
