@@ -79,20 +79,26 @@ const ajaxRequest = event => {
   xhr.onloadstart = function() {
     alert(formId, 'block', 0, 'Processing...'); 
   }
-  // error returned with response = onerror
+  // error sending request (not error returned with response)
   xhr.onerror = function () {
-    alert(formId, 'block', 0, 'Error: Apologies, something went wrong. Please try again.'); 
+    alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
   }
-  // successful response = onload
+  // successful response = onload (any response from application including error)
   xhr.onload = function() {
     let res = JSON.parse(xhr.response); // response is string, so convert to json
-    // if urlRedirect value is 'false' do not redirect, otherwise redirect to url
-    if (res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
+    // error handling
+    if (res.data.errors) {
+      alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
+    }
+    // if urlRedirect
+    else if (res.data.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
-    } else {
+    } 
+    // if no urlRedirect
+    else {
       formValuesClear(formId);
       alert(formId, 'none', 4000, 'Message Received!'); 
-    }
+    } 
   }
   // Send Request
   xhr.open('POST', formUrlAction);
