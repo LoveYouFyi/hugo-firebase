@@ -2,6 +2,19 @@
  * AJAX Form Submissions (Vanilla JS)
  */
 
+ let check = event => {
+  document.querySelectorAll('.radio').forEach(e => {
+    e.setAttribute('checked', 'false')
+  });
+  event.target.setAttribute('checked', 'true');
+}
+
+// Radio Select checked
+document.querySelectorAll('.radio').forEach(e => {
+  e.addEventListener('click', check);
+})
+
+
 // Form listeners 'submit'
 const listenFormSubmit = ajaxRequest => {
   document.querySelectorAll('form').forEach(form => {
@@ -10,7 +23,7 @@ const listenFormSubmit = ajaxRequest => {
 }
 
 // Alerts (client-side)
-const alert = (formId, action, delay, message) => {
+const alerts = (formId, action, delay, message) => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
   let elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
   // set elements innerHTML
@@ -75,7 +88,7 @@ const ajaxRequest = event => {
   let form = document.querySelector(formId);
   let formUrlAction = form.querySelector('[name=urlAction]').value;
   let formData = serializeForm(form);
-
+  console.log("formData $$$$$$$$$$ ", formData);
   /**
    * Ajax Request Object
    */
