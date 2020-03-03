@@ -28,7 +28,7 @@ const alert = (formId, action, delay, message) => {
 // Clear form values
 const formValuesClear = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('input, textarea'); // select child elements
+  let elements =  parent.querySelectorAll('input:not([type="hidden"]), textarea'); // all <input>'s except hidden
   // set elements innerHTML to empty string
   elements.forEach(e => {
     e.value = '';
