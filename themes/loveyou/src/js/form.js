@@ -89,14 +89,16 @@ const ajaxRequest = event => {
     alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
   }
   // successful response = onload (any response from application including error)
-  xhr.onload = function() {
-    let res = xhr.response; // responseType set to json
+  xhr.onload = function(event) {
+    let res = event.target.response; // responseType set to json
     // error handling
-    if (res.data.error) {
-      alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
+    // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
+    if (res?.message?.error) { 
+      alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.');
+      console.error(res.message.error);
     }
     // if urlRedirect
-    else if (res.data.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
+    else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
       window.location.href = res.data.redirect;
     } 
     // if no urlRedirect
