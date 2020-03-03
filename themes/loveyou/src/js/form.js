@@ -3,14 +3,14 @@
  */
 
 // Form listeners 'submit'
-let listenFormSubmit = ajaxRequest => {
+const listenFormSubmit = ajaxRequest => {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', ajaxRequest, false);
   })
 }
 
 // Alerts (client-side)
-let alert = (formId, action, delay, message) => {
+const alert = (formId, action, delay, message) => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
   let elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
   // set elements innerHTML
@@ -26,7 +26,7 @@ let alert = (formId, action, delay, message) => {
 }
 
 // Clear form values
-let formValuesClear = formId => {
+const formValuesClear = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
   let elements =  parent.querySelectorAll('input, textarea'); // select child elements
   // set elements innerHTML to empty string
@@ -36,7 +36,7 @@ let formValuesClear = formId => {
 }
 
 // Serialize form for submit (longform because babel does not convert Object.values w/ 'reduce' for ie11)
-let serializeForm = form => {
+const serializeForm = form => {
 	// Setup our serialized data
 	let serialized = [];
 	// Loop through each field in the form
@@ -66,7 +66,7 @@ let serializeForm = form => {
 };
 
 // Ajax request
-let ajaxRequest = event => {
+const ajaxRequest = event => {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
   let formId = '#' + event.currentTarget.id; // returns id without preceeding #
   let form = document.querySelector(formId);
