@@ -68,12 +68,17 @@ const serializeForm = form => {
 // Ajax request
 const ajaxRequest = event => {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
+  /**
+   * Form data
+   */
   let formId = '#' + event.currentTarget.id; // returns id without preceeding #
   let form = document.querySelector(formId);
   let formUrlAction = form.querySelector('[name=urlAction]').value;
   let formData = serializeForm(form);
 
-  // Ajax Request Object
+  /**
+   * Ajax Request Object
+   */
   let xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
@@ -85,7 +90,7 @@ const ajaxRequest = event => {
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function() {
-    let res = JSON.parse(xhr.response); // response is string, so convert to json
+    let res = xhr.response; // responseType set to json
     // error handling
     if (res.data.error) {
       alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
@@ -103,6 +108,7 @@ const ajaxRequest = event => {
   // Send Request
   xhr.open('POST', formUrlAction);
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.responseType = 'json';
   xhr.send(formData);
 }
 
