@@ -2,30 +2,33 @@
  * AJAX Form Submissions (Vanilla JS)
  */
 
-let check = event => {
+let radioCheck = event => {
   // remove checked from all
   let grandParent = event.target.parentNode.parentNode; // get form parent element
   grandParent.querySelectorAll('.radio').forEach(e => {
     e.removeAttribute('checked');
   });
   // check selected
-  event.target.setAttribute('checked', "true")
+  event.target.setAttribute('checked', "true");
+};
+
+// Radio listeners 'click'
+const radioListeners = () => {
+  document.querySelectorAll('.radio').forEach(e => {
+    e.addEventListener('click', radioCheck);
+  });
 }
-
-document.querySelectorAll('.radio').forEach(e => {
-  e.addEventListener('click', check);
-})
-
+radioListeners();
 
 // Form listeners 'submit'
 const listenFormSubmit = ajaxRequest => {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', ajaxRequest, false);
-  })
-}
+  });
+};
 
-// Alerts (client-side)
-const alerts = (formId, action, delay, message) => {
+// Notice (client-side)
+const notice = (formId, action, delay, message) => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
   let elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
   // set elements innerHTML
@@ -97,11 +100,11 @@ const ajaxRequest = event => {
   let xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
-    alert(formId, 'block', 0, 'Processing...'); 
+    notice(formId, 'block', 0, 'Processing...'); 
   }
   // error sending request (not error returned with response)
   xhr.onerror = function () {
-    alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
+    notice(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function(event) {
@@ -109,7 +112,7 @@ const ajaxRequest = event => {
     // error handling
     // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
     if (res?.message?.error) { 
-      alert(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.');
+      notice(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.');
       console.error(res.message.error);
     }
     // if urlRedirect
@@ -119,7 +122,7 @@ const ajaxRequest = event => {
     // if no urlRedirect
     else {
       formReset(formId);
-      alert(formId, 'none', 4000, 'Message Received!'); 
+      notice(formId, 'none', 4000, 'Message Received!'); 
     } 
   }
   // Send Request
