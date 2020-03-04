@@ -2,35 +2,35 @@
  * AJAX Form Submissions (Vanilla JS)
  */
 
-let radioCheck = event => {
-  // remove checked from all
-  let grandParent = event.target.parentNode.parentNode; // get form parent element
-  grandParent.querySelectorAll('.radio').forEach(e => {
-    e.removeAttribute('checked');
-  });
-  // check selected
-  event.target.setAttribute('checked', "true");
-};
-
-// Radio listeners 'click'
-(radioListeners = () => {
-  document.querySelectorAll('.radio').forEach(e => {
-    e.addEventListener('click', radioCheck);
-  });
-})();
-//radioListeners();
-
 // Form listeners 'submit'
 const listenFormSubmit = ajaxRequest => {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', ajaxRequest, false);
   });
-};
+}
+
+// Radio listeners and check/uncheck
+const radiosChecked = () => {
+  // check/uncheck
+  let radioCheck = event => {
+    // uncheck all
+    let grandParent = event.target.parentNode.parentNode; // get form parent element
+    grandParent.querySelectorAll('.radio').forEach(e => {
+      e.removeAttribute('checked');
+    });
+    // check selected
+    event.target.setAttribute('checked', "true");
+  };
+  // Listeners (after above since need access to radioCheck)
+  document.querySelectorAll('.radio').forEach(e => {
+    e.addEventListener('click', radioCheck);
+  });
+}
 
 // Notice (client-side)
 const notice = (formId, action, delay, message) => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('.js-form-alerts'); // select child elements
+  let elements =  parent.querySelectorAll('.js-form-notice'); // select child elements
   // set elements innerHTML
   elements.forEach(e => {
     e.innerHTML = message;
@@ -46,7 +46,7 @@ const notice = (formId, action, delay, message) => {
 // Reset form values
 const formReset = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('input:not([type="hidden"]), select, textarea'); // all <input>'s except hidden
+  let elements =  parent.querySelectorAll('input:not([type="hidden"]):not([type="radio"]), select, textarea'); // all <input>'s except hidden
   // set elements innerHTML to empty string
   elements.forEach(e => {
     e.value = '';
@@ -93,7 +93,7 @@ const ajaxRequest = event => {
   let form = document.querySelector(formId);
   let formUrlAction = form.querySelector('[name=urlAction]').value;
   let formData = serializeForm(form);
-  console.log("formData $$$$$$$$$$ ", formData);
+
   /**
    * Ajax Request Object
    */
@@ -133,3 +133,4 @@ const ajaxRequest = event => {
 }
 
 document.onload = listenFormSubmit(ajaxRequest);
+document.onload = radiosChecked();
