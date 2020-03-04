@@ -13,12 +13,12 @@ let radioCheck = event => {
 };
 
 // Radio listeners 'click'
-const radioListeners = () => {
+(radioListeners = () => {
   document.querySelectorAll('.radio').forEach(e => {
     e.addEventListener('click', radioCheck);
   });
-}
-radioListeners();
+})();
+//radioListeners();
 
 // Form listeners 'submit'
 const listenFormSubmit = ajaxRequest => {
