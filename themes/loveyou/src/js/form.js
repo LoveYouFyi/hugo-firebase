@@ -74,10 +74,7 @@ const serializeForm = form => {
 				if (!field.options[n].selected) continue;
 				let name = encodeURIComponent(field.name);
 				let value = encodeURIComponent(field.options[n].value);
-
-        let obj = { [field.name]: { type: field.type, value: field.options[n].value }};
-        // serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
-        serialized[obj];
+        Object.assign(serialized, { [name]: { type, value }});
 			}
 		}
 		// Convert field data to a query string
@@ -85,16 +82,11 @@ const serializeForm = form => {
       let name = encodeURIComponent(field.name);
       let type = encodeURIComponent(field.type);
       let value = encodeURIComponent(field.value);
-
-      let obj = { [name]: { type, value }};
-      // serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
-      console.log("obj: ", obj);
-      serialized[obj];
+      Object.assign(serialized, { [name]: { type, value }});
     }
   }
-  console.log("serialized: ", serialized);
+  console.log("serialized object: ", serialized);
   return serialized;
-//	return serialized.join('&');
 };
 
 // Ajax request
