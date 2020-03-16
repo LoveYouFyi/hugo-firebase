@@ -133,9 +133,10 @@ const ajaxRequest = event => {
   }
   // Send Request
   xhr.open('POST', formUrlAction);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
   xhr.responseType = 'json';
-  xhr.send(formData);
+  xhr.send(JSON.stringify(formData));
 }
 
 document.onload = listenFormSubmit(ajaxRequest);
