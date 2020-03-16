@@ -56,7 +56,7 @@ const formReset = formId => {
 // Serialize form for submit (longform because babel does not convert Object.values w/ 'reduce' for ie11)
 const serializeForm = form => {
 	// Setup our serialized data
-	let serialized = [];
+	let serialized = {};
 	// Loop through each field in the form
 	for (let i = 0; i < form.elements.length; i++) {
 		let field = form.elements[i];
@@ -72,15 +72,29 @@ const serializeForm = form => {
 		if (field.type === 'select-multiple') {
 			for (let n = 0; n < field.options.length; n++) {
 				if (!field.options[n].selected) continue;
-				serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+				let name = encodeURIComponent(field.name);
+				let value = encodeURIComponent(field.options[n].value);
+
+        let obj = { [field.name]: { type: field.type, value: field.options[n].value }};
+        // serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+        serialized[obj];
 			}
 		}
 		// Convert field data to a query string
 		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
-			serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
-		}
-	}
-	return serialized.join('&');
+      let name = encodeURIComponent(field.name);
+      let type = encodeURIComponent(field.type);
+      let value = encodeURIComponent(field.value);
+
+      let obj = { [name]: { type, value }};
+      // serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+      console.log("obj: ", obj);
+      serialized[obj];
+    }
+  }
+  console.log("serialized: ", serialized);
+  return serialized;
+//	return serialized.join('&');
 };
 
 // Ajax request
