@@ -72,17 +72,20 @@ const serializeForm = form => {
 		if (field.type === 'select-multiple') {
 			for (let n = 0; n < field.options.length; n++) {
 				if (!field.options[n].selected) continue;
-				let name = encodeURIComponent(field.name);
-				let value = encodeURIComponent(field.options[n].value);
-        Object.assign(serialized, { [name]: { type, value }});
+				let name = field.name;
+				let type = field.type;
+        let value = field.options[n].value;
+//        Object.assign(serialized, { [name]: { type, value }});
+        serialized[name] = { type, value };
 			}
 		}
 		// Convert field data to a query string
 		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
-      let name = encodeURIComponent(field.name);
-      let type = encodeURIComponent(field.type);
-      let value = encodeURIComponent(field.value);
-      Object.assign(serialized, { [name]: { type, value }});
+      let name = field.name;
+      let type = field.type;
+      let value = field.value;
+//      Object.assign(serialized, { [name]: { type, value }});
+      serialized[name] = { type, value };
     }
   }
   serialized = JSON.stringify(serialized);
