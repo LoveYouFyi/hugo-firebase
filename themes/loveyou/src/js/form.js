@@ -85,6 +85,7 @@ const serializeForm = form => {
       Object.assign(serialized, { [name]: { type, value }});
     }
   }
+  serialized = JSON.stringify(serialized);
   console.log("serialized object: ", serialized);
   return serialized;
 };
