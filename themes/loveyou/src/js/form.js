@@ -86,9 +86,7 @@ const serializeForm = form => {
     }
   }
   serialized = JSON.stringify(serialized);
-  serialized = "'" + serialized + "'";
-  serialized = serialized.slice(1,-1);
-  console.log("serialized object: ", serialized);
+  console.log("serialized 1111111111111111111111 ", serialized);
   return serialized;
 };
 
