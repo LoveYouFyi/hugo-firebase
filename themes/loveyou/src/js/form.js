@@ -86,6 +86,8 @@ const serializeForm = form => {
     }
   }
   serialized = JSON.stringify(serialized);
+  serialized = "'" + serialized + "'";
+  serialized = serialized.slice(1,-1);
   console.log("serialized object: ", serialized);
   return serialized;
 };
@@ -134,10 +136,13 @@ const ajaxRequest = event => {
   }
   // Send Request
   xhr.open('POST', formUrlAction);
-  //xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('Content-Type', 'text/plain');
   xhr.responseType = 'json';
+  console.log("typeof $$$ ", typeof formData);
   xhr.send(formData);
+//  xhr.send('{"name":"John"}');
 }
 
 document.onload = listenFormSubmit(ajaxRequest);
