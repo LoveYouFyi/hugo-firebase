@@ -46,11 +46,20 @@ const message = (formId, action, delay, message) => {
 // Reset form values
 const formReset = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('input:not([type="hidden"]):not([type="radio"]), select, textarea'); // all <input>'s except hidden
-  // set elements innerHTML to empty string
+  // all <input>'s except hidden and radio
+  let elements =  parent.querySelectorAll('input:not([type="hidden"]):not([type="radio"]), select, textarea'); 
+  // Inputs, selects, and textareas: set elements innerHTML to empty string
   elements.forEach(e => {
     e.value = '';
   });
+  // Radios: select first radio of group
+  let radios =  parent.querySelectorAll('[love-wrapper="radio"] .radio'); 
+  console.log("radios: ", radios);
+  radios.forEach(e => {
+    e.removeAttribute('checked');
+  });
+  radios[0].setAttribute('checked', "true");
+  radios[0].click(); // Only way to visually show the first item as clicked;
 }
 
 // Serialize form for submit (longform because babel does not convert Object.values w/ 'reduce' for ie11)
