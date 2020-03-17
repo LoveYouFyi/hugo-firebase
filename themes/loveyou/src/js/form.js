@@ -98,16 +98,16 @@ const ajaxRequest = event => {
   }
   // error sending request (not error returned with response)
   xhr.onerror = function () {
-    message(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
+    message(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone?'); 
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function(event) {
     let res = event.target.response; // responseType set to json
     // error handling
     // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
-    if (res?.message?.error) { 
-      message(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.');
-      console.error(res.message.error);
+    if (res?.error?.message) { 
+      message(formId, 'block', res.error.message.timeout, res.error.message.text);
+      console.error(res.error.message.text);
     }
     // if urlRedirect
     else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
@@ -116,7 +116,8 @@ const ajaxRequest = event => {
     // if no urlRedirect
     else {
       formReset(formId);
-      message(formId, 'none', 4000, 'Message Received!'); 
+      message(formId, 'none', res.data.message.timeout, res.data.message.text);
+
     } 
   }
   // Send Request
