@@ -27,10 +27,10 @@ const radiosChecked = () => {
   });
 }
 
-// Notice (client-side)
-const notice = (formId, action, delay, message) => {
+// Messages (client-side)
+const message = (formId, action, delay, message) => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('.js-form-notice'); // select child elements
+  let elements =  parent.querySelectorAll('.js-form-message'); // select child elements
   // set elements innerHTML
   elements.forEach(e => {
     e.innerHTML = message;
@@ -94,11 +94,11 @@ const ajaxRequest = event => {
   let xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
-    notice(formId, 'block', 0, 'Processing...'); 
+    message(formId, 'block', 0, 'Processing...'); 
   }
   // error sending request (not error returned with response)
   xhr.onerror = function () {
-    notice(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
+    message(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.'); 
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function(event) {
@@ -106,7 +106,7 @@ const ajaxRequest = event => {
     // error handling
     // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
     if (res?.message?.error) { 
-      notice(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.');
+      message(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone.');
       console.error(res.message.error);
     }
     // if urlRedirect
@@ -116,7 +116,7 @@ const ajaxRequest = event => {
     // if no urlRedirect
     else {
       formReset(formId);
-      notice(formId, 'none', 4000, 'Message Received!'); 
+      message(formId, 'none', 4000, 'Message Received!'); 
     } 
   }
   // Send Request
