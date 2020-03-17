@@ -111,13 +111,13 @@ const ajaxRequest = event => {
     }
     // if urlRedirect
     else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
+      formReset(formId);
       window.location.href = res.data.redirect;
     } 
     // if no urlRedirect
     else {
       formReset(formId);
       message(formId, 'none', res.data.message.timeout, res.data.message.text);
-
     } 
   }
   // Send Request
