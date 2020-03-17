@@ -43,8 +43,6 @@ const radiosChecked = () => {
   });
 }
 
-
-
 // Reset form values
 const formReset = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
@@ -57,11 +55,16 @@ const formReset = formId => {
   // Radios: select first radio of group
   let radios =  parent.querySelectorAll('[love-wrapper="radio"] [type=radio]'); 
   console.log("radios: ", radios);
+  let first = "";
   radios.forEach(e => {
     e.removeAttribute('checked');
+    if (first !== e.name) {
+      e.setAttribute('checked', "true");
+      e.click(); // Only way to visually show the first item as clicked;
+    } else {
+      first = e.name;
+    }
   });
-  radios[0].setAttribute('checked', "true");
-  radios[0].click(); // Only way to visually show the first item as clicked;
 }
 
 // Serialize form for submit (longform because babel does not convert Object.values w/ 'reduce' for ie11)
