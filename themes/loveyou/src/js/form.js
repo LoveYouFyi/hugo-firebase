@@ -9,6 +9,22 @@ const listenFormSubmit = ajaxRequest => {
   });
 }
 
+// Messages (client-side)
+const message = (formId, action, delay, message) => {
+  let parent = document.querySelector(formId).parentNode; // get form parent element
+  let elements =  parent.querySelectorAll('.js-form-message'); // select child elements
+  // set elements innerHTML
+  elements.forEach(e => {
+    e.innerHTML = message;
+  });
+  // show/hide elements
+  setTimeout(function(){
+    elements.forEach(e => {
+      e.style.display = action;
+    });
+  }, delay); 
+}
+
 // Radio listeners and check/uncheck
 const radiosChecked = () => {
   // check/uncheck
@@ -27,21 +43,7 @@ const radiosChecked = () => {
   });
 }
 
-// Messages (client-side)
-const message = (formId, action, delay, message) => {
-  let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('.js-form-message'); // select child elements
-  // set elements innerHTML
-  elements.forEach(e => {
-    e.innerHTML = message;
-  });
-  // show/hide elements
-  setTimeout(function(){
-    elements.forEach(e => {
-      e.style.display = action;
-    });
-  }, delay); 
-}
+
 
 // Reset form values
 const formReset = formId => {
