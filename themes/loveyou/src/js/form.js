@@ -15,14 +15,14 @@ const radiosChecked = () => {
   let radioCheck = event => {
     // uncheck all
     let grandParent = event.target.parentNode.parentNode; // get form parent element
-    grandParent.querySelectorAll('.radio').forEach(e => {
+    grandParent.querySelectorAll('[type="radio"]').forEach(e => {
       e.removeAttribute('checked');
     });
     // check selected
     event.target.setAttribute('checked', "true");
   };
   // Listeners (after above since need access to radioCheck)
-  document.querySelectorAll('.radio').forEach(e => {
+  document.querySelectorAll('[type="radio"]').forEach(e => {
     e.addEventListener('click', radioCheck);
   });
 }
@@ -53,7 +53,7 @@ const formReset = formId => {
     e.value = '';
   });
   // Radios: select first radio of group
-  let radios =  parent.querySelectorAll('[love-wrapper="radio"] .radio'); 
+  let radios =  parent.querySelectorAll('[love-wrapper="radio"] [type=radio]'); 
   console.log("radios: ", radios);
   radios.forEach(e => {
     e.removeAttribute('checked');
