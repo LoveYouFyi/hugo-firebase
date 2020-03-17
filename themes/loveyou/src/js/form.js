@@ -123,7 +123,6 @@ const ajaxRequest = event => {
   xhr.open('POST', formUrlAction);
   xhr.setRequestHeader('Content-Type', 'text/plain');
   xhr.responseType = 'json';
-  console.log("typeof $$$ ", typeof formData);
   xhr.send(formData);
 }
 
