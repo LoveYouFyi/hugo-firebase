@@ -46,24 +46,25 @@ const radiosChecked = () => {
 // Reset form values
 const formReset = formId => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  // all <input>'s except hidden and radio
+  /**
+   * Inputs (except specified), selects, and textareas: set innerHTML to empty string
+   */
   let elements =  parent.querySelectorAll('input:not([type="hidden"]):not([type="radio"]), select, textarea'); 
-  // Inputs, selects, and textareas: set elements innerHTML to empty string
   elements.forEach(e => {
     e.value = '';
   });
-  // Radios: select first radio of group
+  /**
+   * Radios reset: select first radio of group
+   */
   let radios =  parent.querySelectorAll('[love-wrapper="radio"] [type=radio]'); 
-  console.log("radios: ", radios);
-  let first = "";
+  let elementName = "";
   radios.forEach(e => {
     e.removeAttribute('checked');
-    if (first !== e.name) {
+    if (elementName !== e.name) {
       e.setAttribute('checked', "true");
       e.click(); // Only way to visually show the first item as clicked;
-    } else {
-      first = e.name;
     }
+    elementName = e.name;
   });
 }
 
