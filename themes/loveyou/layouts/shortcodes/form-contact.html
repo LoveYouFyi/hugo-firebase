@@ -8,15 +8,15 @@
           <div class="form-input-wrapper " data-loveyouforms-wrapper="radio">
             <!-- radio input must have parent and grandparent for javascript radios-select to work -->
             <div>
-              <input id="radio1" class="radio" type="radio" love-type="radio" name="radioTimeframe" value="Immediately" checked>
+              <input id="radio1" class="radio" type="radio" name="radioTimeframe" value="Immediately" checked>
               <label for="immediately">Immediately</label>
             </div>
             <div>
-              <input id="radio2" class="radio" type="radio" love-type="radio" name="radioTimeframe" value="Within 1 month">
+              <input id="radio2" class="radio" type="radio" name="radioTimeframe" value="Within 1 month">
               <label for="1month">Within 1 Month</label>
             </div>
             <div>
-              <input id="radio3" class="radio" type="radio" love-type="radio" name="radioTimeframe" value="Within 6 months">
+              <input id="radio3" class="radio" type="radio" name="radioTimeframe" value="Within 6 months">
               <label for="6months">Within 6 months</label>
             </div>
           </div>
@@ -26,7 +26,7 @@
         <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
         <div class="form-data ">
           <div class="form-input-wrapper ">
-              <input name="name" value="" type="text" love-type="text" class=" form-text form-item" placeholder="Your name*" autocomplete="on" required="required">
+              <input name="name" value="" type="text" class=" form-text form-item" placeholder="Your name*" autocomplete="on" required="required">
           </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div class="form-label "><label class="inline"> Phone <span class="required">*</span></label></div>
         <div class="form-data ">
           <div class="form-input-wrapper ">
-              <input name="phone" value="" type="text" love-type="text" class=" form-text form-item" placeholder="Your phone number*" autocomplete="on" required="required">
+              <input name="phone" value="" type="text" class=" form-text form-item" placeholder="Your phone number*" autocomplete="on" required="required">
           </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
         <div class="form-label "><label class="inline"> Email <span class="required">*</span></label></div>
         <div class="form-data ">
           <div class="form-input-wrapper ">
-              <input name="email" value="" type="email" love-type="email" class=" form-email form-item" placeholder="Your email address*" required="required">
+              <input name="email" value="" type="email" class=" form-email form-item" placeholder="Your email address*" required="required">
           </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
         <div class="form-label "><label class="inline"> Message <span class="required">*</span></label></div>
         <div class="form-data ">
           <div class="form-textarea-wrapper ">
-              <textarea name="message" type="textarea" love-type="textarea" class=" form-textarea" placeholder="Your message*" required="required"></textarea>
+              <textarea name="message" type="textarea" class=" form-textarea" placeholder="Your message*" required="required"></textarea>
           </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
         <div class="form-label "><label class="inline"> Select <span class="required">*</span></label></div>
         <div class="form-data ">
           <div class="form-input-wrapper ">
-              <select name="selectService" type="select" love-type="select" required="required">
+              <select name="selectService" type="select" required="required">
                 <option value="">Select Service</option>
                 <option value="Graphic Design">Graphic Design</option>
                 <option value="Web Development">Web Development</option>
@@ -70,7 +70,7 @@
         </div>
     </div>
     <div class="buttons">
-        <button class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit" type="submit">Submit</button>
+        <button type="submit" class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit">Submit</button>
     </div>
     <!-- Hidden *********************************** -->
     <input type="hidden" name="urlAction" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
