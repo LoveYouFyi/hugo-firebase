@@ -10,11 +10,9 @@ const listenFormSubmit = ajaxRequest => {
 }
 
 // Messages (client-side)
-const message = (formId, action, delay, message) => {
-//  let parent = document.querySelector(formId).parentNode; // get form parent element
-  let get = formId.parentNode; // get form parent element
-  console.log("get: ", get);
-  let elements =  get.querySelectorAll('[love-message="form-message"]'); // select child elements
+const message = (form, action, delay, message) => {
+  let parent = form.parentNode; // get form parent element
+  let elements =  parent.querySelectorAll('[love-message="form-message"]'); // select child elements
   // set elements innerHTML
   elements.forEach(e => {
     e.innerHTML = message;
@@ -46,8 +44,8 @@ const radiosChecked = () => {
 }
 
 // Reset form values
-const formReset = formId => {
-  let parent = formId.parentNode; // get form parent element
+const formReset = form => {
+  let parent = form.parentNode; // get form parent element
   /**
    * Inputs (except specified), selects, and textareas: set innerHTML to empty string
    */
@@ -97,18 +95,10 @@ const serializeForm = form => {
 // Ajax request
 const ajaxRequest = event => {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
-//  console.log("event: ", event);
-  console.log("event.target: ", event.target);
-
   /**
    * Form data
    */
-//  let formId = '#' + event.currentTarget.id; // returns id without preceeding #
-//  let form = document.querySelector(formId);
-  let formId = event.target;
   let form = event.target;
-  console.log("form: ", form);
-
   let formUrlAction = form.querySelector('[name=urlAction]').value;
   let formData = serializeForm(form);
 
@@ -118,11 +108,11 @@ const ajaxRequest = event => {
   let xhr = new XMLHttpRequest();
   // initiate request = onloadstart
   xhr.onloadstart = function() {
-    message(formId, 'block', 0, 'Processing...'); 
+    message(form, 'block', 0, 'Processing...'); 
   }
   // error sending request (not error returned with response)
   xhr.onerror = function () {
-    message(formId, 'block', 0, 'Error: Sorry, please try again or contact us by phone?'); 
+    message(form, 'block', 0, 'Error: Sorry, please try again or contact us by phone?'); 
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function(event) {
@@ -130,18 +120,18 @@ const ajaxRequest = event => {
     // error handling
     // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
     if (res?.error?.message) { 
-      message(formId, 'block', res.error.message.timeout, res.error.message.text);
+      message(form, 'block', res.error.message.timeout, res.error.message.text);
       console.error(res.error.message.text);
     }
     // if urlRedirect
     else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
-      formReset(formId);
+      formReset(form);
       window.location.href = res.data.redirect;
     } 
     // if no urlRedirect
     else {
-      formReset(formId);
-      message(formId, 'none', res.data.message.timeout, res.data.message.text);
+      formReset(form);
+      message(form, 'none', res.data.message.timeout, res.data.message.text);
     } 
   }
   // Send Request
