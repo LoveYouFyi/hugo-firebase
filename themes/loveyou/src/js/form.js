@@ -11,8 +11,10 @@ const listenFormSubmit = ajaxRequest => {
 
 // Messages (client-side)
 const message = (formId, action, delay, message) => {
-  let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('[love-message="form-message"]'); // select child elements
+//  let parent = document.querySelector(formId).parentNode; // get form parent element
+  let get = formId.parentNode; // get form parent element
+  console.log("get: ", get);
+  let elements =  get.querySelectorAll('[love-message="form-message"]'); // select child elements
   // set elements innerHTML
   elements.forEach(e => {
     e.innerHTML = message;
@@ -45,7 +47,7 @@ const radiosChecked = () => {
 
 // Reset form values
 const formReset = formId => {
-  let parent = document.querySelector(formId).parentNode; // get form parent element
+  let parent = formId.parentNode; // get form parent element
   /**
    * Inputs (except specified), selects, and textareas: set innerHTML to empty string
    */
@@ -95,11 +97,18 @@ const serializeForm = form => {
 // Ajax request
 const ajaxRequest = event => {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
+//  console.log("event: ", event);
+  console.log("event.target: ", event.target);
+
   /**
    * Form data
    */
-  let formId = '#' + event.currentTarget.id; // returns id without preceeding #
-  let form = document.querySelector(formId);
+//  let formId = '#' + event.currentTarget.id; // returns id without preceeding #
+//  let form = document.querySelector(formId);
+  let formId = event.target;
+  let form = event.target;
+  console.log("form: ", form);
+
   let formUrlAction = form.querySelector('[name=urlAction]').value;
   let formData = serializeForm(form);
 
