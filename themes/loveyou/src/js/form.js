@@ -12,7 +12,7 @@ const listenFormSubmit = ajaxRequest => {
 // Messages (client-side)
 const message = (formId, action, delay, message) => {
   let parent = document.querySelector(formId).parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('.js-form-message'); // select child elements
+  let elements =  parent.querySelectorAll('[love-message="form-message"]'); // select child elements
   // set elements innerHTML
   elements.forEach(e => {
     e.innerHTML = message;
