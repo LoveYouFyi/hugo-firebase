@@ -32,7 +32,8 @@
           "key" : "Cache-Control",
           "value" : "max-age=300"
         } ]
-      }]
+      }],
+      "trailingSlash": false
     },
     {
       "target": "prod",
@@ -66,7 +67,8 @@
           "key" : "Cache-Control",
           "value" : "max-age=300"
         } ]
-      }]
+      }],
+      "trailingSlash": false
     }
   ]
 }

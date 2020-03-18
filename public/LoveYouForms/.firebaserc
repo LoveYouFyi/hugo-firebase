@@ -1,7 +1,4 @@
 {
-  "projects": {
-    "default": "loveyou-forms"
-  },
   "targets": {
     "loveyou-forms": {
       "hosting": {
@@ -12,6 +9,6 @@
           "lyfprod"
         ]
       }
-    },
+    }
   }
 }
