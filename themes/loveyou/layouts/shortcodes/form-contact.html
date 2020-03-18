@@ -4,8 +4,8 @@
 <!-- field name="..." must match field name in database formField -->
 <div love-note="each <form> needs parent wrapper">
   <p love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
-  <form id="contactBareBones" method="POST" love-note="each <form> needs unique 'id' attribute">
-    <div class="" love-wrapper="radio" love-note="radios group needs parent element with attribute love-wrapper">
+  <form method="POST" love-note="each <form> needs attribute 'method' POST">
+    <div love-wrapper="radio" class="" love-note="radios group needs parent element with attribute love-wrapper">
       <!-- radio input must have parent and grandparent for javascript radios-select to work -->
       <div love-note="radio <input> needs parent">
         <input type="radio" name="budget" id="budget1" value="$1000 or less" class="" checked>
@@ -32,7 +32,7 @@
       <option value="Pay-Per-Click">Pay-Per-Click</option>
       <option value="SEO">SEO</option>
     </select>
-    <button type="submit">Submit</button>
+    <button type="submit" love-note="each <form> needs either <input> or <button> with 'type' submit">Submit</button>
     <!-- Required hidden <input> elements are 'urlAction' and 'appKey' -->
     <input type="hidden" name="urlAction" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
     <input type="hidden" name="appKey" value="AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU" />
