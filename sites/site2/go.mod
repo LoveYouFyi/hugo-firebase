@@ -1,4 +1,4 @@
-module github.com/nerikh/hugo-qs2/sites/siteB
+module github.com/loveyoufyi/hugo-qs2/sites/siteB
 
 go 1.14
 

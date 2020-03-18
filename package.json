@@ -57,14 +57,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nerikh/hugo-qs2.git"
+    "url": "git+https://github.com/loveyoufyi/hugo-qs2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nerikh/hugo-qs2/issues"
+    "url": "https://github.com/loveyoufyi/hugo-qs2/issues"
   },
-  "homepage": "https://github.com/nerikh/hugo-qs2#readme",
+  "homepage": "https://github.com/loveyoufyi/hugo-qs2#readme",
   "devDependencies": {
     "del-cli": "^3.0.0"
   }
