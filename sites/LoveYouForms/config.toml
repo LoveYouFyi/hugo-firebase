@@ -2,7 +2,7 @@ title = "Love You Forms"
 baseURL = "https://loveyouforms.com"
 languageCode = "en-us"
 themesdir = "../../themes/"
-theme = "loveyousingle"
+theme = "loveyou"
 publishDir = "../../public/LoveYouForms/public"
 
 MetaDataFormat = "yaml"
