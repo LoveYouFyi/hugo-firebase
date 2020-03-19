@@ -1,5 +1,5 @@
 ---
 title: "Love You Forms"
 description: "Forms for all..."
+type: bones
 ---
-<h1>Hello</h1>

@@ -1,0 +1,268 @@
+<!-- Bare-Bones-Form -->
+<!-- Bare-Bones-Form -->
+<!-- Bare-Bones-Form -->
+<!-- field name="..." must match field name in database formField -->
+<div love-note="each <form> needs parent wrapper">
+  <p love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
+  <form method="POST" love-note="each <form> needs attribute 'method' POST">
+    <div love-wrapper="radio" class="" love-note="radios group needs parent element with attribute love-wrapper">
+      <!-- radio input must have parent and grandparent for javascript radios-select to work -->
+      <div love-note="radio <input> needs parent">
+        <input type="radio" name="budget" id="budget1" value="$1000 or less" class="" checked>
+        <label for="1000">$1000 or less</label>
+      </div>
+      <div love-note="radio <input> needs parent">
+        <input type="radio" name="budget" id="budget2" value="$5,000 or less" class="">
+        <label for="5000">$5,000 or less</label>
+      </div>
+      <div love-note="radio <input> needs parent">
+        <input type="radio" name="budget" id="budget3" value="$15,000 or less" class="">
+        <label for="15000">$15,000 or less</label>
+      </div>
+    </div>
+    <input type="text" name="name" value="" placeholder="Your name*" class="" required="required">
+    <input type="text" name="phone" value="" placeholder="Your phone number*" class="" required="required">
+    <input type="email" name="email" value="" placeholder="Your email address*" class="" required="required">
+    <textarea type="textarea" name="message" placeholder="Your message*" class="" required="required"></textarea>
+    <select type="select" name="selectService" required="required">
+      <option value="">Select Service</option>
+      <option value="Graphic Design">Graphic Design</option>
+      <option value="Web Development">Web Development</option>
+      <option value="Mobile Development">Mobile Development</option>
+      <option value="Pay-Per-Click">Pay-Per-Click</option>
+      <option value="SEO">SEO</option>
+    </select>
+    <button type="submit" love-note="each <form> needs either <input> or <button> with 'type' submit">Submit</button>
+    <!-- Required hidden <input> elements are 'urlAction' and 'appKey' -->
+    <input type="hidden" name="urlAction" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
+    <input type="hidden" name="appKey" value="AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU" />
+    <!-- Optional hidden <input> elements -->
+    <input type="hidden" name="urlRedirect" value="false" />
+    <input type="hidden" name="templateName" value="contactDefault" />
+    <input type="hidden" name="webformId" value="contact1" />
+  </form>
+  <p class="js-form-message contact" style="display: none;"></p>
+</div>
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<br>
+<br>
+<!-- field name="..." must match field name in database formField -->
+<div class="form-wrapper" love-note="each <form> needs parent wrapper">
+  <p class="contact" love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
+  <form id="contact" class=" forms" name="contact" method="POST">
+    <div class="form-field ">
+        <div class="form-label"><label class="inline"> Budget? <span class="required">*</span></label></div>
+        <div class="form-data">
+          <div class="form-input-wrapper " love-wrapper="radio" love-note="radios group needs parent element with attribute love-wrapper">
+            <!-- radio input must have parent and grandparent for javascript radios-select to work -->
+            <div love-note="radio <input> needs parent">
+              <input id="budget1" class="radio" type="radio" name="budget" value="$1000 or less" checked>
+              <label for="1000">$1000 or less</label>
+            </div>
+            <div love-note="radio <input> needs parent">
+              <input id="budget2" class="radio" type="radio" name="budget" value="$5,000 or less">
+              <label for="5000">$5,000 or less</label>
+            </div>
+            <div love-note="radio <input> needs parent">
+              <input id="budget3" class="radio" type="radio" name="budget" value="$15,000 or less">
+              <label for="15000">$15,000 or less</label>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> How soon would you like to start? <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-input-wrapper " love-wrapper="radio">
+            <!-- radio input must have parent and grandparent for javascript radios-select to work -->
+            <div>
+              <input id="radio1" class="radio" type="radio" name="timeframe" value="Immediately" checked>
+              <label for="immediately">Immediately</label>
+            </div>
+            <div>
+              <input id="radio2" class="radio" type="radio" name="timeframe" value="Within 1 month">
+              <label for="1month">Within 1 Month</label>
+            </div>
+            <div>
+              <input id="radio3" class="radio" type="radio" name="timeframe" value="Within 6 months">
+              <label for="6months">Within 6 months</label>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-input-wrapper ">
+              <input name="name" value="" type="text" class=" form-text form-item" placeholder="Your name*" autocomplete="on" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Phone <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-input-wrapper ">
+              <input name="phone" value="" type="text" class=" form-text form-item" placeholder="Your phone number*" autocomplete="on" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Email <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-input-wrapper ">
+              <input name="email" value="" type="email" class=" form-email form-item" placeholder="Your email address*" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Message <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-textarea-wrapper ">
+              <textarea name="message" type="textarea" class=" form-textarea" placeholder="Your message*" required="required"></textarea>
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Select <span class="required">*</span></label></div>
+        <div class="form-data ">
+          <div class="form-input-wrapper ">
+              <select name="selectService" type="select" required="required">
+                <option value="">Select Service</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Mobile Development">Mobile Development</option>
+                <option value="Pay-Per-Click">Pay-Per-Click</option>
+                <option value="SEO">SEO</option>
+              </select>
+          </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button type="submit" class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit">Submit</button>
+    </div>
+    <!-- Required hidden <input> elements are 'urlAction' and 'appKey' -->
+    <input type="hidden" name="urlAction" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
+    <input type="hidden" name="appKey" value="AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU" />
+    <!-- Optional hidden <input> elements -->
+    <input type="hidden" name="urlRedirect" value="false" />
+    <input type="hidden" name="templateName" value="contactDefault" />
+    <input type="hidden" name="webformId" value="contact1" />
+  </form>
+  <p class="js-form-message contact" style="display: none;"></p>
+</div>
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+<br>
+<br>
+<div class="form-wrapper">
+  <p class="js-form-message contact" style="display: none;"></p>
+  <form id="contactToo" class=" forms" name="contact" method="POST">
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-input-wrapper ">
+              <input name="name" value="" type="text" class=" form-text form-item" placeholder="Your name*" autocomplete="on" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Phone <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-input-wrapper ">
+              <input name="phone" value="" type="text" class=" form-text form-item" placeholder="Your phone number*" autocomplete="on" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Email <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="email" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-input-wrapper ">
+              <input name="email" value="" type="email" class=" form-email form-item" placeholder="Your email address*" required="required">
+          </div>
+        </div>
+    </div>
+    <div class="form-field ">
+        <div class="form-label "><label class="inline"> Message <span class="required">*</span></label></div>
+        <div class="form-data " data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">
+          <div class="form-textarea-wrapper ">
+              <textarea name="message" class=" form-textarea" placeholder="Your message*" required="required"></textarea>
+          </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button g-recaptcha form-submit" data-sitekey="6LfYP2EUAAAAABZDtmr6G-Y4adAa5tAcW3dFWLE7" data-callback="onSubmit" type="submit">Submit</button>
+    </div>
+    <!-- Hidden *********************************** -->
+    <input type="hidden" name="urlAction" value="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler" />
+  <!--  <input type="hidden" name="urlRedirect" value="/thank-you" /> -->
+    <!-- START: google recaptch, not implemented -->
+    <input type="hidden" name="__unique_form_id__" value="uGzCUH4i736nVE2Llagx"><input type="hidden" name="form-nonce" value="4b7729d1b665f20936568384d0238fb0">
+    <!-- END: google recaptch, not implemented -->
+    <input type="hidden" name="appKey" value="AJAXMGCXSg6fbLgteaWDLnTwL2EC3Kj7y4kDWqGU4Vzcq8UQKAzfZvJ4xkjTv8GjXKvdEs6BHGjU" />
+    <!--  <input type="hidden" name="appKey" value="ASHFORDQadbLqQPE9Tpe4eKK8MHuB3K2EMKFE2mbhEU9yBVUBgwh7nV8J4BR5STXhQfNdYW2qZrWvt" /> -->
+    <input type="hidden" name="templateName" value="contactAlt" />
+    <input type="hidden" name="webformId" value="contact1" />
+  </form>
+  <p class="js-form-message contact" style="display: none;"></p>
+</div>
+
+<!--
+{{ $.Scratch.Add "labelClasses" "f6 b db mb1 mt3 sans-serif mid-gray" }}
+{{ $.Scratch.Add "inputClasses" "w-100 f5 pv3 ph3 bg-light-gray bn" }}
+
+<form class="black-80 sans-serif" accept-charset="UTF-8" action="{{ .Get "action" }}" method="POST" role="form">
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}"  for="name">{{ i18n "yourName" }}</label>
+    <input type="text" id="name" name="name" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="name"/>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}" for="email">{{ i18n "emailAddress" }}</label>
+    <input type="email" id="email" name="email" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="email"/>
+    <div class="requirements f6 gray glow i ph3 overflow-hidden">
+      {{ i18n "emailRequiredNote" }}
+    </div>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}" for="message">{{ i18n "message" }}</label>
+    <textarea id="message" name="message" class="{{ $.Scratch.Get "inputClasses" }} h4" aria-labelledby="message"></textarea>
+
+    <input class="db w-100 mv2 white pa3 bn hover-shadow hover-bg-blck bg-animate bg-black" type="submit" value="{{ i18n "send" }}" />
+
+</form>
+-->
+
+
+<!--
+{{ $.Scratch.Add "labelClasses" "f6 b db mb1 mt3 sans-serif mid-gray" }}
+{{ $.Scratch.Add "inputClasses" "w-100 f5 pv3 ph3 bg-light-gray bn" }}
+
+<form class="black-80 sans-serif" accept-charset="UTF-8" action="{{ .Get "action" }}" method="POST" role="form">
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}"  for="name">{{ i18n "yourName" }}</label>
+    <input type="text" id="name" name="name" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="name"/>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}" for="email">{{ i18n "emailAddress" }}</label>
+    <input type="email" id="email" name="email" class="{{ $.Scratch.Get "inputClasses" }}"  required placeholder=" "  aria-labelledby="email"/>
+    <div class="requirements f6 gray glow i ph3 overflow-hidden">
+      {{ i18n "emailRequiredNote" }}
+    </div>
+
+    <label class="{{ $.Scratch.Get "labelClasses" }}" for="message">{{ i18n "message" }}</label>
+    <textarea id="message" name="message" class="{{ $.Scratch.Get "inputClasses" }} h4" aria-labelledby="message"></textarea>
+
+    <input class="db w-100 mv2 white pa3 bn hover-shadow hover-bg-blck bg-animate bg-black" type="submit" value="{{ i18n "send" }}" />
+
+</form>
+-->
+

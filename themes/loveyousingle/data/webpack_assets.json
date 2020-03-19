@@ -1,0 +1,9 @@
+{
+  "bundle": {
+    "css": "bundle.css",
+    "js": "bundle.js"
+  },
+  "vendor": {
+    "js": "vendor.js"
+  }
+}

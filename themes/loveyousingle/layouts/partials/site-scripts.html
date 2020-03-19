@@ -1,0 +1,8 @@
+{{ $script := .Site.Data.webpack_assets.bundle }}
+{{ $scriptVendor := .Site.Data.webpack_assets.vendor }}
+{{ with $script.js }}
+  <script src="{{ relURL (printf "%s%s" "dist/" .) }}"></script>
+{{ end }}
+{{ with $scriptVendor.js }}
+  <script src="{{ relURL (printf "%s%s" "dist/" .) }}"></script>
+{{ end }}
