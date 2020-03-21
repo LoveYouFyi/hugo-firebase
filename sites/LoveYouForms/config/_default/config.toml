@@ -20,7 +20,7 @@ copyright = ""
 ############################
 themesdir = "../../themes/"
 # Name of Academic theme folder in `themes/`.
-theme = "academic"
+theme = [ "academicmin", "academic" ]
 publishDir = "../../public/LoveYouAcademic/public"
 
 # Get last modified date for content from Git?
