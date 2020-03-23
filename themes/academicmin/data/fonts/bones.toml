@@ -2,7 +2,7 @@
 name = "bones"
 
 # Optional Google font URL
-#google_fonts = "Roboto+Mono"
+google_fonts = "Roboto+Mono"
 
 # Font families
 heading_font = "Merriweather"
