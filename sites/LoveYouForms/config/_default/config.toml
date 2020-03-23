@@ -7,6 +7,9 @@
 # Title of your site
 title = "LoveYouForms"
 
+# Robots.txt generate?
+enableRobotsTXT = true
+
 # The URL of your site.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 baseurl = "/"
