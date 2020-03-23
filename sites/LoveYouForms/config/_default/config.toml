@@ -5,7 +5,7 @@
 # Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
 
 # Title of your site
-title = "Academic"
+title = "LoveYouForms"
 
 # The URL of your site.
 # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
@@ -21,7 +21,7 @@ copyright = ""
 themesdir = "../../themes/"
 # Name of Academic theme folder in `themes/`.
 theme = [ "academicmin", "academic" ]
-publishDir = "../../public/LoveYouAcademic/public"
+publishDir = "../../public/LoveYouForms/public"
 
 # Get last modified date for content from Git?
 enableGitInfo = false

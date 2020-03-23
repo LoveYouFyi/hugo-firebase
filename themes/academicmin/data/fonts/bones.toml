@@ -1,0 +1,11 @@
+# Font style metadata
+name = "bones"
+
+# Optional Google font URL
+#google_fonts = "Roboto+Mono"
+
+# Font families
+heading_font = "Merriweather"
+body_font = "Merriweather"
+nav_font = "Lato"
+mono_font = "Roboto Mono"
