@@ -8,6 +8,7 @@ $jax: rgba(218,0,0,.85); // jaxlicious
 $whiteoff: whitesmoke;
 $primary: $smashing;
 $secondary: #bc3428;
+$tertiary: gold;
 $text: rgba(0,0,0,.8);
 
 /**
@@ -35,7 +36,7 @@ h1,h2,h3,h4,h5,h6 {
 .navbar-light .navbar-brand {
   color: #fff;
   &:hover {
-    color: $primary;
+    color: $text;
   }
 }
 // menu background
@@ -84,6 +85,9 @@ h1,h2,h3,h4,h5,h6 {
   border: none;
   border-radius: 0;
   background: $primary;
+  &:hover {
+    background: $secondary;
+  }
 }
 .btn-xlarge {
   padding: 1rem 1rem;
@@ -159,6 +163,9 @@ a {
   color: #fff;
   &.active {
     color: #fff !important;
+  }
+  &:hover {
+    color: black;
   }
 }
 .docs-toggle {
