@@ -9,6 +9,11 @@
   #weight = 10
 
 [[main]]
+  name = "Docs"
+  url = "docs/"
+  weight = 15
+
+[[main]]
   name = "Posts"
   url = "#posts"
   weight = 20
@@ -22,11 +27,6 @@
   #name = "Publications"
   #url = "#featured"
   #weight = 40
-
-[[main]]
-  name = "Docs"
-  url = "docs/"
-  weight = 40
 
 [[main]]
   name = "Software"
