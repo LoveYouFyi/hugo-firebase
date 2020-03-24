@@ -36,21 +36,23 @@ h1,h2,h3,h4,h5,h6 {
 /**
  * Main Menu
  */
-
- // Logo/brand
+// menu background
+#navbar-main {
+  background: $primary;
+}
+// menu links
+#navbar-main .main-menu-item ul li .nav-link {
+  color: white;
+}
+.navbar {
+  height: 60px;
+}
+// Logo/brand
 .navbar-light .navbar-brand {
   color: $textLight;
   &:hover {
     color: $text;
   }
-}
-// menu background
-#navbar-main {
-   background: $primary;
-}
-// menu links
-#navbar-main .main-menu-item ul li .nav-link {
-  color: white;
 }
 // menu links
 .navbar .navbar-nav .nav-link {
