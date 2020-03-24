@@ -6,12 +6,9 @@ $smashing: #d33a2c; // smashing red
 $jax: rgba(218,0,0,.85); // jaxlicious
 $rachael: #b30000;
 $text: #20232a;
-$whiteoff: whitesmoke;
+$textLight: #f5f5f5; // whitesmoke
 $primary: $smashing;
 $secondary: #bc3428;
-$tertiary: gold;
-//$text: rgba(0,0,0,.8);
-
 /**
  * Font Family
  */
@@ -38,7 +35,7 @@ h1,h2,h3,h4,h5,h6 {
 
  // Logo/brand
 .navbar-light .navbar-brand {
-  color: #fff;
+  color: $textLight;
   &:hover {
     color: $text;
   }
@@ -66,12 +63,12 @@ h1,h2,h3,h4,h5,h6 {
  * Nav Bar Toggle Menu
  */
  .navbar-light .navbar-toggler {
-   color: #fff;
+   color: $textLight;
  }
  #navbar-main .main-menu-item ul li .nav-link {
-  color: #fff;
+  color: $textLight;
   &.active {
-    color: #fff !important;
+    color: $textLight !important;
   }
   &:hover {
     color: black;
@@ -80,7 +77,7 @@ h1,h2,h3,h4,h5,h6 {
 .docs-toggle {
   color: $text;
   &.btn {
-    background: #fff;
+    background: $textLight;
   }
 }
 // Mobile menu
