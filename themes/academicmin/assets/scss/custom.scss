@@ -7,6 +7,7 @@ $jax: rgba(218,0,0,.85); // jaxlicious
 // background: #20232a;
 $whiteoff: whitesmoke;
 $primary: $smashing;
+$secondary: #bc3428;
 $text: rgba(0,0,0,.8);
 
 /**
@@ -167,6 +168,10 @@ a {
   }
 }
 
+.navbar-collapse.show {
+  background-color: $secondary;
+}
+/*
 .navbar-collapse ul li .nav-link {
   color: $text !important;
   &.active {
@@ -176,3 +181,4 @@ a {
 .navbar-collapse ul li .nav-link.active {
   color: $text !important;
 }
+*/
