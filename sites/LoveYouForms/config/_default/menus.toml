@@ -25,6 +25,11 @@
 
 [[main]]
   name = "Docs"
+  url = "docs/"
+  weight = 40
+
+[[main]]
+  name = "Software"
   url = "software/"
   weight = 50
 
