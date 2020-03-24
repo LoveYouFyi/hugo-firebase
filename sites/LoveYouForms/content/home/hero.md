@@ -58,6 +58,6 @@ title = "Love You Forms"
 <br>
 </span>
 
-<p class="emphasize"><strong><u>Email Notifications</u> + <u>Google Sheets Sync</u></strong></p>
+<p class="emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
 
 <span class="">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
