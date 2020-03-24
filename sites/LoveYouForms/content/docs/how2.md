@@ -1,6 +1,6 @@
 ---
 title: How 2
-linktitle: Tips 3-8
+linktitle: How-to 2
 toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
