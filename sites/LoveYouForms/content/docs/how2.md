@@ -1,17 +1,17 @@
 ---
-title: Install 2
-linktitle: Tips 3-4
+title: How 2
+linktitle: Tips 3-8
 toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
 menu:
   docs:
-    parent: Firebase
-    weight: 2
+    parent: How
+    weight: 12
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 2
+weight: 12
 ---
 
 Here are some more tips for getting started with Academic:
