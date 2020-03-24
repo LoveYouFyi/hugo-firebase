@@ -7,6 +7,7 @@ $jax: rgba(218,0,0,.85); // jaxlicious
 // background: #20232a;
 $whiteoff: whitesmoke;
 $primary: $smashing;
+$text: rgba(0,0,0,.8);
 
 /**
  * Font Family
@@ -145,4 +146,33 @@ a {
 #TableOfContents li a:hover, .toc-top li a:hover {
   color: $primary;
   text-decoration: none;
+}
+
+/**
+ * Nav Bar Toggle Menu
+ */
+ .navbar-light .navbar-toggler {
+   color: #fff;
+ }
+ #navbar-main .main-menu-item ul li .nav-link {
+  color: #fff;
+  &.active {
+    color: #fff !important;
+  }
+}
+.docs-toggle {
+  color: $text;
+  &.btn {
+    background: #fff;
+  }
+}
+
+.navbar-collapse ul li .nav-link {
+  color: $text !important;
+  &.active {
+    color: $text !important;
+  }
+}
+.navbar-collapse ul li .nav-link.active {
+  color: $text !important;
 }
