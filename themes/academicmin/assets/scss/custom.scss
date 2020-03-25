@@ -37,6 +37,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /**
+ * Emphasize
+ */
+.emphasize {
+  padding-top: 0px;
+  font-size: 28px;
+}
+
+/**
  * Main Menu
  */
 // menu background
@@ -210,8 +218,7 @@ a {
  * Hero Widget
  */
 .wg-hero-center {
-  h1,h2,h3,h4,h5,h6,p,
-  .cta-btns {
+  h1,h2,h3,h4,h5,h6,p, .cta-btns {
     text-align: center;
   }
   .hero-title {
@@ -223,11 +230,9 @@ a {
   p {
     margin-bottom: .5rem;
   }
-  .emphasize {
-    padding-top: 0px;
-    font-size: 28px;
+  .cta-btns {
+    margin-top: 1.25rem;
   }
-
 }
 
  /**
