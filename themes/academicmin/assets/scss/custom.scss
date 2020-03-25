@@ -98,6 +98,7 @@ a:focus {
   }
 
 }
+
 // menu background
 #navbar-main {
   background: $primary;
@@ -106,12 +107,13 @@ a:focus {
 #navbar-main .main-menu-item ul li .nav-link {
   color: $text2;
   &.active {
-    color: $text2 !important;
+    color: $primary !important;
   }
   &:hover {
     color: $text2;
   }
 }
+
 // Navbar height (requires body margin)
 body { 
   margin-top: 60px; 
@@ -132,7 +134,7 @@ body {
   font-size: 20px;
   font-weight: 300 !important;
   &.active {
-    font-weight: normal !important;
+    font-weight: 300 !important;
     color: $text;
   }
   &:hover {
@@ -143,6 +145,7 @@ body {
   }
 
 }
+
 // larger screen
 @media (min-width: 992px) {
   #navbar-main .main-menu-item ul li .nav-link {
@@ -154,7 +157,6 @@ body {
       color: $text3;
     }
   }
-
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -174,10 +176,6 @@ body {
 .navbar .navbar-nav .nav-link {
   color: $text3;
 }
-.navbar-light .navbar-nav .nav-link {
-  color: $text3;
-}
-
 
 
 //
