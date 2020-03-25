@@ -69,18 +69,46 @@ a:focus {
 // Main Menu
 //
 
+// Mobile only
+@media (max-width: 991.98px) {
+  // Mobile menu
+  .navbar-collapse {
+    background-color: $textLight;
+    .show {
+      background-color: $textLight;
+    }
+  }
+
+  .navbar-light .navbar-toggler {
+    color: $textLight;
+  }
+
+  .docs-toggle {
+    color: $text;
+    background: $base !important;
+    &.btn {
+      background: $textLight;
+    }
+  }
+
+  // Table of contents for 'docs' content type
+  .toc-title {
+    padding-left: 12px;
+  }
+
+}
 // menu background
 #navbar-main {
   background: $primary;
 }
 // menu links
 #navbar-main .main-menu-item ul li .nav-link {
-  color: $textLight;
+  color: $text2;
   &.active {
-    color: $textLight !important;
+    color: $text2 !important;
   }
   &:hover {
-    color: $textLight;
+    color: $text2;
   }
 }
 // Navbar height (requires body margin)
@@ -116,6 +144,16 @@ body {
 }
 // larger screen
 @media (min-width: 992px) {
+  #navbar-main .main-menu-item ul li .nav-link {
+    color: $textLight;
+    &.active {
+      color: $textLight !important;
+    }
+    &:hover {
+      color: $textLight;
+    }
+  }
+
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -139,38 +177,6 @@ body {
   color: $textLight;
 }
 
-//
-// Nav Bar Toggle Menu
-//
-
-.navbar-light .navbar-toggler {
-  color: $textLight;
-}
-
-.docs-toggle {
-  color: $text;
-  background: $base !important;
-  &.btn {
-    background: $textLight;
-  }
-}
-// Mobile menu
-.navbar-collapse {
-  background-color: $secondary;
-  .show {
-    background-color: $secondary;
-  }
-}
-// Mobile menu dropdown for docs section
-.toc-title {
-  padding-left: 12px;
-}
-// collapse
-@media (max-width: 991.98px) {
-  .navbar-collapse {
-    background-color: #f1f1f1;
-  }
-}
 
 
 //
@@ -239,9 +245,9 @@ a {
   }
   &.active a {
     color: $primary;
-    @include nav-hover(#f1f1f1);
+    @include nav-hover(lighten($primary, 45%));
     &:hover {
-      @include nav-hover(#f1f1f1);
+      @include nav-hover(lighten($primary, 45%));
     }
   }
 }
