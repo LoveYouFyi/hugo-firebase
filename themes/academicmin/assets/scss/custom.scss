@@ -4,17 +4,16 @@
 //
 
 $smashing: #d33a2c; // smashing red
-$jax: rgba(218,0,0,.85); // jaxlicious
 $rachael: #b30000;
-$text2: rgba(0, 0, 0, 0.65); // alt #20232a 
-$text: #202124; // alt #20232a 
-$textLight: #f5f5f5; // whitesmoke f5f5f5
+
+$base: #fff;
 $primary: $smashing;
 $primaryLight: lighten($primary, 45%);
 $secondary: #bc3428;
-$tertiary: #5ebd3e; // lighten($smashing, 45%);
-$base: #fff;
-$lightGray: #ececec;
+$text: #202124; // dark
+$text2: rgba(0, 0, 0, 0.65); // lighter
+$text3: #f5f5f5; // lightest
+$gray: #ececec;
 
 //
 // Font Family
@@ -36,6 +35,7 @@ div,span,li,
 
 body {
   color: $text;
+  background-color: $base;
 }
 h1,h2,h3,h4,h5,h6 {
   color: $primary;
@@ -74,21 +74,21 @@ a:focus {
 @media (max-width: 991.98px) {
   // Mobile menu
   .navbar-collapse {
-    background-color: $textLight;
+    background-color: $text3;
     .show {
-      background-color: $textLight;
+      background-color: $text3;
     }
   }
 
   .navbar-light .navbar-toggler {
-    color: $textLight;
+    color: $text3;
   }
 
   .docs-toggle {
     color: $text;
     background: $base !important;
     &.btn {
-      background: $textLight;
+      background: $text3;
     }
   }
 
@@ -121,9 +121,9 @@ body {
 }
 // Logo/brand
 .navbar-light .navbar-brand {
-  color: $textLight;
+  color: $text3;
   &:hover {
-    color: $textLight;
+    color: $text3;
   }
 }
 // menu links
@@ -146,12 +146,12 @@ body {
 // larger screen
 @media (min-width: 992px) {
   #navbar-main .main-menu-item ul li .nav-link {
-    color: $textLight;
+    color: $text3;
     &.active {
-      color: $textLight !important;
+      color: $text3 !important;
     }
     &:hover {
-      color: $textLight;
+      color: $text3;
     }
   }
 
@@ -166,16 +166,16 @@ body {
     left: 0px;
     right: 0px;
     z-index: 1;
-    background: $textLight;
+    background: $text3;
   }
 
 }
 // Search icon
 .navbar .navbar-nav .nav-link {
-  color: $textLight;
+  color: $text3;
 }
 .navbar-light .navbar-nav .nav-link {
-  color: $textLight;
+  color: $text3;
 }
 
 
@@ -333,7 +333,7 @@ a {
 
 .wg-border-bottom {
   padding-top: 50px;
-  border-bottom: 1px solid $lightGray !important;
+  border-bottom: 1px solid $gray !important;
 }
 
 //
