@@ -10,6 +10,7 @@ $text2: rgba(0, 0, 0, 0.65); // alt #20232a
 $text: #202124; // alt #20232a 
 $textLight: #f5f5f5; // whitesmoke f5f5f5
 $primary: $smashing;
+$primaryLight: lighten($primary, 45%);
 $secondary: #bc3428;
 $tertiary: #5ebd3e; // lighten($smashing, 45%);
 $base: #fff;
@@ -245,9 +246,9 @@ a {
   }
   &.active a {
     color: $primary;
-    @include nav-hover(lighten($primary, 45%));
+    @include nav-hover($primaryLight);
     &:hover {
-      @include nav-hover(lighten($primary, 45%));
+      @include nav-hover($primaryLight);
     }
   }
 }
@@ -268,9 +269,9 @@ a {
 .docs-sidebar .nav > .active > a {
   font-weight: 500;
   color: $primary;
-  @include nav-hover(lighten($primary, 45%));
+  @include nav-hover($primaryLight);
   &:hover {
-    @include nav-hover(lighten($primary, 45%));
+    @include nav-hover($primaryLight);
   }
 }
 // secondary links
