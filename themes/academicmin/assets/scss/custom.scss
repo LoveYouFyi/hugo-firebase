@@ -40,6 +40,14 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 //
+// Anchors
+//
+
+a:hover {
+  color: $text !important;
+}
+
+//
 // Emphasize
 //
 
@@ -120,10 +128,6 @@ body {
 // Mobile menu dropdown for docs section
 .toc-title {
   padding-left: 12px;
-}
-// Hover transition
-a, h3.article-title a:hover {
-  transition: color 0.1s ease !important;
 }
 
 
