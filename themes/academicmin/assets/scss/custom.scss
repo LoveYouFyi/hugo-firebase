@@ -225,10 +225,10 @@ a {
 // Docs
 //
 @mixin nav-hover($bgcolor) {
-  text-decoration: none;
-  background-color: $bgcolor;
-  border-radius: 0 12px 12px 0;
-  margin-right: 1rem;
+  text-decoration: none !important;
+  background-color: $bgcolor !important;
+  border-radius: 0 12px 12px 0 !important;
+  margin-right: 1rem !important;
 }
 // Search: appears in mobile nav toggle table of contents and standard layout
 .docs-search {
@@ -277,7 +277,7 @@ a {
   font-weight: 400;
   color: $text;
   &:hover {
-    color: $text;
+    color: $text !important;
     text-decoration: none;
     background-color: transparent;
     @include nav-hover(#f1f1f1);
@@ -285,9 +285,6 @@ a {
 }
 .docs-sidebar .nav > li.active > a {
   font-weight: 500;
-}
-.docs-sidebar .nav > li > a:hover {
-  color: $primary;
 }
 // Docs Table of contents
 .nav.toc-top {

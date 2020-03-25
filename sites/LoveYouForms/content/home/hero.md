@@ -17,9 +17,9 @@ border_bottom = true
   #   Choose a light or dark text color by setting `text_color_light`.
   #   Any HTML color name or Hex value is valid.
 
-  # Background color.
+  # Background color -- Forces this color for both light and dark theme
   # color = "#282c34"
-  color = "#fff"
+  # color = "#fff"
 
   # Background gradient.
   # gradient_start = "#4bb4e3"
