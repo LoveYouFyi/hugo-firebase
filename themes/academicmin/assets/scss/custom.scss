@@ -208,7 +208,7 @@ a {
     display: none;
   }
 }
-// Nav Links: First item style separate b/c the only one where .active js class works
+// Nav 'item' -first item style separate b/c the only one where .active js class works
 .docs-sidebar .docs-toc-item {
   &.active {
     margin-bottom: 0; // only works on the first docs-toc-item so disable for all
@@ -221,19 +221,27 @@ a {
     }
   }
 }
-// Nav Links: Section title link
+// Nav 'link' -Section title link
 .docs-sidebar .docs-toc-link {
   &:hover {
     color: $text2;
     @include nav-hover(#f1f1f1);
   }
 }
-// Nav Links
-.docs-sidebar .nav > .active:hover > a,
-.docs-sidebar .nav > .active > a {
+// Nav Links: Hover
+.docs-sidebar .nav > .active:hover > a {
   font-weight: 500;
   color: $primary;
   @include nav-hover(#f1f1f1);
+}
+// Nav Links: Hover
+.docs-sidebar .nav > .active > a {
+  font-weight: 500;
+  color: $primary;
+  @include nav-hover(lighten($primary, 45%));
+  &:hover {
+    @include nav-hover(lighten($primary, 45%));
+  }
 }
 // secondary links
 .docs-sidebar .nav > li.active > a {
