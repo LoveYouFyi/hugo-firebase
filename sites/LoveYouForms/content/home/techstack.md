@@ -7,7 +7,7 @@ weight = 15  # Order that this section will appear.
 
 #title = ""
 #subtitle = ""
-alignLeft = true
+align_left = true
 border_bottom = true
 
 # Showcase personal skills or business features.

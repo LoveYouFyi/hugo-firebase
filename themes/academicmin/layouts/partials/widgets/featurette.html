@@ -1,7 +1,7 @@
 {{ $ := .root }}
 {{ $page := .page }}
 
-<div class="row featurette {{ if $page.Params.alignLeft }}align-left{{ end }}">
+<div class="row featurette {{ if $page.Params.align_left }}align-left{{ end }}">
   {{ with $page.Title }}
   <div class="col-md-12 section-heading">
     <h1>{{ . | markdownify | emojify }}</h1>
