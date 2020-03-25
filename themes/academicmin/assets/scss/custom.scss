@@ -216,8 +216,6 @@ a {
   font-weight: 500;
   @include nav-hover(#f1f1f1);
   color: $primary;
-//  color: rgba(0, 0, 0, 0.65);
-  //background-color: transparent;
 }
 // only works on the first docs-toc-item so disable for all
 .docs-sidebar .docs-toc-item.active {
@@ -242,13 +240,6 @@ a {
     @include nav-hover(#f1f1f1);
   }
 }
-// primary links
-//.docs-sidebar a {
-  //&.active,
-  //&:hover {
-    //@include nav-hover(#f1f1f1);
-  //}
-//}
 // Docs Table of contents
 .nav.toc-top {
   border-left: 4px solid $primary;
