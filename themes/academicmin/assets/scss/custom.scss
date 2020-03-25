@@ -201,7 +201,6 @@ a {
   border-radius: 0 12px 12px 0;
   margin-right: 1rem;
 }
-
 // Search: appears in mobile nav toggle table of contents and standard layout
 .docs-search {
   border-bottom: none;
@@ -209,27 +208,32 @@ a {
     display: none;
   }
 }
-// Sidebar
-.docs-sidebar .nav > .active:hover > a,
-.docs-sidebar .nav > .active > a {
-  font-weight: 500;
-  @include nav-hover(#f1f1f1);
-  color: $primary;
+// Nav Links: First item style separate b/c the only one where .active js class works
+.docs-sidebar .docs-toc-item {
+  &.active {
+    margin-bottom: 0; // only works on the first docs-toc-item so disable for all
+  }
+  &.active a {
+    color: $primary;
+    @include nav-hover(#f1f1f1);
+    &:hover {
+      @include nav-hover(#f1f1f1);
+    }
+  }
 }
-// First nav item: style separate b/c the only one where .active js class works
-.docs-sidebar .docs-toc-item.active a {
-  @include nav-hover(#f1f1f1);
-  color: $primary;
-}
-// only works on the first docs-toc-item so disable for all
-.docs-sidebar .docs-toc-item.active {
-  margin-bottom: 0;
-}
-.docs-toc-link {
+// Nav Links: Section title link
+.docs-sidebar .docs-toc-link {
   &:hover {
     color: $text2;
     @include nav-hover(#f1f1f1);
   }
+}
+// Nav Links
+.docs-sidebar .nav > .active:hover > a,
+.docs-sidebar .nav > .active > a {
+  font-weight: 500;
+  color: $primary;
+  @include nav-hover(#f1f1f1);
 }
 // secondary links
 .docs-sidebar .nav > li.active > a {
