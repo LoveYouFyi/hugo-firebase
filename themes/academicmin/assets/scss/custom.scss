@@ -45,9 +45,15 @@ h1,h2,h3,h4,h5,h6 {
 //
 
 a:hover,
-a:focus,
-.anchorjs-link { // anchorjs-link: docs link icons
+a:focus {
   color: $text;
+}
+// page anchor icons
+.anchorjs-link { 
+  color: $text;
+  &:hover {
+    color: $text;
+  }
 }
 
 //
@@ -69,7 +75,13 @@ a:focus,
 }
 // menu links
 #navbar-main .main-menu-item ul li .nav-link {
-  color: white;
+  color: $textLight;
+  &.active {
+    color: $textLight !important;
+  }
+  &:hover {
+    color: $textLight;
+  }
 }
 // Navbar height (requires body margin)
 body { 
@@ -82,7 +94,7 @@ body {
 .navbar-light .navbar-brand {
   color: $textLight;
   &:hover {
-    color: $text;
+    color: $textLight;
   }
 }
 // menu links
@@ -91,7 +103,7 @@ body {
   font-size: 20px;
   font-weight: 300 !important;
   &.active {
-    font-weight: bold !important;
+    font-weight: normal !important;
     color: $text;
   }
   &:hover {
@@ -100,6 +112,7 @@ body {
   &:focus {
     color: $text;
   }
+
 }
 // larger screen
 @media (min-width: 992px) {
@@ -107,31 +120,33 @@ body {
     padding-right: 1rem;
     padding-left: 1rem;
   }
+  .bottom-highlight {
+    position: absolute;
+    bottom: -7px;
+    height: 4px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+    background: $textLight;
+  }
+
 }
 // Search icon
 .navbar .navbar-nav .nav-link {
-  color: $base;
+  color: $textLight;
 }
 .navbar-light .navbar-nav .nav-link {
-  color: $base;
+  color: $textLight;
 }
 
 //
 // Nav Bar Toggle Menu
 //
- 
+
 .navbar-light .navbar-toggler {
-   color: $textLight;
- }
- #navbar-main .main-menu-item ul li .nav-link {
   color: $textLight;
-  &.active {
-    color: $textLight !important;
-  }
-  &:hover {
-    color: black;
-  }
 }
+
 .docs-toggle {
   color: $text;
   background: $base !important;
@@ -140,12 +155,21 @@ body {
   }
 }
 // Mobile menu
-.navbar-collapse.show {
+.navbar-collapse {
   background-color: $secondary;
+  .show {
+    background-color: $secondary;
+  }
 }
 // Mobile menu dropdown for docs section
 .toc-title {
   padding-left: 12px;
+}
+// collapse
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: #f1f1f1;
+  }
 }
 
 
@@ -361,6 +385,7 @@ a {
 */
 
 // Does not prevent search overlay from working
+/*
  * {
   -o-transition-property: none !important;
   -moz-transition-property: none !important;
@@ -377,3 +402,4 @@ a {
   -ms-animation: none !important;
   animation: none !important;
 }
+*/
