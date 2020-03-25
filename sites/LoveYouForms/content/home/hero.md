@@ -55,9 +55,9 @@ border_bottom = true
 
 <!--<span class="subtitle">A form submissions management app</span>-->
 <!--<span class="subtitle">A Firebase and Google Sheets app for managing form submissions</span>-->
-<span class="subtitle">Set up your own app for managing form submissions in the cloud for 1 site or 10,000
-<br>
-</span>
+<span class="subtitle">Your own app for managing form submissions in the cloud for 1 site or 10,000</span>
+
+<span class="subtitle">(static sites love this app)</span>
 
 <p class="emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
 
