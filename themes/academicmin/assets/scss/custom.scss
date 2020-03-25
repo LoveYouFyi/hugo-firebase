@@ -6,7 +6,8 @@
 $smashing: #d33a2c; // smashing red
 $jax: rgba(218,0,0,.85); // jaxlicious
 $rachael: #b30000;
-$text: #20232a;
+$text2: rgba(0, 0, 0, 0.65); // alt #20232a 
+$text: #202124; // alt #20232a 
 $textLight: #f5f5f5; // whitesmoke f5f5f5
 $primary: $smashing;
 $secondary: #bc3428;
@@ -46,7 +47,7 @@ h1,h2,h3,h4,h5,h6 {
 a:hover,
 a:focus,
 .anchorjs-link { // anchorjs-link: docs link icons
-  color: $text !important;
+  color: $text;
 }
 
 //
@@ -85,19 +86,34 @@ body {
   }
 }
 // menu links
+.navbar-light .navbar .navbar-nav .nav-link,
 .navbar .navbar-nav .nav-link {
   font-size: 20px;
   font-weight: 300 !important;
   &.active {
     font-weight: bold !important;
-    color: white !important;
+    color: $text;
+  }
+  &:hover {
+    color: $text;
+  }
+  &:focus {
+    color: $text;
   }
 }
+// larger screen
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-nav .nav-link {
-      padding-right: 1rem;
-      padding-left: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
+}
+// Search icon
+.navbar .navbar-nav .nav-link {
+  color: $base;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: $base;
 }
 
 //
@@ -179,6 +195,12 @@ a {
 //
 // Docs
 //
+@mixin nav-hover($bgcolor) {
+  text-decoration: none;
+  background-color: $bgcolor;
+  border-radius: 0 12px 12px 0;
+  margin-right: 1rem;
+}
 
 // Search: appears in mobile nav toggle table of contents and standard layout
 .docs-search {
@@ -191,37 +213,61 @@ a {
 .docs-sidebar .docs-toc-item.active a,
 .docs-sidebar .nav > .active:hover > a,
 .docs-sidebar .nav > .active > a {
-  font-weight: bold;
+  font-weight: 500;
+  @include nav-hover(#f1f1f1);
   color: $primary;
-  background-color: transparent;
+//  color: rgba(0, 0, 0, 0.65);
+  //background-color: transparent;
 }
 // only works on the first docs-toc-item so disable for all
 .docs-sidebar .docs-toc-item.active {
   margin-bottom: 0;
 }
+.docs-toc-link {
+  &:hover {
+    color: $text2;
+  }
+}
 // secondary links
-.docs-sidebar .nav > li > a:hover {
-  color: $primary;
-  text-decoration: none;
-  background-color: transparent;
+.docs-sidebar .nav > li.active > a {
+  font-weight: 500;
+}
+.docs-sidebar .nav > li > a {
+  font-weight: 400;
+  color: $text;
+  &:hover {
+    color: $text;
+    text-decoration: none;
+    background-color: transparent;
+    @include nav-hover(#f1f1f1);
+  }
 }
 // primary links
-.docs-toc-link:hover {
-  color: $primary;
-  text-decoration: none;
+//.docs-sidebar a {
+  //&.active,
+  //&:hover {
+    //@include nav-hover(#f1f1f1);
+  //}
+//}
+// Docs Table of contents
+.nav.toc-top {
+  border-left: 4px solid $primary;
+  a:hover {
+    color: $primary;
+  }
 }
-
-// Table of contents
-#TableOfContents li a.active {
-  color: $primary;
-  font-weight: 700;
+#TableOfContents {
+  li a.active {
+    color: $primary;
+    font-weight: 700;
+  }
+  li a:hover, .toc-top li a:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+  // border
+  border-left: 4px solid $primary;
 }
-#TableOfContents li a:hover, .toc-top li a:hover {
-  color: $primary;
-  text-decoration: none;
-}
-
-
 
 //
 // Font Awesome
