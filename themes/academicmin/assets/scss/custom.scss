@@ -210,10 +210,14 @@ a {
   }
 }
 // Sidebar
-.docs-sidebar .docs-toc-item.active a,
 .docs-sidebar .nav > .active:hover > a,
 .docs-sidebar .nav > .active > a {
   font-weight: 500;
+  @include nav-hover(#f1f1f1);
+  color: $primary;
+}
+// First nav item: style separate b/c the only one where .active js class works
+.docs-sidebar .docs-toc-item.active a {
   @include nav-hover(#f1f1f1);
   color: $primary;
 }
@@ -224,6 +228,7 @@ a {
 .docs-toc-link {
   &:hover {
     color: $text2;
+    @include nav-hover(#f1f1f1);
   }
 }
 // secondary links
