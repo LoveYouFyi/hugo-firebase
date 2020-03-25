@@ -43,7 +43,9 @@ h1,h2,h3,h4,h5,h6 {
 // Anchors
 //
 
-a:hover {
+a:hover,
+a:focus,
+.anchorjs-link { // anchorjs-link: docs link icons
   color: $text !important;
 }
 
