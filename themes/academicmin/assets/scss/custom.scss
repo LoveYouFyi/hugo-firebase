@@ -1,6 +1,7 @@
-/**
- * Colors
- */
+
+//
+// Colors
+//
 
 $smashing: #d33a2c; // smashing red
 $jax: rgba(218,0,0,.85); // jaxlicious
@@ -13,22 +14,24 @@ $tertiary: #5ebd3e; // lighten($smashing, 45%);
 $base: #fff;
 $lightGray: #ececec;
 
-/**
- * Font Family
- */
+//
+// Font Family
+//
+
+// do not override 'a' anchors: page anchor icons use own styles
 body,
 h1,h2,h3,h4,h5,h6,p,
 div,span,li,
-a,
 .navbar-light {
   // reactjs.org
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,
   Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
 }
 
-/**
- * Text color
- */
+//
+// Text color
+//
+
 body {
   color: $text;
 }
@@ -36,17 +39,19 @@ h1,h2,h3,h4,h5,h6 {
   color: $primary;
 }
 
-/**
- * Emphasize
- */
+//
+// Emphasize
+//
+
 .emphasize {
   padding-top: 0px;
   font-size: 28px;
 }
 
-/**
- * Main Menu
- */
+//
+// Main Menu
+//
+
 // menu background
 #navbar-main {
   background: $primary;
@@ -85,10 +90,11 @@ body {
   }
 }
 
-/**
- * Nav Bar Toggle Menu
- */
- .navbar-light .navbar-toggler {
+//
+// Nav Bar Toggle Menu
+//
+ 
+.navbar-light .navbar-toggler {
    color: $textLight;
  }
  #navbar-main .main-menu-item ul li .nav-link {
@@ -121,10 +127,11 @@ a, h3.article-title a:hover {
 }
 
 
-/**
- * Button
- */
-.btn {
+//
+// Button
+//
+
+ .btn {
   border: none;
   border-radius: 0;
   background: $primary;
@@ -138,10 +145,11 @@ a, h3.article-title a:hover {
   }
 }
 
-/**
- * Lists
- */
-ul.list-checkmarks.small li {
+//
+// Lists
+//
+
+ ul.list-checkmarks.small li {
   background-image: url(/static/img/check.png);
   background-repeat: no-repeat;
   background-position: left .3125rem;
@@ -162,9 +170,9 @@ a {
   background-color: transparent;
 }
 
-/**
- * Docs
- */
+//
+// Docs
+//
 
 // Sidebar
 .docs-sidebar .docs-toc-item.active a,
@@ -196,19 +204,21 @@ a {
   text-decoration: none;
 }
 
-/**
- * Font Awesome
- */
+//
+// Font Awesome
+//
 
 .featurette-icon {
   color: $primary;
 }
 
-/**
- * Homepage
- */
-.home-section {
-  padding: 40px 0 45px 0;
+//
+// Homepage
+//
+
+ .home-section {
+  padding: 0;
+  margin: 40px 0 45px 0;
   &:nth-of-type(even) {
     background-color: $base;
   }
@@ -219,10 +229,11 @@ a {
   border-bottom: 1px solid $lightGray !important;
 }
 
-/**
- * Hero Widget
- */
-.wg-hero-center {
+//
+// Hero Widget
+//
+
+ .wg-hero-center {
   h1,h2,h3,h4,h5,h6,p, .cta-btns {
     text-align: center;
   }
@@ -240,10 +251,11 @@ a {
   }
 }
 
- /**
- * Featurette Widget
- */
-.wg-featurette {
+//
+// Featurette Widget
+//
+
+ .wg-featurette {
   .align-left {
     text-align: left;
   }
@@ -255,4 +267,33 @@ a {
   h3 {
     margin-bottom: 20px;
   }
+}
+
+//
+// Disable Transition, Transform, Animation
+// https://onezeronull.com/2016/10/06/disable-css-transitions-and-animations-temporarily-or-permanently/#permanent-solution
+//
+
+ * {
+  -o-transition-property: none !important;
+  -moz-transition-property: none !important;
+  -ms-transition-property: none !important;
+  -webkit-transition-property: none !important;
+  transition-property: none !important;
+}
+
+* {
+  -o-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+}
+
+* {
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -o-animation: none !important;
+  -ms-animation: none !important;
+  animation: none !important;
 }
