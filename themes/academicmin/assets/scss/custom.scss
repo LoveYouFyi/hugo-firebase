@@ -180,6 +180,13 @@ a {
 // Docs
 //
 
+// Search: appears in mobile nav toggle table of contents and standard layout
+.docs-search {
+  border-bottom: none;
+  input {
+    display: none;
+  }
+}
 // Sidebar
 .docs-sidebar .docs-toc-item.active a,
 .docs-sidebar .nav > .active:hover > a,
@@ -187,6 +194,10 @@ a {
   font-weight: bold;
   color: $primary;
   background-color: transparent;
+}
+// only works on the first docs-toc-item so disable for all
+.docs-sidebar .docs-toc-item.active {
+  margin-bottom: 0;
 }
 // secondary links
 .docs-sidebar .nav > li > a:hover {
@@ -209,6 +220,8 @@ a {
   color: $primary;
   text-decoration: none;
 }
+
+
 
 //
 // Font Awesome
