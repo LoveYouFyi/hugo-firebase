@@ -31,7 +31,7 @@ border_bottom = true
 [[feature]]
   # icon = "camera-retro"
   # icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "SMTP Email Provider"
+  description = "Use sendgrid or others"
 
 +++

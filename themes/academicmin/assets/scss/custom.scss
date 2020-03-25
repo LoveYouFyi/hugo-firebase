@@ -236,3 +236,11 @@ a {
     text-align: left;
   }
 }
+.featurette {
+  font-size: 17px;
+  line-height: 1.7;
+  color: $text;
+  h3 {
+    margin-bottom: 20px;
+  }
+}
