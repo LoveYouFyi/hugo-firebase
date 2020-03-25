@@ -244,9 +244,6 @@ a {
   }
 }
 // secondary links
-.docs-sidebar .nav > li.active > a {
-  font-weight: 500;
-}
 .docs-sidebar .nav > li > a {
   font-weight: 400;
   color: $text;
@@ -257,6 +254,13 @@ a {
     @include nav-hover(#f1f1f1);
   }
 }
+.docs-sidebar .nav > li.active > a {
+  font-weight: 500;
+}
+.docs-sidebar .nav > li > a:hover {
+  color: $primary;
+}
+
 // Docs Table of contents
 .nav.toc-top {
   border-left: 4px solid $primary;
