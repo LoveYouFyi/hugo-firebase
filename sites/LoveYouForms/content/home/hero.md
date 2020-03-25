@@ -9,6 +9,7 @@ title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 #hero_media = "hero-academic.png"
+border_bottom = true
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -48,7 +49,7 @@ title = "Love You Forms"
   #label = "View Documentation"
 
 # Note. An optional note to show underneath the links.
-#[cta_note]
+[cta_note]
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
 
@@ -61,3 +62,4 @@ title = "Love You Forms"
 <p class="emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
 
 <span class="">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
+
