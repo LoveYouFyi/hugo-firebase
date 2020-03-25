@@ -389,7 +389,7 @@ a {
 }
 */
 
-// Does not prevent search overlay from working
+// Mobile menu: 'scrolls' down the menu via transition so do not disable
 /*
  * {
   -o-transition-property: none !important;
@@ -398,7 +398,9 @@ a {
   -webkit-transition-property: none !important;
   transition-property: none !important;
 }
+*/
 
+// Prevent delay in rendering page content - disable all animation
 // Does not prevent search overlay from working
 * {
   -webkit-animation: none !important;
@@ -407,4 +409,3 @@ a {
   -ms-animation: none !important;
   animation: none !important;
 }
-*/
