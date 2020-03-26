@@ -44,10 +44,12 @@ h1,h2,h3,h4,h5,h6 {
 //
 // Anchors
 //
-
-a:hover,
-a:focus {
-  color: $text;
+a {
+  transition: none !important;
+  &:hover,
+  &:focus {
+    color: $text;
+  }
 }
 // page anchor icons
 .anchorjs-link { 
@@ -98,12 +100,15 @@ a:focus {
   }
 
 }
-
 // menu background
 #navbar-main {
   background: $primary;
 }
-// menu links
+.dark #navbar-main {
+  background: #231F20;
+  box-shadow: none;
+}
+// Mobile menu
 #navbar-main .main-menu-item ul li .nav-link {
   color: $text2;
   &.active {
@@ -113,7 +118,6 @@ a:focus {
     color: $text2;
   }
 }
-
 // Navbar height (requires body margin)
 body { 
   margin-top: 60px; 
@@ -129,7 +133,6 @@ body {
   }
 }
 // menu links
-.navbar-light .navbar .navbar-nav .nav-link,
 .navbar .navbar-nav .nav-link {
   font-size: 20px;
   font-weight: 300 !important;
@@ -143,7 +146,19 @@ body {
   &:focus {
     color: $text;
   }
-
+}
+// Dark theme
+.dark .navbar .navbar-nav .nav-link {
+  &.active {
+    color: $primaryLight;
+  }
+  &:hover {
+    color: $primary;
+  }
+  &:focus {
+    color: $primary;
+  }
+  transition: none;
 }
 
 // larger screen
@@ -172,11 +187,22 @@ body {
   }
 
 }
-// Search icon
+// Menu icons -targets icons b/c class is less specific than menu nav links
 .navbar .navbar-nav .nav-link {
   color: $text3;
 }
-
+// Menu icons
+.navbar .dropdown-item.active, .navbar .dropdown-item-active {
+  font-weight: bold;
+  color: $primary !important;
+}
+// Menu icons -override 'blue' that showed when theme light/dark selector hover
+.navbar-light .navbar-nav .show > .nav-link {
+  color: $text;
+}
+.dark .navbar-light .navbar-nav .show > .nav-link {
+  color: $primary;
+}
 
 //
 // Button
@@ -186,6 +212,7 @@ body {
   border: none;
   border-radius: 0;
   background: $primary;
+  transition: none;
 }
 .btn-xlarge {
   padding: 1rem 1rem;
