@@ -51,6 +51,12 @@ a {
     color: $text;
   }
 }
+.dark a {
+  &:hover,
+  &:focus {
+    color: $primaryLight;
+  }
+}
 // page anchor icons
 .anchorjs-link { 
   color: $text;
