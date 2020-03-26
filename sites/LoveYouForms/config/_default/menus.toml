@@ -18,6 +18,11 @@
   url = "blog"
   weight = 30
 
+[[main]]
+  name = "GitHub &nbsp; <i class='fas fa-external-link-alt'></i>"
+  url = "https://github.com/LoveYouFyi/loveyou-forms"
+  weight = 40
+
 #[[main]]
   #name = "Posts"
   #url = "#posts"
