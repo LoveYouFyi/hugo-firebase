@@ -19,7 +19,7 @@
   weight = 30
 
 [[main]]
-  name = "GitHub &nbsp; <i class='fas fa-external-link-alt'></i>"
+  name = "GitHub &nbsp; <i class='fas fa-external-link-alt' style='font-size: 16px;'></i>"
   url = "https://github.com/LoveYouFyi/loveyouforms"
   weight = 40
 
