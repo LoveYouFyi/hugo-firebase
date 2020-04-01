@@ -201,6 +201,16 @@ body {
   transition: none;
 }
 
+@media (min-width: 991.98px) {
+  // targeted need: theme selector dropdown
+  .i18n-dropdown .dropdown-menu,
+  .theme-dropdown .dropdown-menu {
+    position: absolute !important;
+    right: 0 !important;
+    left: auto !important;
+  }
+}
+
 // larger screen
 @media (min-width: 992px) {
   #navbar-main .main-menu-item ul li .nav-link {
@@ -402,7 +412,11 @@ a {
 // Hero Widget
 //
 
- .wg-hero-center {
+.wg-hero-center {
+  .hero-media {
+    max-width: 400px;
+    margin-bottom: 1rem;
+  }
   h1,h2,h3,h4,h5,h6,p, .cta-btns {
     text-align: center;
   }

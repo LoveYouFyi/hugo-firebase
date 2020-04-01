@@ -2,14 +2,19 @@
 {{ $page := .page }}
 {{ $bg := $page.Params.design.background }}
 
-{{ if $page.Params.hero_media }}
-<div class="row">
-  <div class="col-12 order-md-1 text-center text-md-left">
-{{ end }}
+    {{/* Hero image */}}
+      {{ if $page.Params.hero_media }}
+      <div class="col-12 mx-auto col-md-6 order-md-2 hero-media">
+        <img src="{{ printf "img/%s" $page.Params.hero_media | relURL }}" alt="">
+      </div>
+    {{ end }}
 
-    <h2 class="hero-title">
-      {{ with $page.Title }}{{ . | markdownify }}{{ end }}
-    </h2>
+    {{/* Title */}}
+      {{ if $page.Params.title }}
+      <h2 class="hero-title">
+        {{ with $page.Title }}{{ . | markdownify }}{{ end }}
+      </h2>
+    {{ end }}
 
     {{ with $page.Content }}
     <div class="hero-center">{{ . }}</div>
@@ -54,15 +59,6 @@
       {{ .label | markdownify | emojify | safeHTML }}
     </p>
     {{ end }}
-
-  {{/* Hero image */}}
-  {{ if $page.Params.hero_media }}
-  </div>
-  <div class="col-6 mx-auto col-md-6 order-md-2 hero-media">
-    <img src="{{ printf "img/%s" $page.Params.hero_media | relURL }}" alt="">
-  </div>
-</div>
-{{ end }}
 
 {{ if $page.Params.border_bottom }}
   <div class="wg-border-bottom"></div>
