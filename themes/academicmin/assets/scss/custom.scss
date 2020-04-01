@@ -11,9 +11,11 @@ $primary: $smashing;
 $primaryLight: lighten($primary, 45%);
 $secondary: #bc3428;
 $text: #202124; // dark
-$text2: rgba(0, 0, 0, 0.65); // lighter
-$text3: #f5f5f5; // lightest
+$text1: #37474f; // darker
+$text2: rgba(0, 0, 0, 0.65); // light
+$text3: #f5f5f5; // lighter
 $gray: #ececec;
+$gray2: #f1f3f4; // light
 
 //
 // Font Family
@@ -38,7 +40,13 @@ body {
   background-color: $base;
 }
 h1,h2,h3,h4,h5,h6 {
-  color: $primary;
+  color: $text;
+}
+pre, code {
+  color: $text1;
+  background: $gray2;
+  font-weight: 500;
+  padding: 1px 4px;
 }
 
 //
@@ -122,6 +130,11 @@ a {
     padding-left: 12px;
   }
 
+} // End 'Mobile Only'
+
+// Container
+.navbar .container {
+  max-width: 100%; // forces logo and nav full screen width
 }
 // menu background
 #navbar-main {
@@ -308,14 +321,14 @@ a {
 .docs-sidebar .docs-toc-link {
   &:hover {
     color: $text2;
-    @include nav-hover(#f1f1f1);
+    @include nav-hover($gray2);
   }
 }
 // Nav Links: Hover
 .docs-sidebar .nav > .active:hover > a {
   font-weight: 500;
   color: $primary;
-  @include nav-hover(#f1f1f1);
+  @include nav-hover($gray2);
 }
 // Nav Links: Hover
 .docs-sidebar .nav > .active > a {
@@ -334,7 +347,7 @@ a {
     color: $text !important;
     text-decoration: none;
     background-color: transparent;
-    @include nav-hover(#f1f1f1);
+    @include nav-hover($gray2);
   }
 }
 .docs-sidebar .nav > li.active > a {
