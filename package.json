@@ -34,7 +34,7 @@
     "lyf:build:dev": "env HUGO_ENV='development' hugo --source=\"sites/LoveYouForms\"",
     "lyf:build:prod": "env HUGO_ENV='production' hugo --source=\"sites/LoveYouForms\"",
     "lyf:deploy:dev": "cd public/LoveYouForms && firebase use loveyou-forms && firebase deploy --only hosting:dev",
-    "lyf:deploy:prod": "cd public/LoveYouForms && && firebase use loveyou-forms && firebase deploy --only hosting:prod",
+    "lyf:deploy:prod": "cd public/LoveYouForms && firebase use loveyou-forms && firebase deploy --only hosting:prod",
     "** siteA BJORN's example **": "****",
     "siteA:dev": "hugo server -D --port 9091 --source=\"sites/siteA\"",
     "siteA:build:dev": "env HUGO_ENV='development' hugo --source=\"sites/siteA\"",
