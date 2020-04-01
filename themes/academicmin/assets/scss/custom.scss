@@ -80,7 +80,9 @@ a {
 
 // Mobile only
 @media (max-width: 991.98px) {
-  // Mobile menu
+  //
+  // Toggle Mobile Menu
+  //
   .navbar-collapse {
     background-color: $text3;
     .show {
@@ -100,7 +102,22 @@ a {
     }
   }
 
-  // Table of contents for 'docs' content type
+  //
+  // Logo
+  //
+
+  // Image
+  .navbar-brand-mobile-wrapper {
+    left: 42px;
+  }
+  .navbar-brand img {
+    max-width: 70%;
+    height: 26px;
+  }
+
+  //
+  // 'docs' Table of contents for 'docs' content type
+  //
   .toc-title {
     padding-left: 12px;
   }
@@ -131,12 +148,16 @@ body {
 .navbar { 
   height: 60px; 
 }
-// Logo/brand
+// Logo/brand: TEXT ONLY
 .navbar-light .navbar-brand {
   color: $text3;
   &:hover {
     color: $text3;
   }
+}
+// Logo/brand: Image
+.navbar-brand img {
+  height: 26px;
 }
 // menu links
 .navbar .navbar-nav .nav-link {
