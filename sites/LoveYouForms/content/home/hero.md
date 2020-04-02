@@ -57,7 +57,7 @@ border_bottom = true
 
 <p class="hero-text">(static sites love this app)</p>
 
-<p class="hero-title3 emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
+<p class="hero-title3"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
 
 <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
 
