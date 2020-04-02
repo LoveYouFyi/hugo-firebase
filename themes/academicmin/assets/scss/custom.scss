@@ -154,14 +154,22 @@ a {
 
   //
   // Logo
-  //
-
-  // Image
+  // Include overrides so logo does not interfere w/ search & theme icons on mobile
+  .navbar .nav-icons.ml-auto {
+    margin-left: unset !important;
+  }
   .navbar-brand-mobile-wrapper {
-    left: 42px;
+    left: unset;
+    max-width: 280px;
+    width: 65%;
+  }
+  .navbar-brand-mobile-wrapper {
+    position: unset;
+    left: unset;
+    right: unset;
   }
   .navbar-brand img {
-    max-width: 70%;
+    max-width: 100%;
     height: 26px;
   }
 
