@@ -53,11 +53,11 @@ border_bottom = true
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
 
-<span class="subtitle">A JavaScript cloud app to manage form submissions for 1 site or 10,000</span>
+<div class="hero-title2">A JavaScript cloud app to manage form submissions for 1 site or 10,000</div>
 
-<p>(static sites love this app)</p>
+<p class="hero-text">(static sites love this app)</p>
 
-<p class="emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
+<p class="hero-title3 emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
 
-<span class="">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
+<span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
 

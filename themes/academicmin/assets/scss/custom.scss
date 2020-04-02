@@ -45,7 +45,7 @@ body {
   font-variant-east-asian: normal;
   font-weight: 400;
   font-stretch: normal;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 24px;
   text-align: left;
 }
@@ -341,7 +341,7 @@ a {
 }
 // Titles and children
 .docs-sidebar a {
-  font-size: 16px !important;
+  font-size: 16px !important; // don't need this if same size as body
 }
 // Nav 'link' -Section title link
 .docs-sidebar .docs-toc-link {
@@ -435,16 +435,26 @@ a {
 .wg-hero-center {
   .hero-media {
     max-width: 400px;
-    margin-bottom: 1rem;
+    margin-bottom: 22px;
   }
-  h1,h2,h3,h4,h5,h6,p, .cta-btns {
+  h1,h2,h3,h4,h5,h6,p,div,pre,code, .cta-btns {
     text-align: center;
   }
   .hero-title {
     font-weight: 700;
   }
-  .subtitle {
+  .hero-title2 {
     font-size: 30px;
+    line-height: 48px;
+    margin: 10px 0;
+  }
+  .hero-title3 {
+    font-size: 28px;
+    line-height: 46px;
+  }
+  .hero-text {
+    font-size: 21px;
+    line-height: 35px;
   }
   p {
     margin-bottom: .5rem;
