@@ -55,7 +55,7 @@ border_bottom = true
 
 <span class="subtitle">A JavaScript cloud app to manage form submissions for 1 site or 10,000</span>
 
-<span class="subtitle">(static sites love this app)</span>
+<p>(static sites love this app)</p>
 
 <p class="emphasize"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
 
