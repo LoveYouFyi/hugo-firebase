@@ -1,30 +1,36 @@
+//
+// Mixins & Variables
+//
+
+// Font Size & Line Height
+
+$fontSize-base: 1rem; // 16px if base 16
+$fontSize-6: 1.25rem; // 20px if base 16
+$lineHeight-base: 1rem; // 16px if base 16
+$lineHeight-6: 1.125rem; // 18px if base 16
+
+@mixin sizeHeight-base {
+  font-size: 1rem; // 16px if base 16
+  line-height: 1.5rem; // 24px if base 16
+}
 @mixin sizeHeight-1 {
-  font-size: 1rem; // override base
-//  line-height: 1.125rem;
-  line-height: 1.5rem;
+  font-size: 1.875rem; // 30px if base 16
+  line-height: 3rem; // 48px if base 16
 }
 @mixin sizeHeight-2 {
-  font-size: 1.875rem;
-  line-height: 3rem;
+  font-size: 1.75rem; // 28px if base 16
+  line-height: 2.75rem; // 44px if base 16
 }
 @mixin sizeHeight-3 {
-  font-size: 1.75rem;
-  line-height: 2.75rem;
+  font-size: 1.3125rem; // 21px if base 16
+  line-height: 2.1875rem; // 35px if base 16
 }
-@mixin sizeHeight-4 {
-  font-size: 1.3125rem;
-  line-height: 2.1875rem;
+@mixin sizeHeight-6 {
+  font-size: 1rem; // 16px if base 16
+  line-height: 1.125rem; // 18 px if base 16
 }
-$height-base: 1rem;
-$height-sm: 1.125;
-$font-base: 1rem;
-$font-sm: 1.25rem;
 
-
-
-//
 // Colors
-//
 
 $smashing: #d33a2c; // smashing red
 $rachael: #b30000;
@@ -55,8 +61,9 @@ div,span,li,
 }
 
 //
-// Text color
+// Base Size, Height, Color
 //
+
 html,
 body {
   color: $text;
@@ -85,6 +92,7 @@ pre, code {
 //
 // Anchors
 //
+
 a {
   color: $primary;
   text-decoration: none;
@@ -200,7 +208,7 @@ body {
 }
 // menu links
 .navbar .navbar-nav .nav-link {
-  font-size: 1.25rem;
+  font-size: $fontSize-6;
   font-weight: 300 !important;
   &.active {
     font-weight: 300 !important;
@@ -292,7 +300,7 @@ body {
 }
 .btn-xlarge {
   padding: 1.7rem 1.3rem;
-  font-size: 1.25rem;
+  font-size: $fontSize-6;
   &:hover {
     background: $secondary;
   }
@@ -347,7 +355,7 @@ h3.article-title a:hover {
 */
 // Nav 'link' -Section title link
 .docs-sidebar .docs-toc-link {
-  line-height: 1.5rem;
+  @include sizeHeight-base;
   padding: 4px 16px;
   &:hover {
     color: $text2;
@@ -371,8 +379,7 @@ h3.article-title a:hover {
 }
 // secondary links
 .docs-sidebar .nav > li > a {
-  line-height: 1.125rem;
-  font-size: 1rem; // override base
+  @include sizeHeight-6;
   font-weight: 400;
   padding: 4px 32px;
   color: $text;
@@ -447,17 +454,14 @@ h3.article-title a:hover {
     font-weight: 700;
   }
   .hero-title2 {
-    font-size: 1.875rem;
-    line-height: 3rem;
+    @include sizeHeight-1;
     margin: 10px 0;
   }
   .hero-title3 {
-    font-size: 1.75rem;
-    line-height: 2.75rem;
+    @include sizeHeight-2;
   }
   .hero-text {
-    font-size: 1.3125rem;
-    line-height: 2.1875rem;
+    @include sizeHeight-3;
   }
   p {
     margin-bottom: .75rem;
@@ -477,7 +481,7 @@ h3.article-title a:hover {
   }
 }
 .featurette {
-  font-size: 1rem;
+  font-size: $fontSize-base;
   color: $text;
   h3 {
     margin-bottom: 1.25rem;
