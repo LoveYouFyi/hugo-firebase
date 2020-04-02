@@ -314,6 +314,8 @@ a {
     display: none;
   }
 }
+//
+// Sidebar Docs
 // Nav 'item' -first item style separate b/c the only one where .active js class works
 .docs-sidebar .docs-toc-item {
   &.active {
@@ -327,8 +329,14 @@ a {
     }
   }
 }
+// Titles and children
+.docs-sidebar a {
+  font-size: 16px !important;
+}
 // Nav 'link' -Section title link
 .docs-sidebar .docs-toc-link {
+  line-height: 24px;
+  padding: 4px 16px;
   &:hover {
     color: $text2;
     @include nav-hover($gray2);
@@ -351,7 +359,9 @@ a {
 }
 // secondary links
 .docs-sidebar .nav > li > a {
+  line-height: 18px;
   font-weight: 400;
+  padding: 4px 32px;
   color: $text;
   &:hover {
     color: $text !important;
