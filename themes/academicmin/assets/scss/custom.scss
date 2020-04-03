@@ -369,6 +369,7 @@ h3.article-title a:hover {
 // Docs
 //
 .docs-toc {
+  margin-right: auto; // due to being flexbox child -> grow margin
   top: $navbarHeight;
   height: calc(100vh - 60px); // calc will not take var $navbarHeight
 }
@@ -527,6 +528,7 @@ body {
 // Docs: Content
 //
 .docs-content {
+  margin-left: auto; // due to being flexbox child -> grow margin
   flex: unset !important;
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
