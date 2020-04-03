@@ -134,9 +134,9 @@ a {
   // Toggle Mobile Menu
   //
   .navbar-collapse {
-    background-color: $text3;
+    background-color: $primary;
     .show {
-      background-color: $text3;
+      background-color: $primary;
     }
   }
 
@@ -149,6 +149,10 @@ a {
     background: $base !important;
     &.btn {
       background: $text3;
+    }
+    .fa-bars,
+    .toc-title {
+      font-size: $fontSize-base;
     }
   }
 
