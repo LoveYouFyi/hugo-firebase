@@ -5,33 +5,39 @@
 // Font Size & Line Height
 
 $fontSize-base: 1rem; // 16px if base 16
-$fontSize-6: 1.25rem; // 20px if base 16
-$lineHeight-base: 1rem; // 16px if base 16
-$lineHeight-5: 1.25rem; // 20px if base 16
-$lineHeight-6: 1.125rem; // 18px if base 16
+$fontSize-1: 1.875rem; // 30px if base 16
+$fontSize-2: 1.75rem; // 28px if base 16
+$fontSize-3: 1.3125rem; // 21px if base 16
+$fontSize-4: 1.25rem; // 20px if base 16
+$fontSize-5: 1rem; // 16px if base 16
+$fontSize-6: .8825rem; // 14px if base 16
 
 @mixin sizeHeight-base {
-  font-size: 1rem; // 16px if base 16
+  font-size: $fontSize-base; // 16px if base 16
   line-height: 1.5rem; // 24px if base 16
 }
 @mixin sizeHeight-1 {
-  font-size: 1.875rem; // 30px if base 16
+  font-size: $fontSize-1; // 30px if base 16
   line-height: 3rem; // 48px if base 16
 }
 @mixin sizeHeight-2 {
-  font-size: 1.75rem; // 28px if base 16
+  font-size: $fontSize-2; // 28px if base 16
   line-height: 2.75rem; // 44px if base 16
 }
 @mixin sizeHeight-3 {
-  font-size: 1.3125rem; // 21px if base 16
+  font-size: $fontSize-3; // 21px if base 16
   line-height: 2.1875rem; // 35px if base 16
 }
+@mixin sizeHeight-4 {
+  font-size: $fontSize-4; // 20px if base 16
+  line-height: 2.075rem; // 33 px if base 16
+}
 @mixin sizeHeight-5 {
-  font-size: 1rem; // 16px if base 16
+  font-size: $fontSize-5; // 16px if base 16
   line-height: 1.125rem; // 18 px if base 16
 }
 @mixin sizeHeight-6 {
-  font-size: .875rem; // 14px if base 16
+  font-size: $fontSize-6; // 14px if base 16
   line-height: 1.25rem; // 20 px if base 16
 }
 
@@ -225,7 +231,7 @@ body {
 }
 // menu links
 .navbar .navbar-nav .nav-link {
-  font-size: $fontSize-6;
+  font-size: $fontSize-4;
   font-weight: 300 !important;
   &.active {
     font-weight: 300 !important;
@@ -320,7 +326,7 @@ body {
 }
 .btn-xlarge {
   padding: 1.7rem 1.3rem;
-  font-size: $fontSize-6;
+  font-size: $fontSize-4;
   &:hover {
     background: $secondary;
   }
@@ -420,7 +426,7 @@ h3.article-title a:hover {
 }
 // secondary links
 .docs-sidebar .nav > li > a {
-  @include sizeHeight-5;
+  @include sizeHeight-6;
   font-weight: 400;
   padding: 4px 32px;
   color: $text;
@@ -443,7 +449,7 @@ h3.article-title a:hover {
 }
 #TableOfContents {
   li a {
-    line-height: $lineHeight-5;
+    @include sizeHeight-6;
   }
   li a.active {
     color: $primary;
