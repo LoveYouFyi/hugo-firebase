@@ -371,12 +371,12 @@ h3.article-title a:hover {
   top: $navbarHeight;
   height: calc(100vh - 60px); // calc will not take var $navbarHeight
 }
-.docs-content {
+body[data-target="#TableOfContents"] {
   @media (min-width: 768px) {
     background: $gray;
   }
 }
-    
+
 @mixin nav-hover($bgcolor) {
   text-decoration: none !important;
   background-color: $bgcolor !important;
@@ -391,19 +391,7 @@ h3.article-title a:hover {
   }
 }
 
-//
-// Docs Main Content/Article "On this page"
-//
-.docs-article-container .docs-toc {
-  height: unset;
-  position: unset;
-  padding-left: 3px;
-}
-@media (min-width: 1200px) {
-  .docs-article-container .docs-toc {
-    display: none !important;
-  }
-}
+
 
 //
 // Docs: Sidebar
@@ -523,6 +511,9 @@ h3.article-title a:hover {
 // Docs: Content
 //
 .docs-content {
+  flex: unset !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
   article {
     background: white;
   }
@@ -538,6 +529,19 @@ h3.article-title a:hover {
     &.col-xl-8 {
       flex: 0 0 936px;
       max-width: 936px;
+    }
+  }
+  //
+  // Docs Main Content/Article "On this page"
+  //
+  .docs-article-container .docs-toc {
+    height: unset;
+    position: unset;
+    padding-left: 3px;
+  }
+  @media (min-width: 1200px) {
+    .docs-article-container .docs-toc {
+      display: none !important;
     }
   }
 }
