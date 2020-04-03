@@ -51,7 +51,6 @@ $text: #202124; // dark
 $text1: #37474f; // darker
 $text2: rgba(0, 0, 0, 0.65); // light
 $text3: #f5f5f5; // lighter
-$darkTheme: #282a36;
 $gray: #ececec;
 $gray2: #f1f3f4; // light
 
@@ -136,12 +135,6 @@ a {
   &:hover,
   &:focus {
     color: $text;
-  }
-}
-.dark a {
-  &:hover,
-  &:focus {
-    color: $primary3;
   }
 }
 // page anchor icons
@@ -268,22 +261,6 @@ body {
     color: $text;
   }
 }
-// Dark theme
-.dark .navbar-light .navbar-nav .show > .nav-link {
-  color: $base;
-}
-.dark .navbar .navbar-nav .nav-link {
-  &.active {
-    color: $primary3;
-  }
-  &:hover {
-    color: $text;
-  }
-  &:focus {
-    color: $text;
-  }
-  transition: none;
-}
 
 @media (min-width: 991.98px) {
   // targeted need: theme selector dropdown
@@ -380,9 +357,6 @@ body {
       background: $gray;
     }
   }
-  &.dark {
-    background: $darkTheme;
-  }
 }
 
 @mixin nav-hover($bgcolor) {
@@ -417,9 +391,6 @@ body {
   @media (min-width: 1200px) {
     height: calc(100vh - 60px); // calc will not take var $navbarHeight
   }
-}
-.dark .docs-sidebar {
-  background: $darkTheme;
 }
 
 // Nav 'item/section' -first item style separate b/c the only one where .active js class works
@@ -516,14 +487,6 @@ body {
 .toc-top li a {
   color: rgba(0,0,0,.65);
 }
-.dark .toc-top li a {
-  color: $base;
-}
-.dark #TableOfContents {
-  li a {
-    color: $base;
-  }
-}
 
 //
 // Docs: Content
@@ -567,9 +530,6 @@ body {
       display: flex;
     }
   }
-}
-.dark .docs-content article {
-  background: $darkTheme;
 }
 
 //
