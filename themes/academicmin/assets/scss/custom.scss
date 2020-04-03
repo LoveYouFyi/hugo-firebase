@@ -51,6 +51,7 @@ $text: #202124; // dark
 $text1: #37474f; // darker
 $text2: rgba(0, 0, 0, 0.65); // light
 $text3: #f5f5f5; // lighter
+$darkTheme: #282a36;
 $gray: #ececec;
 $gray2: #f1f3f4; // light
 
@@ -371,9 +372,14 @@ h3.article-title a:hover {
   top: $navbarHeight;
   height: calc(100vh - 60px); // calc will not take var $navbarHeight
 }
-body[data-target="#TableOfContents"] {
-  @media (min-width: 768px) {
-    background: $gray;
+body {
+  &[data-target="#TableOfContents"] {
+    @media (min-width: 768px) {
+      background: $gray;
+    }
+  }
+  &.dark {
+    background: $darkTheme;
   }
 }
 
@@ -391,16 +397,16 @@ body[data-target="#TableOfContents"] {
   }
 }
 
-
-
 //
 // Docs: Sidebar
 //
 .docs-sidebar {
   flex-shrink: 0;
-
   background: $base;
   border-bottom: 0;
+  border-right: 0 !important;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
   @media (min-width: 768px) {
     .docs-search { 
       display: none !important;
@@ -505,6 +511,14 @@ body[data-target="#TableOfContents"] {
 }
 .toc-top li a {
   color: rgba(0,0,0,.65);
+}
+.dark .toc-top li a {
+  color: $base;
+}
+.dark #TableOfContents {
+  li a {
+    color: $base;
+  }
 }
 
 //
