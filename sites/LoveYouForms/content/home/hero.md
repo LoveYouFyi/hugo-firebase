@@ -8,7 +8,7 @@ weight = 10  # Order that this section will appear.
 # title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "logo-text-black.svg"
+hero_media = "logo-text-red.svg"
 border_bottom = true
 
 [design.background]

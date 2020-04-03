@@ -1,3 +1,4 @@
+/*
 // Mutation Observer
 // https://www.smashingmagazine.com/2019/04/mutationobserver-api-guide/
 
@@ -23,3 +24,4 @@ function mCallback (mutations) {
 }
 
 observer.observe(mPar, options);
+*/
