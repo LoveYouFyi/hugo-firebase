@@ -463,6 +463,10 @@ body {
 // Docs Table of contents
 .nav.toc-top {
   border-left: 4px solid $primary;
+  a {
+    @include sizeHeight-6;
+    padding-bottom: .5rem;
+  }
   a:hover {
     color: $primary;
   }
@@ -517,6 +521,7 @@ body {
   // Docs Main Content/Article "On this page"
   //
   .docs-article-container {
+    max-width: unset;
     .docs-toc {
       height: unset;
       position: unset;
@@ -528,6 +533,12 @@ body {
     // Previous/next doc anchor
     .post-nav {
       display: flex;
+    }
+    // code blocks pull to outter article background edge
+    pre {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      border-radius: 0px;
     }
   }
 }
