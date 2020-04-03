@@ -42,14 +42,11 @@ $fontSize-6: .8825rem; // 14px if base 16
 }
 
 // Colors
-
-$smashing: #d33a2c; // smashing red
-$rachael: #b30000;
-
 $base: #fff;
-$primary: $smashing;
-$primaryLight: lighten($primary, 45%);
-$secondary: #bc3428;
+$primary: #d33a2c; // <-- smashing // rachael #b30000
+$primary2: lighten($primary, 5%);
+$primary3: lighten($primary, 45%);
+$secondary: #3b78e7;
 $text: #202124; // dark
 $text1: #37474f; // darker
 $text2: rgba(0, 0, 0, 0.65); // light
@@ -104,21 +101,21 @@ h6 { @include sizeHeight-6; }
 
 pre, code {
   @include sizeHeight-6;
-//  color: $text1;
   color: #37474f;
-//  background: $gray2;
   background: #f1f3f4;
   font-weight: 500;
-  padding: 1px 4px;
 }
 pre {
   background: none;
+  border-radius: 10px;
+  margin: 2rem 0;
+  code {
+    padding: 1rem 2rem !important;
+  }
 }
 code {
-  border-radius: 10px;
-  padding: 1rem 2rem !important;
+  padding: 1px 4px;
   font-weight: 400 !important;
-  margin: 1rem 0;
   span {
     font-family: "Roboto Mono", monospace !important;
     font-weight: 400 !important;
@@ -142,7 +139,7 @@ a {
 .dark a {
   &:hover,
   &:focus {
-    color: $primaryLight;
+    color: $primary3;
   }
 }
 // page anchor icons
@@ -273,7 +270,7 @@ body {
 }
 .dark .navbar .navbar-nav .nav-link {
   &.active {
-    color: $primaryLight;
+    color: $primary3;
   }
   &:hover {
     color: $text;
@@ -351,7 +348,7 @@ body {
   padding: 1.7rem 1.3rem;
   font-size: $fontSize-4;
   &:hover {
-    background: $secondary;
+    background: $primary2;
   }
 }
 
@@ -412,7 +409,7 @@ h3.article-title a:hover {
   &.active a {
     color: $primary;
     &:hover {
-      @include nav-hover($primaryLight);
+      @include nav-hover($primary3);
     }
   }
 }
@@ -442,9 +439,9 @@ h3.article-title a:hover {
 .docs-sidebar .nav > .active > a {
   font-weight: 500;
   color: $primary;
-  @include nav-hover($primaryLight);
+  @include nav-hover($primary3);
   &:hover {
-    @include nav-hover($primaryLight);
+    @include nav-hover($primary3);
   }
 }
 // secondary links
@@ -472,6 +469,7 @@ h3.article-title a:hover {
 }
 #TableOfContents {
   li a {
+    color: $text2;
     @include sizeHeight-6;
   }
   li a.active {
@@ -485,6 +483,9 @@ h3.article-title a:hover {
   }
   // border
   border-left: 4px solid $primary;
+}
+.toc-top li a {
+  color: rgba(0,0,0,.65);
 }
 
 //
@@ -580,7 +581,7 @@ h3.article-title a:hover {
 //
 // Highlightjs
 //
-code, pre {
+code, pre, .hljs {
   font-size: 14px;
   line-height: 20px;
 }
@@ -588,15 +589,14 @@ code, pre {
   background: #f1f3f4;
 }
 .hljs-keyword {
+  color: $secondary;
   font-weight: normal;
 }
 .hljs-title,
 .hljs-string,
 .hljs-params {
   color: #37474f;
-}
-.hljs-keyword {
-  color: #3b78e7;
+  font-weight: normal;
 }
 .hljs-comment,
 .hljs-number,
@@ -606,8 +606,9 @@ code, pre {
 .hljs-template-variable,
 .hljs-tag
 .hljs-attr {
+  font-weight: normal;
   font-style: normal;
-  color: #d81b60;
+  color: $primary;  // firebase #d81b60;
 }
 
 
