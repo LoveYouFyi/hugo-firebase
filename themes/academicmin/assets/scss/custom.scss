@@ -281,16 +281,18 @@ body {
     padding-right: 1rem;
     padding-left: 1rem;
   }
-  .bottom-highlight {
-    position: absolute;
-    bottom: -7px;
-    height: 4px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
-    background: $text3;
+  .navbar .nav-link {
+    &.active .bottom-highlight,
+    &:hover .bottom-highlight {
+      position: absolute;
+      bottom: -8px;
+      height: 4px;
+      left: 0px;
+      right: 0px;
+      z-index: 1;
+      background: $text3;
+    }
   }
-
 }
 // Menu icons -targets icons b/c class is less specific than menu nav links
 .navbar .navbar-nav .nav-link {
