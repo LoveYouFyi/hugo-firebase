@@ -152,6 +152,7 @@ a {
   }
 }
 
+
 //
 // Main Menu
 //
@@ -552,14 +553,18 @@ body {
   //
   // Docs Main Content/Article "On this page"
   //
-  .docs-article-container .docs-toc {
-    height: unset;
-    position: unset;
-    padding-left: 3px;
-  }
-  @media (min-width: 1200px) {
-    .docs-article-container .docs-toc {
-      display: none !important;
+  .docs-article-container {
+    .docs-toc {
+      height: unset;
+      position: unset;
+      padding-left: 3px;
+      @media (min-width: 1200px) {
+        display: none !important;
+      }
+    }
+    // Previous/next doc anchor
+    .post-nav {
+      display: flex;
     }
   }
 }
