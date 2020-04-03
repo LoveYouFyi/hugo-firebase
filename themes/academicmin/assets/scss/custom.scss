@@ -135,8 +135,9 @@ a {
   //
   .navbar-collapse {
     background-color: $primary;
-    .show {
+    &.show {
       background-color: $primary;
+      padding-bottom: 1rem;
     }
   }
 
@@ -200,9 +201,9 @@ a {
 }
 // Mobile menu
 #navbar-main .main-menu-item ul li .nav-link {
-  color: $text2;
+  color: $base;
   &.active {
-    color: $primary !important;
+    color: $base !important;
   }
   &:hover {
     color: $text2;
