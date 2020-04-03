@@ -239,15 +239,18 @@ body {
   }
 }
 // Dark theme
+.dark .navbar-light .navbar-nav .show > .nav-link {
+  color: $base;
+}
 .dark .navbar .navbar-nav .nav-link {
   &.active {
     color: $primaryLight;
   }
   &:hover {
-    color: $primary;
+    color: $text;
   }
   &:focus {
-    color: $primary;
+    color: $text;
   }
   transition: none;
 }
@@ -303,9 +306,7 @@ body {
 .navbar-light .navbar-nav .show > .nav-link {
   color: $text;
 }
-.dark .navbar-light .navbar-nav .show > .nav-link {
-  color: $primary;
-}
+
 
 //
 // Button
