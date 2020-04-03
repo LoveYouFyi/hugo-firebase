@@ -6,7 +6,7 @@
 
 $fontSize-base: 1rem; // 16px if base 16
 $fontSize-1: 1.875rem; // 30px if base 16
-$fontSize-2: 1.75rem; // 28px if base 16
+$fontSize-2: 1.6rem; // 28px if base 16
 $fontSize-3: 1.3125rem; // 21px if base 16
 $fontSize-4: 1.25rem; // 20px if base 16
 $fontSize-5: 1rem; // 16px if base 16
@@ -95,6 +95,13 @@ body {
 h1,h2,h3,h4,h5,h6 {
   color: $text;
 }
+h1 { @include sizeHeight-1; }
+h2 { @include sizeHeight-2; }
+h3 { @include sizeHeight-3; }
+h4 { @include sizeHeight-4; }
+h5 { @include sizeHeight-5; }
+h6 { @include sizeHeight-6; }
+
 pre, code {
   @include sizeHeight-6;
   color: $text1;
