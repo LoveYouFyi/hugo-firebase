@@ -4,10 +4,10 @@
   translation: Toggle navigation
 
 - id: table_of_contents
-  translation: Table of Contents
+  translation: Docs Table of Contents
 
 - id: on_this_page
-  translation: What's on this page
+  translation: What's on this page?
 
 - id: back_to_top
   translation: Back to top
