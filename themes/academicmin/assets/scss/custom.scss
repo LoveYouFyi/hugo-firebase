@@ -1,10 +1,9 @@
 //
 // Mixins & Variables
 //
+$navbarHeight: 60px;
 
 // Font Size & Line Height
-
-
 $fontSize-base: 1rem; // 16px if base 16
 $fontSize-1: 1.875rem; // 30px if base 16
 $fontSize-2: 1.6rem; // 28px if base 16
@@ -76,7 +75,7 @@ div,span,li,
 html,
 body {
   color: $text;
-  background-color: $gray;
+  background-color: $base;
   text-align: left;
   font-style: normal;
   font-variant-ligatures: normal;
@@ -89,6 +88,7 @@ body {
   // React size/height = 17px / 29px
   font-size: 17px;
   line-height: 29px !important;
+ 
 }
 h1,h2,h3,h4,h5,h6 {
   color: $text;
@@ -233,7 +233,7 @@ a {
   }
 }
 // Navbar height (requires body margin)
-$navbarHeight: 60px;
+
 body { 
   margin-top: $navbarHeight;
 }
@@ -369,11 +369,14 @@ h3.article-title a:hover {
 //
 .docs-toc {
   top: $navbarHeight;
+  height: calc(100vh - 60px); // calc will not take var $navbarHeight
 }
-.docs-search { 
-  display: none !important;
+.docs-content {
+  @media (min-width: 768px) {
+    background: $gray;
+  }
 }
-
+    
 @mixin nav-hover($bgcolor) {
   text-decoration: none !important;
   background-color: $bgcolor !important;
@@ -403,8 +406,22 @@ h3.article-title a:hover {
 }
 
 //
-// Sidebar Docs
+// Docs: Sidebar
 //
+.docs-sidebar {
+  flex-shrink: 0;
+
+  background: $base;
+  border-bottom: 0;
+  @media (min-width: 768px) {
+    .docs-search { 
+      display: none !important;
+    }
+  }
+  @media (min-width: 1200px) {
+    height: calc(100vh - 60px); // calc will not take var $navbarHeight
+  }
+}
 
 
 // Nav 'item/section' -first item style separate b/c the only one where .active js class works
@@ -500,6 +517,29 @@ h3.article-title a:hover {
 }
 .toc-top li a {
   color: rgba(0,0,0,.65);
+}
+
+//
+// Docs: Content
+//
+.docs-content {
+  article {
+    background: white;
+  }
+  @media (min-width: 768px) {
+    article {
+      padding: .25rem 2rem;
+      -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+      box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+      border-radius: 2px;
+    }
+  }
+  @media (min-width: 1200px) {
+    &.col-xl-8 {
+      flex: 0 0 936px;
+      max-width: 936px;
+    }
+  }
 }
 
 //
