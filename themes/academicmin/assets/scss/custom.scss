@@ -416,7 +416,9 @@ body {
     height: calc(100vh - 60px); // calc will not take var $navbarHeight
   }
 }
-
+.dark .docs-sidebar {
+  background: $darkTheme;
+}
 
 // Nav 'item/section' -first item style separate b/c the only one where .active js class works
 .docs-sidebar .docs-toc-item {
@@ -558,6 +560,9 @@ body {
       display: none !important;
     }
   }
+}
+.dark .docs-content article {
+  background: $darkTheme;
 }
 
 //
