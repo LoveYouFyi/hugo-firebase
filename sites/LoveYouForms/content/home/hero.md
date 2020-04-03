@@ -53,7 +53,7 @@ border_bottom = true
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
 
-<div class="hero-title-1">A JavaScript cloud app to manage form submissions for 1 site or 10,000</div>
+<div class="hero-title-1">A JavaScript cloud app to manage form submissions for 1 site or 1,000</div>
 
 <p class="hero-text">(static sites love this app)</p>
 
