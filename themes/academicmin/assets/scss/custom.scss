@@ -460,7 +460,7 @@ h3.article-title a:hover {
 
 .wg-hero-center {
   .hero-media {
-    max-width: 400px;
+    max-width: 320px;
     margin-bottom: 22px;
   }
   h1,h2,h3,h4,h5,h6,p,div,pre,code, .cta-btns {
@@ -486,6 +486,9 @@ h3.article-title a:hover {
     margin-top: 1.25rem;
   }
   @media (min-width: 991.98px) {
+    .hero-media {
+      max-width: 400px;
+    }
     .hero-title-1 {
       @include sizeHeight-1;
       margin: 10px 0;
