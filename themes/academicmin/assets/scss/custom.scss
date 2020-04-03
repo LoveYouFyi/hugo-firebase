@@ -4,6 +4,7 @@
 
 // Font Size & Line Height
 
+
 $fontSize-base: 1rem; // 16px if base 16
 $fontSize-1: 1.875rem; // 30px if base 16
 $fontSize-2: 1.6rem; // 28px if base 16
@@ -75,7 +76,7 @@ div,span,li,
 html,
 body {
   color: $text;
-  background-color: $base;
+  background-color: $gray;
   text-align: left;
   font-style: normal;
   font-variant-ligatures: normal;
@@ -232,11 +233,12 @@ a {
   }
 }
 // Navbar height (requires body margin)
+$navbarHeight: 60px;
 body { 
-  margin-top: 60px; 
+  margin-top: $navbarHeight;
 }
 .navbar { 
-  height: 60px; 
+  height: $navbarHeight;
 }
 // Logo/brand: TEXT ONLY
 .navbar-light .navbar-brand {
@@ -365,6 +367,12 @@ h3.article-title a:hover {
 //
 // Docs
 //
+.docs-toc {
+  top: $navbarHeight;
+}
+.docs-search { 
+  display: none !important;
+}
 
 @mixin nav-hover($bgcolor) {
   text-decoration: none !important;
@@ -459,6 +467,12 @@ h3.article-title a:hover {
 }
 .docs-sidebar .nav > li.active > a {
   font-weight: 500;
+}
+@media (min-width: 1200px) {
+  // Navbar height adjustment requires docs-sidebar top adjustment
+  .docs-sidebar {
+    top: $navbarHeight;
+  }
 }
 // Docs Table of contents
 .nav.toc-top {
@@ -647,3 +661,17 @@ code, pre, .hljs {
   -ms-animation: none !important;
   animation: none !important;
 }
+/*
+@media (min-width: 768px) {
+  html *,
+  .py-md-3  {
+    margin: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    top: 0 !important;
+  }
+}
+*/
