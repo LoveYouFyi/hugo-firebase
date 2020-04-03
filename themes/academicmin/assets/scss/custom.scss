@@ -370,17 +370,28 @@ h3.article-title a:hover {
 
 //
 // Sidebar Docs
-// Nav 'item' -first item style separate b/c the only one where .active js class works
+//
+
+
+// Nav 'item/section' -first item style separate b/c the only one where .active js class works
 .docs-sidebar .docs-toc-item {
+  border-bottom: 1px solid $gray;
+  padding: .25rem 0;
   &.active {
     margin-bottom: 0; // only works on the first docs-toc-item so disable for all
   }
   &.active a {
     color: $primary;
-    @include nav-hover($primaryLight);
     &:hover {
       @include nav-hover($primaryLight);
     }
+  }
+}
+// Nav 'item/section' hide bottom border last child if dropdown shows
+.docs-sidebar .docs-links {
+  &.show .docs-toc-item:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0;
   }
 }
 // Nav 'link' -Section title link
