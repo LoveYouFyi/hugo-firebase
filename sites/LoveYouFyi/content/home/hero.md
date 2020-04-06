@@ -9,7 +9,7 @@ weight = 10  # Order that this section will appear.
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 hero_media = "nils-erik-hendrick-photo.jpg"
-hero_media_width = "300px"
+hero_media_width = "225px"
 
 border_bottom = false
 
