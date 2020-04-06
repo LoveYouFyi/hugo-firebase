@@ -56,10 +56,12 @@ border_bottom = false
 +++
 <h1 class="hero-title-1"><strong>Nils 'Erik' Hendrick</strong></h1>
 
-<div class="hero-title-2">Full Stack Developer, JavaScript, Nodejs, React, and Drupal Professional.</div>
-
+<div class="hero-title-2">Full Stack Developer <span class="highlight p3">JavaScript</span>, Nodejs, React, and Drupal</div>
+<br>
 <!-- <p class="hero-text">(static sites love this app)</p> -->
 
-<!-- <p><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
+<!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
 
+<h1>Creator and Maintainer of</h1>
+<h2><a href="https://loveyouforms.com">LoveYouForms.com</a></h2>
 <!-- <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span> -->
