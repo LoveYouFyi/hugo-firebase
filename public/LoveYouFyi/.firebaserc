@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "loveyoufyi": {
+      "hosting": {
+        "dev": [
+          ""
+        ],
+        "prod": [
+          "loveyoufyi"
+        ]
+      }
+    }
+  }
+}
