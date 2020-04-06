@@ -1,10 +1,11 @@
 {{ $ := .root }}
 {{ $page := .page }}
 {{ $bg := $page.Params.design.background }}
+{{ $width := $page.Params.hero_media_width }}
 
     {{/* Hero image */}}
       {{ if $page.Params.hero_media }}
-      <div class="col-12 mx-auto col-md-6 order-md-2 hero-media">
+      <div class="col-12 mx-auto col-md-6 order-md-2 hero-media" style="max-width: {{ $width }};">
         <img src="{{ printf "img/%s" $page.Params.hero_media | relURL }}" alt="">
       </div>
     {{ end }}

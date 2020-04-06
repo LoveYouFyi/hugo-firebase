@@ -8,8 +8,10 @@ weight = 10  # Order that this section will appear.
 # title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "logo-text-red.svg"
-border_bottom = true
+hero_media = "nils-erik-hendrick-photo.jpg"
+hero_media_width = "300px"
+
+border_bottom = false
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -38,9 +40,9 @@ border_bottom = true
 # Call to action links (optional).
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
-[cta]
-  url = "/docs"
-  label = "Get Started"
+#[cta]
+  #url = "/docs"
+  #label = "Get Started"
   #icon_pack = "fas"
   #icon = "download"
   
@@ -52,12 +54,12 @@ border_bottom = true
 [cta_note]
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
+<h1 class="hero-title-1"><strong>Nils 'Erik' Hendrick</strong></h1>
 
-<div class="hero-title-1">A JavaScript cloud app to manage form submissions for one site or 1,000</div>
+<div class="hero-title-2">Full Stack Developer, JavaScript, Nodejs, React, and Drupal Professional.</div>
 
-<p class="hero-text">(static sites love this app)</p>
+<!-- <p class="hero-text">(static sites love this app)</p> -->
 
-<p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
+<!-- <p><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
 
-<span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
-
+<!-- <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span> -->

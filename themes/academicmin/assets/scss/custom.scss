@@ -149,6 +149,9 @@ a {
 //
 // Main Menu
 //
+.navbar {
+  box-shadow: none;
+}
 
 // Mobile only
 @media (max-width: 991.98px) {
@@ -312,6 +315,25 @@ body {
 // Menu icons -override 'blue' that showed when theme light/dark selector hover
 .navbar-light .navbar-nav .show > .nav-link {
   color: $text;
+}
+
+//
+// Nav No Menu Links
+// 
+.navbar.no-menu-links {
+  .navbar-brand-mobile-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .d-lg-inline-flex.justify-content-center {
+    width: 100%;
+    a {
+      margin: 0 auto;
+    }
+  }
 }
 
 
