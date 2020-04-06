@@ -8,7 +8,7 @@ weight = 10  # Order that this section will appear.
 # title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "nils-erik-hendrick-photo.jpg"
+hero_media = "nils-erik-hendrick-photo.png"
 hero_media_width = "225px"
 
 border_bottom = false

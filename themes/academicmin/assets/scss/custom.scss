@@ -1,3 +1,40 @@
+//{{- $scr := .Scratch -}}
+//{{- $site := $scr.Get "site" -}}
+//{{/* Don't use partialCached as can error when admin changes theme config whilst `hugo server` is running. */}}
+//{{- partial "functions/parse_theme" . -}}
+
+//$sta-darken-percentage: 10%;
+//$sta-lighten-percentage: 10%;
+
+//$sta-font-size: {{ $scr.Get "font_size" }};
+//$sta-font-size-small: {{ $scr.Get "font_size_small" }};
+
+//$sta-font-body: "{{ $scr.Get "body_font" }}";
+//$sta-font-heading: "{{ $scr.Get "heading_font" }}";
+//$sta-font-nav: "{{ $scr.Get "nav_font" }}";
+//$sta-font-mono: "{{ $scr.Get "mono_font" }}";
+
+//$sta-primary: {{ $scr.Get "primary" }};
+//$sta-primary-light: lighten($sta-primary, $sta-lighten-percentage);
+//$sta-primary-dark: darken($sta-primary, $sta-darken-percentage);
+
+//$sta-link: {{ $scr.Get "link" }};
+//$sta-link-hover: {{ $scr.Get "link_hover" }};
+
+//$sta-menu-primary: {{ $scr.Get "menu_primary" }};
+//$sta-menu-text: {{ $scr.Get "menu_text" }};
+//$sta-menu-text-active: {{ $scr.Get "menu_text_active" }};
+//$sta-menu-title: {{ $scr.Get "menu_title" }};
+
+//$sta-background: {{ $scr.Get "background" }};
+//$sta-dark-background: {{ $scr.Get "dark_background" }};
+
+//$sta-home-section-odd: {{ $scr.Get "home_section_odd" }};
+//$sta-home-section-even: {{ $scr.Get "home_section_even" }};
+
+//$sta-dark-home-section-odd: {{ $scr.Get "dark_home_section_odd" }};
+//$sta-dark-home-section-even: {{ $scr.Get "dark_home_section_even" }};
+
 //
 // Mixins & Variables
 //
@@ -43,9 +80,9 @@ $fontSize-6: .8825rem; // 14px if base 16
 
 // Colors
 $base: #fff;
-$primary: #d33a2c; // <-- smashing // rachael #b30000
-$primary2: lighten($primary, 5%);
-$primary3: lighten($primary, 45%);
+//$sta-primary: #d33a2c; // <-- smashing // rachael #b30000
+$primary2: lighten($sta-primary, 5%);
+$primary3: lighten($sta-primary, 45%);
 $secondary: #3b78e7;
 $text: #202124; // dark
 $text1: #37474f; // darker
@@ -129,7 +166,7 @@ code {
 //
 
 a {
-  color: $primary;
+  color: $sta-primary;
   text-decoration: none;
   transition: none !important;
   &:hover,
@@ -159,9 +196,9 @@ a {
   // Toggle Mobile Menu
   //
   .navbar-collapse {
-    background-color: $primary;
+    background-color: $sta-primary;
     &.show {
-      background-color: $primary;
+      background-color: $sta-primary;
       padding-bottom: 1rem;
     }
   }
@@ -218,7 +255,7 @@ a {
 }
 // menu background
 #navbar-main {
-  background: $primary;
+  background: $sta-primary;
 }
 // Mobile menu
 #navbar-main .main-menu-item ul li .nav-link {
@@ -310,7 +347,7 @@ body {
 // Menu icons
 .navbar .dropdown-item.active, .navbar .dropdown-item-active {
   font-weight: bold;
-  color: $primary !important;
+  color: $sta-primary !important;
 }
 // Menu icons -override 'blue' that showed when theme light/dark selector hover
 .navbar-light .navbar-nav .show > .nav-link {
@@ -344,7 +381,7 @@ body {
  .btn {
   border: none;
   border-radius: 0;
-  background: $primary;
+  background: $sta-primary;
   transition: none;
 }
 .btn-xlarge {
@@ -360,7 +397,7 @@ body {
 //
 
 h3.article-title a:hover {
-  color: $primary;
+  color: $sta-primary;
   text-decoration: none;
   transition: color 0.6s ease;
 }
@@ -423,7 +460,7 @@ body {
     margin-bottom: 0; // only works on the first docs-toc-item so disable for all
   }
   &.active a {
-    color: $primary;
+    color: $sta-primary;
     &:hover {
       @include nav-hover($primary3);
     }
@@ -448,13 +485,13 @@ body {
 // Nav Links: Hover
 .docs-sidebar .nav > .active:hover > a {
   font-weight: 500;
-  color: $primary;
+  color: $sta-primary;
   @include nav-hover($gray2);
 }
 // Nav Links: Hover
 .docs-sidebar .nav > .active > a {
   font-weight: 500;
-  color: $primary;
+  color: $sta-primary;
   @include nav-hover($primary3);
   &:hover {
     @include nav-hover($primary3);
@@ -484,13 +521,13 @@ body {
 }
 // Docs Table of contents
 .nav.toc-top {
-  border-left: 4px solid $primary;
+  border-left: 4px solid $sta-primary;
   a {
     @include sizeHeight-6;
     padding-bottom: .5rem;
   }
   a:hover {
-    color: $primary;
+    color: $sta-primary;
   }
 }
 #TableOfContents {
@@ -499,16 +536,16 @@ body {
     @include sizeHeight-6;
   }
   li a.active {
-    color: $primary;
+    color: $sta-primary;
     font-weight: 700;
   }
   li a:hover,
   .toc-top li a:hover {
-    color: $primary;
+    color: $sta-primary;
     text-decoration: none;
   }
   // border
-  border-left: 4px solid $primary;
+  border-left: 4px solid $sta-primary;
 }
 .toc-top li a {
   color: rgba(0,0,0,.65);
@@ -570,7 +607,7 @@ body {
 //
 
 .featurette-icon {
-  color: $primary;
+  color: $sta-primary;
 }
 
 //
@@ -578,6 +615,7 @@ body {
 //
 
  .home-section {
+  background-color: unset;
   padding: 0;
   margin: 40px 0 45px 0;
   &:nth-of-type(even) {
@@ -685,7 +723,7 @@ code, pre, .hljs {
 .hljs-attr {
   font-weight: normal;
   font-style: normal;
-  color: $primary;  // firebase #d81b60;
+  color: $sta-primary;  // firebase #d81b60;
 }
 
 
