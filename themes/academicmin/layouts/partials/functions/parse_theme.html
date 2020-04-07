@@ -35,15 +35,15 @@
   {{- $scr.Set "dark_background" "rgb(40, 42, 54)" -}}
   {{- $scr.Set "home_section_odd" $theme.home_section_odd -}}
   {{- $scr.Set "home_section_even" $theme.home_section_even -}}
-  {{- $scr.Set "dark_home_section_odd" "hsla(231, 15%, 18%, 1)" -}}
-  {{- $scr.Set "dark_home_section_even" "hsla(231, 15%, 16%, 1)" -}}
+  {{- $scr.Set "dark_home_section_odd" $theme.dark_home_section_odd -}}
+  {{- $scr.Set "dark_home_section_even" $theme.dark_home_section_even -}}
 {{ else }}
   {{- $scr.Set "background" ($theme.background | default "#fff") -}}
   {{- $scr.Set "dark_background" ($theme.background | default "rgb(40, 42, 54)") -}}
-  {{- $scr.Set "home_section_odd" "rgb(255, 255, 255)" -}}
-  {{- $scr.Set "home_section_even" "rgb(247, 247, 247)" -}}
-  {{- $scr.Set "dark_home_section_odd" $theme.home_section_odd -}}
-  {{- $scr.Set "dark_home_section_even" $theme.home_section_even -}}
+  {{- $scr.Set "home_section_odd" $theme.home_section_odd -}}
+  {{- $scr.Set "home_section_even" $theme.home_section_even -}}
+  {{- $scr.Set "dark_home_section_odd" $theme.dark_home_section_odd -}}
+  {{- $scr.Set "dark_home_section_even" $theme.dark_home_section_even -}}
 {{ end }}
 
 {{- $scr.Set "link" ($theme.link | default $theme.primary) -}}
@@ -52,6 +52,11 @@
 {{- $scr.Set "base" ($theme.base | default "#fff") -}}
 
 {{- $scr.Set "primary" $theme.primary -}}
+
+{{- $scr.Set "text" $theme.text -}}
+{{- $scr.Set "text1" $theme.text1 -}}
+{{- $scr.Set "text2" $theme.text2 -}}
+{{- $scr.Set "text3" $theme.text3 -}}
 
 {{- $scr.Set "menu_primary" $theme.menu_primary -}}
 {{- $scr.Set "menu_text" $theme.menu_text -}}

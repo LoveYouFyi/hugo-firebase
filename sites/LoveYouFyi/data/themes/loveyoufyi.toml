@@ -2,18 +2,26 @@
 name = "LoveYouFyi"
 
 # Is theme light or dark?
-light = true
+light = false
 
 # Primary
 base = "#d33a2c"
 primary = "#d33a2c"
 
+# Text
+text = "#fff"
+text1 = "#202124"
+text2 = "#fff"
+text3 = "#fff"
+
 # Menu
 menu_primary = "#fff"
-menu_text = "#34495e"
+menu_text = "yellow"
 menu_text_active = "#2962ff"
 menu_title = "#2b2b2b"
 
 # Home sections
-home_section_odd = "rgb(255, 255, 255)"
-home_section_even = "rgb(247, 247, 247)"
+home_section_odd = "#fff"
+home_section_even = "#fff"
+dark_home_section_odd = "#d33a2c"
+dark_home_section_even = "#d33a2c"

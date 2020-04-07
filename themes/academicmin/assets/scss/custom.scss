@@ -48,10 +48,10 @@ $fontSize-6: .8825rem; // 14px if base 16
 $primary2: lighten($sta-primary, 5%);
 $primary3: lighten($sta-primary, 45%);
 $secondary: #3b78e7;
-$text: #202124; // dark
-$text1: #37474f; // darker
-$text2: rgba(0, 0, 0, 0.65); // light
-$text3: #f5f5f5; // lighter
+//$sta-text: #202124; // dark
+//$sta-text1: #37474f; // darker
+//$sta-text2: rgba(0, 0, 0, 0.65); // light
+//$sta-text3: #f5f5f5; // lighter
 $gray: #ececec;
 $gray2: #f1f3f4; // light
 
@@ -75,7 +75,7 @@ div,span,li,
 
 html,
 body {
-  color: $text;
+  color: $sta-text;
   background-color: $sta-base;
   text-align: left;
   font-style: normal;
@@ -89,10 +89,12 @@ body {
   // React size/height = 17px / 29px
   font-size: 17px;
   line-height: 29px !important;
- 
+  &.dark {
+    background-color: $sta-base;
+  }
 }
 h1,h2,h3,h4,h5,h6 {
-  color: $text;
+  color: $sta-text;
 }
 h1 { @include sizeHeight-1; }
 h2 { @include sizeHeight-2; }
@@ -135,14 +137,14 @@ a {
   transition: none !important;
   &:hover,
   &:focus {
-    color: $text;
+    color: $sta-text;
   }
 }
 // page anchor icons
 .anchorjs-link { 
-  color: $text;
+  color: $sta-text;
   &:hover {
-    color: $text;
+    color: $sta-text;
   }
 }
 
@@ -152,15 +154,37 @@ a {
 .highlight {
   padding: 0 .25rem;
   font-weight: 700;
-  &.p2 {
-    color: $text;
+  &.primary2 {
+    color: $sta-text;
     background: $primary2;
   }
-  &.p3 {
-    color: $text;
+  &.primary3 {
+    color: $sta-text;
     background: $primary3;
   }
+
 }
+.dark {
+  .highlight {
+    &.primary2 {
+      color: $sta-text;
+      background: $primary2;
+    }
+    &.primary3 {
+      color: $sta-text1;
+      background: $primary3;
+    }
+  }
+  a.highlight {
+    // text-decoration: none !important;
+    &:hover {
+      color: $sta-text1;
+      background: $sta-text;
+      text-decoration: none !important;
+    }
+  }
+}
+
 
 //
 // Main Menu
@@ -171,6 +195,10 @@ a {
     position: absolute;
   }
 }
+.dark .navbar {
+  box-shadow: none;
+}
+
 
 // Mobile only
 @media (max-width: 991.98px) {
@@ -186,14 +214,14 @@ a {
   }
 
   .navbar-light .navbar-toggler {
-    color: $text3;
+    color: $sta-text3;
   }
 
   .docs-toggle {
-    color: $text;
+    color: $sta-text;
     background: $sta-base !important;
     &.btn {
-      background: $text3;
+      background: $sta-text3;
     }
     .fa-bars,
     .toc-title {
@@ -246,7 +274,7 @@ a {
     color: $sta-base !important;
   }
   &:hover {
-    color: $text2;
+    color: $sta-text2;
   }
 }
 // Navbar height (requires body margin)
@@ -259,9 +287,9 @@ body {
 }
 // Logo/brand: TEXT ONLY
 .navbar-light .navbar-brand {
-  color: $text3;
+  color: $sta-text3;
   &:hover {
-    color: $text3;
+    color: $sta-text3;
   }
 }
 // Logo/brand: Image
@@ -274,13 +302,13 @@ body {
   font-weight: 300 !important;
   &.active {
     font-weight: 300 !important;
-    color: $text;
+    color: $sta-text;
   }
   &:hover {
-    color: $text;
+    color: $sta-text;
   }
   &:focus {
-    color: $text;
+    color: $sta-text;
   }
 }
 
@@ -297,12 +325,12 @@ body {
 // larger screen
 @media (min-width: 992px) {
   #navbar-main .main-menu-item ul li .nav-link {
-    color: $text3;
+    color: $sta-text3;
     &.active {
-      color: $text3 !important;
+      color: $sta-text3 !important;
     }
     &:hover {
-      color: $text3;
+      color: $sta-text3;
     }
   }
   .navbar-expand-lg .navbar-nav .nav-link {
@@ -318,13 +346,13 @@ body {
       left: 0px;
       right: 0px;
       z-index: 1;
-      background: $text3;
+      background: $sta-text3;
     }
   }
 }
 // Menu icons -targets icons b/c class is less specific than menu nav links
 .navbar .navbar-nav .nav-link {
-  color: $text3;
+  color: $sta-text3;
 }
 // Menu icons
 .navbar .dropdown-item.active, .navbar .dropdown-item-active {
@@ -333,7 +361,7 @@ body {
 }
 // Menu icons -override 'blue' that showed when theme light/dark selector hover
 .navbar-light .navbar-nav .show > .nav-link {
-  color: $text;
+  color: $sta-text;
 }
 
 //
@@ -460,7 +488,7 @@ body {
   @include sizeHeight-base;
   padding: 4px 16px;
   &:hover {
-    color: $text2;
+    color: $sta-text2;
     @include nav-hover($gray2);
   }
 }
@@ -484,9 +512,9 @@ body {
   @include sizeHeight-6;
   font-weight: 400;
   padding: 4px 32px;
-  color: $text;
+  color: $sta-text;
   &:hover {
-    color: $text !important;
+    color: $sta-text !important;
     text-decoration: none;
     background-color: transparent;
     @include nav-hover($gray2);
@@ -514,7 +542,7 @@ body {
 }
 #TableOfContents {
   li a {
-    color: $text2;
+    color: $sta-text2;
     @include sizeHeight-6;
   }
   li a.active {
@@ -603,6 +631,12 @@ body {
   &:nth-of-type(even) {
     background-color: $sta-base;
   }
+  &.dark {
+    background-color: $sta-dark-home-section-odd;
+    &:nth-of-type(even) {
+      background-color: $sta-dark-home-section-even;
+    }
+  }
 }
 
 .wg-border-bottom {
@@ -669,8 +703,9 @@ body {
 }
 .featurette {
   font-size: $fontSize-base;
-  color: $text;
-  h3 {
+  color: $sta-text;
+  h1,h2,h3,h4,h5,h6,div,span {
+    color: $sta-text;
     margin-bottom: 1.25rem;
   }
 }

@@ -59,12 +59,18 @@ border_bottom = false
   <img src="/img/nils-erik-hendrick-name-white.svg" />
 </div>
 
-<div class="hero-title-2">Full Stack Developer <span class="highlight p3">JavaScript</span> <span class="highlight p3">Nodejs</span> <span class="highlight p3">React</span> Php and Drupal</div>
+<div class="hero-title-2">
+  Full Stack Developer 
+  <span class="highlight primary3">JavaScript</span>
+  <span class="highlight primary3">Nodejs</span>
+  <span class="highlight primary3">React</span>
+  Php and Drupal
+</div>
 <br>
 <!-- <p class="hero-text">(static sites love this app)</p> -->
 
 <!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
 
 <h1>Creator and Maintainer</h1>
-<h2><a href="https://loveyouforms.com">LoveYouForms.com</a></h2>
+<h2><a href="https://loveyouforms.com" class="highlight">LoveYouForms.com</a></h2>
 <!-- <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span> -->
