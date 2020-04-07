@@ -68,13 +68,13 @@ border_bottom = false
 </div>
 <br>
 
-<h3>
+<div class="hero-title-2">
   <span class="highlight primary3">Hewlett-Packard</span>
   <span class="highlight primary3">Chevron</span>
-  <span class="highlight primary3">Blue Cross Blue Shield Florida</span>
+  <span class="highlight primary3 nobreak">Blue Cross Blue Shield Florida</span>
   <span class="highlight primary3">Harris</span>
   <span class="highlight primary3">Bayer</span>
-</h3>
+</div>
 <br>
 
 <!-- <p class="hero-text">(static sites love this app)</p> -->
@@ -84,6 +84,13 @@ border_bottom = false
   Creator and Maintainer<br>
   <a href="https://loveyouforms.com" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
 </div>
+<!--
+<ul class="network-icon" aria-hidden="true">
+  <li><a href="mailto:erik@loveyou.fyi"><i class="fas fa-envelope big-icon"></i></a></li>
+  <li><a href="https://twitter.com/loveyoufyi" target="_blank" rel="noopener"><i class="fab fa-twitter big-icon"></i></a></li>
+  <li><a href="https://github.com/LoveYoufyi" target="_blank" rel="noopener"><i class="fab fa-github big-icon"></i></a></li>
+</ul>
+-->
 <!--
 <h1>Creator and Maintainer</h1>
 <h2 style="margin-top:0;">
