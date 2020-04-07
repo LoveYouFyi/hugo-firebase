@@ -7,8 +7,8 @@ weight = 15  # Order that this section will appear.
 
 #title = ""
 #subtitle = ""
-align_left = true
-border_bottom = true
+align_left = false
+border_bottom = false
 
 # Showcase personal skills or business features.
 # 
@@ -19,19 +19,19 @@ border_bottom = true
 [[feature]]
   # icon = "r-project"
   # icon_pack = "fab"
-  name = "Firebase"
-  description = "Database + Cloud Functions"
+  name = "JavaScript"
+  description = "ES5+, Babel, Webpack, algorithms, async/await, private methods, curry, reduce and most array helper methods, regex, callbacks, destructing, promises, functional, JSON"
   
 [[feature]]
   # icon = "chart-line"
   # icon_pack = "fas"
-  name = "Google Sheets"
-  description = "Google API sends new form submissions to google sheets"  
+  name = "Nodejs"
+  description = "Express, node cache, routing, controllers, services, streams, cloud functions, scripts and package mngt, Firebase, PostgreSQL, MongoDB and Mongoose " 
   
 [[feature]]
   # icon = "camera-retro"
   # icon_pack = "fas"
-  name = "SMTP Email Provider"
-  description = "Use sendgrid or others"
+  name = "React"
+  description = "components, props, state management with and without Redux, form handling, JSX rendering, events, class constructor props, functional hooks, routing"
 
 +++

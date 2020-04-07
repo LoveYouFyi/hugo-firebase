@@ -70,7 +70,14 @@ border_bottom = false
 <!-- <p class="hero-text">(static sites love this app)</p> -->
 
 <!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
-
+<div class="hero-title-2">
+  Creator and Maintainer<br>
+  <a href="https://loveyouforms.com" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
+</div>
+<!--
 <h1>Creator and Maintainer</h1>
-<h2><a href="https://loveyouforms.com" class="highlight">LoveYouForms.com</a></h2>
+<h2 style="margin-top:0;">
+  <a href="https://loveyouforms.com" class="highlight">LoveYouForms.com</a>
+</h2>
+-->
 <!-- <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span> -->
