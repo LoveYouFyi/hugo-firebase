@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 15  # Order that this section will appear.
 
-#title = ""
+#title = "Select JavaScript Skills"
 #subtitle = ""
 align_left = false
 border_bottom = false
@@ -20,7 +20,7 @@ border_bottom = false
   # icon = "r-project"
   # icon_pack = "fab"
   name = "JavaScript"
-  description = "ES5+, Babel, Webpack, algorithms, async/await, private methods, curry, reduce and most array helper methods, regex, callbacks, destructing, promises, functional, JSON"
+  description = "ES5+, Babel, Webpack, algorithms, async/await, private methods, curry, reduce and other array helper methods, regex, callbacks, destructing, promises, functional, JSON"
   
 [[feature]]
   # icon = "chart-line"

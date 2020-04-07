@@ -3,13 +3,13 @@
 widget = "hero_center"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 10  # Order that this section will appear.
+weight = 50  # Order that this section will appear.
 
 # title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "nils-erik-hendrick-photo.png"
-hero_media_width = "225px"
+#hero_media = "nils-erik-hendrick-photo.png"
+#hero_media_width = "225px"
 
 border_bottom = false
 
@@ -54,49 +54,19 @@ border_bottom = false
 [cta_note]
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
-<!-- <h1><strong>Nils 'Erik' Hendrick</strong></h1> -->
-<div style="max-width: 350px; margin:2rem auto;">
-  <img src="/img/nils-erik-hendrick-name-white.svg" />
-</div>
-
 <div class="hero-title-2">
-  Full Stack Developer 
-  <span class="highlight primary3">JavaScript</span>
-  <span class="highlight primary3">Nodejs</span>
-  <span class="highlight primary3">React</span>
-  Php and Drupal
+  Contact Erik
 </div>
-
 <h3>
-  <span class="highlight primary3">Hewlett-Packard</span>
-  <span class="highlight primary3">Chevron</span>
-  <span class="highlight primary3 nobreak">Blue Cross Blue Shield Florida</span>
-  <span class="highlight primary3">Harris</span>
-  <span class="highlight primary3">Bayer</span>
+  <span class="highlight primary3">Email</span>
+  <span class="highlight primary3">LinkedIn</span>
+  <span class="highlight primary3 nobreak">Twitter</span>
+  <span class="highlight primary3">GitHub</span>
 </h3>
-<br>
 
-<!-- <p class="hero-text">(static sites love this app)</p> -->
-
-<!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
-<div class="hero-title-2">
-  Creator and Maintainer<br>
-  <a href="https://loveyouforms.com" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
-</div>
-<br>
-<div class="hero-title-2" style="margin:1rem 0 -1rem 0;">Select JavaScript Skills</div>
-
-<!--
 <ul class="network-icon" aria-hidden="true">
-  <li><a href="mailto:erik@loveyou.fyi"><i class="fas fa-envelope big-icon"></i></a></li>
+  <li><a href="mailto:erik@loveyou.fyi" role="link" target="_blank"><i class="fas fa-envelope big-icon"></i></a></li>
+  <li><a href="https://linkedin.com/in/erikhendrick" target="_blank" rel="noopener"><i class="fab fa-linkedin big-icon"></i></a></li>
   <li><a href="https://twitter.com/loveyoufyi" target="_blank" rel="noopener"><i class="fab fa-twitter big-icon"></i></a></li>
   <li><a href="https://github.com/LoveYoufyi" target="_blank" rel="noopener"><i class="fab fa-github big-icon"></i></a></li>
 </ul>
--->
-<!--
-<h1>Creator and Maintainer</h1>
-<h2 style="margin-top:0;">
-  <a href="https://loveyouforms.com" class="highlight">LoveYouForms.com</a>
-</h2>
--->
-<!-- <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span> -->
