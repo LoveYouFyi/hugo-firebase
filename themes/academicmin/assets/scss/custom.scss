@@ -167,6 +167,9 @@ a {
 //
 .navbar {
   box-shadow: none;
+  &.sticky-false {
+    position: absolute;
+  }
 }
 
 // Mobile only
