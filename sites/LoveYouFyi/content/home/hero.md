@@ -35,7 +35,7 @@ border_bottom = false
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
   
   # Text color (true=light or false=dark).
-  text_color_light = false
+  text_color_light = true
 
 # Call to action links (optional).
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
@@ -54,14 +54,14 @@ border_bottom = false
 [cta_note]
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
-<h1 class="hero-title-1"><strong>Nils 'Erik' Hendrick</strong></h1>
+<h1><strong>Nils 'Erik' Hendrick</strong></h1>
 
-<div class="hero-title-2">Full Stack Developer <span class="highlight p3">JavaScript</span>, Nodejs, React, and Drupal</div>
+<div class="hero-title-2">Full Stack Developer <span class="highlight p3">JavaScript</span> <span class="highlight p3">Nodejs</span> <span class="highlight p3">React</span> Php and Drupal</div>
 <br>
 <!-- <p class="hero-text">(static sites love this app)</p> -->
 
 <!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
 
-<h1>Creator and Maintainer of</h1>
+<h1>Creator and Maintainer</h1>
 <h2><a href="https://loveyouforms.com">LoveYouForms.com</a></h2>
 <!-- <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span> -->
