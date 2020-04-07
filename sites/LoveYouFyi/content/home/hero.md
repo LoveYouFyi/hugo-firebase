@@ -68,13 +68,13 @@ border_bottom = false
 </div>
 <br>
 
-<div class="hero-title-2">
+<h3 style="margin-top:0;">
   <span class="highlight primary3">Hewlett-Packard</span>
   <span class="highlight primary3">Chevron</span>
   <span class="highlight primary3 nobreak">Blue Cross Blue Shield Florida</span>
   <span class="highlight primary3">Harris</span>
   <span class="highlight primary3">Bayer</span>
-</div>
+</h3>
 <br>
 
 <!-- <p class="hero-text">(static sites love this app)</p> -->
