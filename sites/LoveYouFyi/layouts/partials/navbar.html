@@ -14,12 +14,18 @@
 {{ if $no_menu_links }}
   {{ $class_no_menu_links = "no-menu-links" }}
 {{ end }}
+{{ $class_menu_sticky := site.Params.main_menu.menu_sticky | default true }}
+{{ if $class_menu_sticky }}
+  {{ $class_menu_sticky = "sticky-true" }}
+  {{ else }}
+  {{ $class_menu_sticky = "sticky-false" }}
+{{ end }}
 
 {{/* Nav No Menu Links */}}
 {{ $align_menu := site.Params.main_menu.align | default "l" }}
 {{ $align_logo := site.Params.main_menu.align_logo | default "l" }}
 
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar {{$class_no_menu_links}}" id="navbar-main">
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar {{$class_no_menu_links}} {{$class_menu_sticky}}" id="navbar-main">
   <div class="container">
 
     {{if $show_logo}}
