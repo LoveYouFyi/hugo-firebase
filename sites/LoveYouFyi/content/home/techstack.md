@@ -32,6 +32,6 @@ border_bottom = false
   # icon = "camera-retro"
   # icon_pack = "fas"
   name = "React"
-  description = "components, props, state management with and without Redux, form handling, JSX rendering, events, class constructor props, functional hooks, routing"
+  description = "Components, props, state management with and without Redux, form handling, JSX rendering, events, class constructor props, functional hooks, routing"
 
 +++

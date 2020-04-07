@@ -5,8 +5,8 @@ name = "LoveYouFyi"
 light = false
 
 # Primary
-base = "#d33a2c"
-primary = "#d33a2c"
+base = "#bc3428"
+primary = "#bc3428"
 
 # Text
 text = "#fff"
@@ -23,5 +23,5 @@ menu_title = "#2b2b2b"
 # Home sections
 home_section_odd = "#fff"
 home_section_even = "#fff"
-dark_home_section_odd = "#d33a2c"
-dark_home_section_even = "#d33a2c"
+dark_home_section_odd = "#bc3428"
+dark_home_section_even = "#bc3428"
