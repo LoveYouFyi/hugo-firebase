@@ -67,6 +67,16 @@ border_bottom = false
   Php and Drupal
 </div>
 <br>
+
+<h3>
+  <span class="highlight primary3">Hewlett-Packard</span>
+  <span class="highlight primary3">Chevron</span>
+  <span class="highlight primary3">Blue Cross Blue Shield Florida</span>
+  <span class="highlight primary3">Harris</span>
+  <span class="highlight primary3">Bayer</span>
+</h3>
+<br>
+
 <!-- <p class="hero-text">(static sites love this app)</p> -->
 
 <!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
