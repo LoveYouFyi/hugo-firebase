@@ -43,7 +43,7 @@ $fontSize-6: .8825rem; // 14px if base 16
 }
 
 // Colors
-$base: #fff;
+//$sta-base: #fff;
 //$sta-primary: #d33a2c; // <-- smashing // rachael #b30000
 $primary2: lighten($sta-primary, 5%);
 $primary3: lighten($sta-primary, 45%);
@@ -76,7 +76,7 @@ div,span,li,
 html,
 body {
   color: $text;
-  background-color: $base;
+  background-color: $sta-base;
   text-align: left;
   font-style: normal;
   font-variant-ligatures: normal;
@@ -188,7 +188,7 @@ a {
 
   .docs-toggle {
     color: $text;
-    background: $base !important;
+    background: $sta-base !important;
     &.btn {
       background: $text3;
     }
@@ -238,9 +238,9 @@ a {
 }
 // Mobile menu
 #navbar-main .main-menu-item ul li .nav-link {
-  color: $base;
+  color: $sta-base;
   &.active {
-    color: $base !important;
+    color: $sta-base !important;
   }
   &:hover {
     color: $text2;
@@ -416,7 +416,7 @@ body {
 //
 .docs-sidebar {
   flex-shrink: 0;
-  background: $base;
+  background: $sta-base;
   border-bottom: 0;
   border-right: 0 !important;
   -webkit-box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
@@ -598,7 +598,7 @@ body {
   padding: 0;
   margin: 40px 0 45px 0;
   &:nth-of-type(even) {
-    background-color: $base;
+    background-color: $sta-base;
   }
 }
 
