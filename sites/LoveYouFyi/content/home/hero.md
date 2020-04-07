@@ -54,7 +54,10 @@ border_bottom = false
 [cta_note]
   #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
 +++
-<h1><strong>Nils 'Erik' Hendrick</strong></h1>
+<!-- <h1><strong>Nils 'Erik' Hendrick</strong></h1> -->
+<div style="max-width: 350px; margin:2rem auto;">
+  <img src="/img/nils-erik-hendrick-name-white.svg" />
+</div>
 
 <div class="hero-title-2">Full Stack Developer <span class="highlight p3">JavaScript</span> <span class="highlight p3">Nodejs</span> <span class="highlight p3">React</span> Php and Drupal</div>
 <br>
