@@ -58,7 +58,7 @@ border_bottom = false
   Contact Erik
 </div>
 <h3>
-  <span class="highlight primary3">Email</span>
+  <span class="highlight primary3">erik@loveyou.fyi</span>
   <span class="highlight primary3">LinkedIn</span>
   <span class="highlight primary3 nobreak">Twitter</span>
   <span class="highlight primary3">GitHub</span>

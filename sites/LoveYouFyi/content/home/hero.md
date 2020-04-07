@@ -81,10 +81,14 @@ border_bottom = false
 <!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
 <div class="hero-title-2">
   Creator and Maintainer<br>
-  <a href="https://loveyouforms.com" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
 </div>
+<h3>
+  <a href="https://loveyouforms.com" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
+</h3>
+<!--
 <br>
 <div class="hero-title-2" style="margin:1rem 0 -1rem 0;">Select JavaScript Skills</div>
+-->
 
 <!--
 <ul class="network-icon" aria-hidden="true">
