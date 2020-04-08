@@ -25,20 +25,21 @@ font = "bones"
 font_size = "L"
 
 ############################
-## JavaScript
+## JavaScript layouts/partials/site_js.html
 ############################
+parentjs_enabled = false
 jquery_enabled = false
 imagesloaded_enabled = false
 isotope_enabled = false
 
 ############################
-## CSS
+## CSS layouts/partials/site_head.html
 ############################
 academicons_enabled = false
 fontawesome_enabled = true
 
 ############################
-## CSS + JS Pairs
+## CSS + JS Pairs -see above for template file paths
 ############################
 fancybox_enabled = false
 

@@ -152,8 +152,10 @@
     {{ range site.Params.plugins_js }}
       {{ $js_bundle = $js_bundle | append (resources.Get (printf "js/%s.js" .)) }}
     {{ end }}
-    {{ $js_bundle := $js_bundle | resources.Concat "js/academic-bundle-pre.js" | minify }}
-    {{ $js_bundle := slice $js_bundle_head $js_bundle | resources.Concat "js/academic.min.js" | fingerprint "md5" }}
-    <script src="{{ $js_bundle.RelPermalink }}"></script>
+    {{ if eq site.Params.parentjs_enabled true }}
+      {{ $js_bundle := $js_bundle | resources.Concat "js/academic-bundle-pre.js" | minify }}
+      {{ $js_bundle := slice $js_bundle_head $js_bundle | resources.Concat "js/academic.min.js" | fingerprint "md5" }}
+      <script src="{{ $js_bundle.RelPermalink }}"></script>
+    {{ end }}
 
     {{ partial "custom_js" . }}
