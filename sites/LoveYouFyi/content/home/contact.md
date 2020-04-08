@@ -65,7 +65,7 @@ border_bottom = false
   <span class="highlight primary3">GitHub</span>
 </h4>
 -->
-<div class="icons-grow" style="margin-top:2.5rem;">
+<div class="icons-grow">
   <div>
   <h4>
     <a title="Email Erik Hendrick" href="mailto:erik@loveyou.fyi" role="link" target="_blank" 
