@@ -18,7 +18,7 @@ day_night = false
 #   Latest font sets (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in font sets in `themes/academic/data/fonts/`
 #   Browse user installed font sets in `data/fonts/`
-font = "bones"
+font = "none"
 
 # Choose a font size.
 # Sizes: XS (extra small), S (small), M (medium), L (large - DEFAULT), XL (extra large)
@@ -169,7 +169,8 @@ address_format = "en-us"
 ############################
 
 # Main menu alignment (l = left, c = center, r = right) and logo options.
-main_menu = {align = "l", show_logo = true}
+#main_menu = {align = "l", show_logo = true}
+main_menu = { align = "l", show_logo = true, align_logo = "l", no_menu_links = false, menu_sticky = true }
 
 # Show estimated reading time for posts? (true/false)
 reading_time = false

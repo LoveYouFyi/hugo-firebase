@@ -8,11 +8,28 @@
   {{ $logo = (partial "functions/get_logo" (dict "constraint" "max_height" "size" 70)) }}
 {{ end }}
 
-<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+{{/* Nav No Menu Links */}}
+{{ $no_menu_links := site.Params.main_menu.no_menu_links | default false }}
+{{ $class_no_menu_links := "" }}
+{{ if $no_menu_links }}
+  {{ $class_no_menu_links = "no-menu-links" }}
+{{ end }}
+{{ $class_menu_sticky := site.Params.main_menu.menu_sticky | default true }}
+{{ if $class_menu_sticky }}
+  {{ $class_menu_sticky = "sticky-true" }}
+  {{ else }}
+  {{ $class_menu_sticky = "sticky-false" }}
+{{ end }}
+
+{{/* Nav No Menu Links */}}
+{{ $align_menu := site.Params.main_menu.align | default "l" }}
+{{ $align_logo := site.Params.main_menu.align_logo | default "l" }}
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar {{$class_no_menu_links}} {{$class_menu_sticky}}" id="navbar-main">
   <div class="container">
 
     {{if $show_logo}}
-    <div class="d-none d-lg-inline-flex">
+    <div class="d-none d-lg-inline-flex {{ if eq $align_logo "c" }}justify-content-center{{ else if eq $align_logo "r" }}justify-content-end{{else}}justify-content-start{{ end }}">
       <a class="navbar-brand" href="{{ "/" | relLangURL }}">
         {{- if $has_logo -}}
           <img src="{{ $logo.RelPermalink }}" alt="{{ site.Title }}">
@@ -43,9 +60,7 @@
     {{end}}
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    {{ $align_menu := site.Params.main_menu.align | default "l" }}
     <div class="navbar-collapse main-menu-item collapse {{ if eq $align_menu "c" }}justify-content-center{{ else if eq $align_menu "r" }}justify-content-end{{else}}justify-content-start{{ end }}" id="navbar-content">
-
       <!-- Left Nav Bar -->
       <ul class="navbar-nav d-md-inline-flex">
         {{ range site.Menus.main }}
