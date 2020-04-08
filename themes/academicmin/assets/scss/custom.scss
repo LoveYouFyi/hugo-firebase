@@ -708,10 +708,14 @@ body {
 }
 .featurette {
   font-size: $fontSize-base;
-  color: $sta-text;
-  h1,h2,h3,h4,h5,h6,div,span {
+  h1,h2,h3,h4,h5,h6,p,div,span {
     color: $sta-text;
+  }
+  h1,h2,h3 {
     margin-bottom: 1.25rem;
+  }
+  h4,h5,h6 {
+    margin-bottom: 1rem;
   }
 }
 
