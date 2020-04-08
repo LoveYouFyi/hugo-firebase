@@ -57,16 +57,46 @@ border_bottom = false
 <div class="hero-title-2">
   Contact Erik
 </div>
+<!--
 <h3>
-  <span class="highlight primary3">erik@loveyou.fyi</span>
+  <a href="mailto:erik@loveyou.fyi" ><span class="highlight primary3">erik@loveyou.fyi</span></a>
   <span class="highlight primary3">LinkedIn</span>
   <span class="highlight primary3 nobreak">Twitter</span>
   <span class="highlight primary3">GitHub</span>
 </h3>
+-->
+<div style="display:flex; align-items:center; justify-content: center; margin-top:1rem;">
+  <div>
+  <h3>
+    <a title="Email Erik Hendrick" href="mailto:erik@loveyou.fyi" role="link" target="_blank" 
+      style="display:flex; align-items:center;text-decoration:none;">
+      <i class="fas fa-envelope" style="padding: 0 1rem; font-size:2.5rem;"></i>
+      <span class="highlight primary3">erik@loveyou.fyi</span>
+    </a>
+  </h3>
 
+  <h3>
+    <a href="https://linkedin.com/in/erikhendrick" target="_blank" rel="noopener"
+      style="display:flex; align-items:center;text-decoration:none;">
+      <i class="fab fa-linkedin" style="padding: 0 1rem; font-size:2.5rem;"></i>
+      <span class="highlight primary3">LinkedIn</span>
+    </a>
+  </h3>
+
+  <h3>
+    <a href="https://twitter.com/loveyoufyi" target="_blank" rel="noopener"
+      style="display:flex; align-items:center;text-decoration:none;">
+      <i class="fab fa-twitter" style="padding: 0 1rem; font-size:2.5rem;"></i>
+      <span class="highlight primary3">Twitter</span>
+    </a>
+  </h3>
+  </div>
+</div>
+<!--
 <ul class="network-icon" aria-hidden="true">
-  <li><a href="mailto:erik@loveyou.fyi" role="link" target="_blank"><i class="fas fa-envelope big-icon"></i></a></li>
+  <li><a title="Email Erik Hendrick" href="mailto:erik@loveyou.fyi" role="link" target="_blank"><i class="fas fa-envelope big-icon"></i></a></li>
   <li><a href="https://linkedin.com/in/erikhendrick" target="_blank" rel="noopener"><i class="fab fa-linkedin big-icon"></i></a></li>
   <li><a href="https://twitter.com/loveyoufyi" target="_blank" rel="noopener"><i class="fab fa-twitter big-icon"></i></a></li>
   <li><a href="https://github.com/LoveYoufyi" target="_blank" rel="noopener"><i class="fab fa-github big-icon"></i></a></li>
 </ul>
+-->
