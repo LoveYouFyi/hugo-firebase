@@ -25,13 +25,13 @@ border_bottom = true
 [[feature]]
   # icon = "chart-line"
   # icon_pack = "fas"
-  name = "Google Sheets"
+  name = "Google Sheets Sync"
   description = "Google API sends new form submissions to google sheets"  
   
 [[feature]]
   # icon = "camera-retro"
   # icon_pack = "fas"
-  name = "SMTP Email Provider"
-  description = "Use sendgrid or others"
+  name = "Email Notifications"
+  description = "Using your favorite SMTP Email Provider such as sendgrid"
 
 +++
