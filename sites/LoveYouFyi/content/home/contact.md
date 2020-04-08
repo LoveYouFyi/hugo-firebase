@@ -58,38 +58,38 @@ border_bottom = false
   Contact Erik
 </div>
 <!--
-<h3>
+<h4>
   <a href="mailto:erik@loveyou.fyi" ><span class="highlight primary3">erik@loveyou.fyi</span></a>
   <span class="highlight primary3">LinkedIn</span>
   <span class="highlight primary3 nobreak">Twitter</span>
   <span class="highlight primary3">GitHub</span>
-</h3>
+</h4>
 -->
-<div style="display:flex; align-items:center; justify-content: center; margin-top:1rem;">
+<div class="icons-grow" style="margin-top:2.5rem;">
   <div>
-  <h3>
+  <h4>
     <a title="Email Erik Hendrick" href="mailto:erik@loveyou.fyi" role="link" target="_blank" 
       style="display:flex; align-items:center;text-decoration:none;">
-      <i class="fas fa-envelope" style="padding: 0 1rem; font-size:2.5rem;"></i>
-      <span class="highlight primary3">erik@loveyou.fyi</span>
+      <i class="fas fa-envelope"></i>
+      <span class="">erik@loveyou.fyi</span>
     </a>
-  </h3>
+  </h4>
 
-  <h3>
+  <h4>
     <a href="https://linkedin.com/in/erikhendrick" target="_blank" rel="noopener"
       style="display:flex; align-items:center;text-decoration:none;">
-      <i class="fab fa-linkedin" style="padding: 0 1rem; font-size:2.5rem;"></i>
-      <span class="highlight primary3">LinkedIn</span>
+      <i class="fab fa-linkedin"></i>
+      <span class="">LinkedIn</span>
     </a>
-  </h3>
+  </h4>
 
-  <h3>
+  <h4>
     <a href="https://twitter.com/loveyoufyi" target="_blank" rel="noopener"
       style="display:flex; align-items:center;text-decoration:none;">
-      <i class="fab fa-twitter" style="padding: 0 1rem; font-size:2.5rem;"></i>
-      <span class="highlight primary3">Twitter</span>
+      <i class="fab fa-twitter"></i>
+      <span class="">Twitter</span>
     </a>
-  </h3>
+  </h4>
   </div>
 </div>
 <!--

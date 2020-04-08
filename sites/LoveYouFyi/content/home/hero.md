@@ -79,12 +79,15 @@ border_bottom = false
 <!-- <p class="hero-text">(static sites love this app)</p> -->
 
 <!-- <p class="hero-title-2"><strong><u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p> -->
-<div class="hero-title-2">
-  Creator and Maintainer<br>
-</div>
+<div class="hero-title-2">Creator and Maintainer</div>
+
 <h3>
-  <a href="https://loveyouforms.com" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
+  <a href="https://loveyouforms.com" target="_blank" rel="noopener" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
 </h3>
+<br>
+<a href="https://github.com/LoveYoufyi" target="_blank" rel="noopener"><i class="fab fa-github" style="font-size:2.5rem;"></i></a>
+
+
 <!--
 <br>
 <div class="hero-title-2" style="margin:1rem 0 -1rem 0;">Select JavaScript Skills</div>

@@ -745,6 +745,34 @@ code, pre, .hljs {
   color: $sta-primary;  // firebase #d81b60;
 }
 
+//
+// Icons Center-then-Inline
+//
+.icons-grow {
+  display: inline-flex;
+  i {
+    font-size:2.5rem;
+    width: 70px;
+  }
+  @media (min-width: 992px) {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    div {
+      display:inline-flex;
+    }
+    h4 {
+      margin: 0 .5rem;
+    }
+    .highlight {
+      line-height: 2.0rem;
+    }
+    i {
+      font-size:2.5rem;
+      width: 60px;
+    }
+  }
+}
 
 //
 // Disable Transition, Transform, Animation
