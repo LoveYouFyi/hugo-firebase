@@ -5,7 +5,7 @@
 # Each configuration section is defined by a name in square brackets (e.g. `[outputs]`).
 
 # Title of your site
-title = "Love You Forms"
+title = "Love You Forms | JavaScript cloud app to manage form submissions for one site or 1,000"
 
 # Robots.txt generate?
 enableRobotsTXT = true
