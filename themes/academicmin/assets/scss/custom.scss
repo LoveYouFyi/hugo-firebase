@@ -786,6 +786,14 @@ code, pre, .hljs {
 }
 
 //
+// Copyright + Powered by
+//
+.powered-by {
+  @include sizeHeight-5;
+}
+
+
+//
 // Disable Transition, Transform, Animation
 // https://onezeronull.com/2016/10/06/disable-css-transitions-and-animations-temporarily-or-permanently/#permanent-solution
 //
