@@ -9,7 +9,7 @@ weight = 10  # Order that this section will appear.
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
 hero_media = "nils-erik-hendrick-photo.png"
-hero_media_width = "225px"
+hero_media_width = "280px"
 
 border_bottom = false
 
@@ -70,7 +70,7 @@ border_bottom = false
 <h3>
   <span class="highlight primary3">Hewlett-Packard</span>
   <span class="highlight primary3">Chevron</span>
-  <span class="highlight primary3 nobreak">Blue Cross Blue Shield Florida</span>
+  <span class="highlight primary3 nobreak">Blue Cross Blue Shield</span>
   <span class="highlight primary3">Harris</span>
   <span class="highlight primary3">Bayer</span>
 </h3>
