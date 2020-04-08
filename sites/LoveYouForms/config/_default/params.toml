@@ -25,6 +25,30 @@ font = "bones"
 font_size = "L"
 
 ############################
+## JavaScript layouts/partials/site_js.html (loaded at bottom of site baseof.html)
+############################
+parentjs_enabled = true
+jquery_enabled = true
+imagesloaded_enabled = true
+isotope_enabled = true
+
+############################
+## Async JavaScript layouts/partials/site_head.html (load at top of site)
+############################
+lazysizes_enabled = true # see 'Load async scripts' 
+
+############################
+## CSS layouts/partials/site_head.html
+############################
+#academicons_enabled = true
+fontawesome_enabled = true
+
+############################
+## CSS + JS Pairs -see above for template file paths
+############################
+fancybox_enabled = true
+
+############################
 ## Basic Info
 ############################
 

@@ -1,18 +1,27 @@
 # Theme metadata
-#name = "Minimal"
+name = "minimal"
 
-## Is theme light or dark?
-#light = true
+# Is theme light or dark?
+light = true
 
-## Primary
+# Primary
+base = "#fff"
 primary = "#d33a2c"
 
-## Menu
-#menu_primary = "#fff"
-#menu_text = "#34495e"
-#menu_text_active = "#2962ff"
-#menu_title = "#2b2b2b"
+# Text
+text = "#202124"
+text1 = "37474f"
+text2 = "rgba(0, 0, 0, 0.65)"
+text3 = "#f5f5f5"
 
-## Home sections
-#home_section_odd = "rgb(255, 255, 255)"
-#home_section_even = "rgb(247, 247, 247)"
+# Menu
+menu_primary = "#fff"
+menu_text = "yellow"
+menu_text_active = "#2962ff"
+menu_title = "#2b2b2b"
+
+# Home sections
+home_section_odd = "#fff"
+home_section_even = "#fff"
+dark_home_section_odd = "#fff"
+dark_home_section_even = "#fff"
