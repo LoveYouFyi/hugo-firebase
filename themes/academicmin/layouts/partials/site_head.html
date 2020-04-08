@@ -113,6 +113,11 @@
         {{ $load = false }}
       {{end}}
 
+      {{/* Only load Lazysizes if required. */}}
+      {{ if (eq $k "lazysizes") | and (not (site.Params.lazysizes_enabled)) }}
+        {{ $load = false }}
+      {{end}}
+
       {{ if $load }}
         {{ printf "<script src=\"%s\" integrity=\"%s\" crossorigin=\"anonymous\" async></script>" (printf $v.url $v.version) $v.sri | safeHTML }}
       {{end}}
