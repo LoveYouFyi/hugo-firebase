@@ -668,6 +668,9 @@ body {
   .hero-title-2 {
     @include sizeHeight-3;
   }
+  .hero-title-3 {
+    @include sizeHeight-3;
+  }
   .hero-text {
     @include sizeHeight-5;
   }

@@ -66,7 +66,6 @@ border_bottom = false
   <span class="highlight primary3">React</span>
   Php and Drupal
 </div>
-
 <h3>
   <span class="highlight primary3">Hewlett-Packard</span>
   <span class="highlight primary3">Chevron</span>
