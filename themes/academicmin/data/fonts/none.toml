@@ -1,0 +1,11 @@
+# Font style metadata
+name = "none"
+
+# Optional Google font URL - for no fonts set empty string
+google_fonts = ""
+
+# Font families
+#heading_font = "Merriweather"
+#body_font = "Merriweather"
+#nav_font = "Lato"
+#mono_font = "Roboto Mono"
