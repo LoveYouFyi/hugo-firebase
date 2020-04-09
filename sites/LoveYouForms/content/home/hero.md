@@ -50,7 +50,7 @@ border_bottom = false
 
 # Note. An optional note to show underneath the cta links.
 [cta_note]
-  label = '<br><div style="height: 3rem;"></div>'
+  label = '<div style="height:50px;"></div>'
 +++
 
 <div class="hero-title-1">A JavaScript cloud app to handle form submissions for one site or 1,000</div>
