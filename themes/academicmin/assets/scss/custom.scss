@@ -45,15 +45,15 @@ $fontSize-6: .8825rem; // 14px if base 16
 // Colors
 //$sta-base: #fff;
 //$sta-primary: #d33a2c; // <-- smashing // rachael #b30000
-$primary2: lighten($sta-primary, 5%);
-$primary3: lighten($sta-primary, 50%);
+$primary1: lighten($sta-primary, 5%);
+$primary2: lighten($sta-primary, 50%);
 $secondary: #3b78e7;
 //$sta-text: #202124; // dark
 //$sta-text1: #37474f; // darker
 //$sta-text2: rgba(0, 0, 0, 0.65); // light
 //$sta-text3: #f5f5f5; // lighter
 $gray: #ececec;
-$gray2: #f1f3f4; // light
+$gray1: #f1f3f4; // light
 
 //
 // Font Family
@@ -158,11 +158,11 @@ a {
   font-weight: 700;
   &.primary2 {
     color: $sta-text;
-    background: $primary2;
+    background: $primary1;
   }
   &.primary3 {
     color: $sta-text;
-    background: $primary3;
+    background: $primary2;
   }
 
 }
@@ -170,18 +170,18 @@ a {
   .highlight {
     &.primary2 {
       color: $sta-text;
-      background: $primary2;
+      background: $primary1;
     }
     &.primary3 {
       color: $sta-text1;
-      background: $primary3;
+      background: $primary2;
     }
   }
   a.highlight {
     // text-decoration: none !important;
     &:hover {
       color: $sta-text1;
-      background: $primary3;
+      background: $primary2;
       text-decoration: none !important;
     }
   }
@@ -396,13 +396,14 @@ body {
   border-radius: 0;
   background: $sta-primary;
   transition: none;
+  &:hover {
+    color: $sta-text;
+    background: $gray;
+  }
 }
 .btn-xlarge {
   padding: 1.7rem 1.3rem;
   font-size: $fontSize-4;
-  &:hover {
-    background: $primary2;
-  }
 }
 
 //
@@ -475,7 +476,7 @@ body {
   &.active a {
     color: $sta-primary;
     &:hover {
-      @include nav-hover($primary3);
+      @include nav-hover($primary2);
     }
   }
 }
@@ -492,22 +493,22 @@ body {
   padding: 4px 16px;
   &:hover {
     color: $sta-text2;
-    @include nav-hover($gray2);
+    @include nav-hover($gray1);
   }
 }
 // Nav Links: Hover
 .docs-sidebar .nav > .active:hover > a {
   font-weight: 500;
   color: $sta-primary;
-  @include nav-hover($gray2);
+  @include nav-hover($gray1);
 }
 // Nav Links: Hover
 .docs-sidebar .nav > .active > a {
   font-weight: 500;
   color: $sta-primary;
-  @include nav-hover($primary3);
+  @include nav-hover($primary2);
   &:hover {
-    @include nav-hover($primary3);
+    @include nav-hover($primary2);
   }
 }
 // secondary links
@@ -520,7 +521,7 @@ body {
     color: $sta-text !important;
     text-decoration: none;
     background-color: transparent;
-    @include nav-hover($gray2);
+    @include nav-hover($gray1);
   }
 }
 .docs-sidebar .nav > li.active > a {
@@ -643,7 +644,6 @@ body {
 }
 
 .wg-border-bottom {
-  padding-top: 50px;
   border-bottom: 1px solid $gray !important;
 }
 

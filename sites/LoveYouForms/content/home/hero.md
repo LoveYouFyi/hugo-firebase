@@ -44,16 +44,16 @@ border_bottom = false
   #icon_pack = "fas"
   #icon = "download"
   
-#[cta_alt#]
+#[cta_alt]
   #url = "https://sourcethemes.com/academic/"
   #label = "View Documentation"
 
-# Note. An optional note to show underneath the links.
+# Note. An optional note to show underneath the cta links.
 [cta_note]
-  #label = '<a class="js-github-release" href="https://sourcethemes.com/academic/updates" data-repo="gcushen/hugo-academic">Latest release<!-- V --></a>'
+  label = '<br><div style="height: 3rem;"></div>'
 +++
 
-<div class="hero-title-1">A JavaScript cloud app to manage form submissions for one site or 1,000</div>
+<div class="hero-title-1">A JavaScript cloud app to handle form submissions for one site or 1,000</div>
 
 <p class="hero-text">(static sites love this app)</p>
 
