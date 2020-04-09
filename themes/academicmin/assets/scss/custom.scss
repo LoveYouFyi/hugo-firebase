@@ -112,6 +112,7 @@ pre, code {
   font-weight: 500;
 }
 pre {
+  font-size: unset; // IE11 fixes string 'first line of string' indented beyond remainder
   border-radius: 10px;
   padding: 1rem 2rem; // moved from 'code' tag to 'pre' since prior broke in ie11
   margin: 2rem 0;
