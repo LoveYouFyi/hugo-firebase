@@ -8,8 +8,8 @@ weight = 10  # Order that this section will appear.
 # title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "logo-text-red.svg"
-border_bottom = true
+hero_media = "logo-text-white.svg"
+border_bottom = false
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -18,7 +18,7 @@ border_bottom = true
   #   Any HTML color name or Hex value is valid.
 
   # Background color -- Forces this color for both light and dark theme
-  # color = "#282c34"
+  color = "#d33a2c"
   # color = "#fff"
 
   # Background gradient.
@@ -33,7 +33,7 @@ border_bottom = true
   # image_parallax = true  # Use a fun parallax-like fixed background effect? true/false
   
   # Text color (true=light or false=dark).
-  text_color_light = false
+  text_color_light = true
 
 # Call to action links (optional).
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
@@ -57,7 +57,7 @@ border_bottom = true
 
 <p class="hero-text">(static sites love this app)</p>
 
-<p class="hero-title-2"><strong><u>Firebase</u> + <u>Google Sheets Sync</u> + <u>Email Notifications</u></strong></p>
+<p class="hero-title-2"><u>Firebase</u> + <u>Google Sheets Sync</u> + <u>Email Notifications</u></p>
 <!--
 <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
 -->
