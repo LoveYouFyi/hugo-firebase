@@ -20,18 +20,18 @@ border_bottom = true
   # icon = "r-project"
   # icon_pack = "fab"
   name = "Firebase"
-  description = "Database + Cloud Functions"
+  description = "Database/Firestore receives form submissions which are handled by cloud functions"
   
 [[feature]]
   # icon = "chart-line"
   # icon_pack = "fas"
   name = "Google Sheets Sync"
-  description = "Google API sends new form submissions to google sheets"  
+  description = "Firebase cloud functions listens for new database entries and sends them to google sheets. Use Google Sheets to view form submissions. One sheet per app, with a new spreadsheet &#40;tab&#41; for each form type."
   
 [[feature]]
   # icon = "camera-retro"
   # icon_pack = "fas"
   name = "Email Notifications"
-  description = "Using your favorite SMTP Email Provider such as sendgrid"
+  description = "Firebase uses SMTP Email Provider API such as sendgrid to send you emails with form contents"
 
 +++
