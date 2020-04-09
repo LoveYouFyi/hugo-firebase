@@ -5,7 +5,7 @@
 
 widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
+active = false  # Activate this widget? true/false
 weight = 11  # Order that this section will appear.
 
 title = "Because it Makes it Easy for You"
@@ -52,6 +52,7 @@ border_bottom = true
  css_class = "h1-center"
 +++
 <br>
+
 Welcome to the **personal demo** of Academic. Other demos available include:
 
 **Over 100,000 [Amazing Websites](https://sourcethemes.com/academic/#expo) have Already Been Built with Academic**
