@@ -483,6 +483,11 @@ body {
     height: calc(100vh - 60px); // calc will not take var $navbarHeight
     // Navbar height adjustment requires docs-sidebar top adjustment
     top: $navbarHeight;
+    // Media Query for IE10+ only... IE10 + IE11
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      top: 0; // otherwise sidebar has top 60px gap
+      height: auto; // otherwise sidebar does not extent to screen bottom
+    }
   }
 }
 
