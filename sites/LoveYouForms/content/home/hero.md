@@ -54,7 +54,7 @@ border_bottom = false
   label = '<div style="height:50px;"></div>'
 +++
 
-<div class="hero-title-1">A JavaScript cloud app to handle form submissions for one site or 1,000</div>
+<div class="hero-title-1">A JavaScript cloud app to handle form submissions for one website or 1,000</div>
 
 <p class="hero-text">(static sites love this app)</p>
 
