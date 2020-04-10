@@ -5,10 +5,10 @@
 
 widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false  # Activate this widget? true/false
+active = true  # Activate this widget? true/false
 weight = 11  # Order that this section will appear.
 
-title = "Because it Makes it Easy for You"
+title = "Ultimate Control for $0.00/month"
 subtitle = ""
 align_left = true
 border_bottom = true
@@ -51,8 +51,8 @@ border_bottom = true
  # CSS class.
  css_class = "h1-center"
 +++
-<br>
+<div style="text-align: center;">
 
-Welcome to the **personal demo** of Academic. Other demos available include:
+<h2>Pay only for <u>usage beyond the generous free tiers</u> of the integrated service providers.</h2>
 
-**Over 100,000 [Amazing Websites](https://sourcethemes.com/academic/#expo) have Already Been Built with Academic**
+</div>

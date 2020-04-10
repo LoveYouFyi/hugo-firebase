@@ -20,7 +20,7 @@ border_bottom = true
   # icon = "r-project"
   # icon_pack = "fab"
   name = "Firebase"
-  description = "Database/Firestore receives form submissions which are handled by cloud functions"
+  description = "Database/Firestore receives form submissions which are handled by cloud functions."
   
 [[feature]]
   # icon = "chart-line"
@@ -32,6 +32,6 @@ border_bottom = true
   # icon = "camera-retro"
   # icon_pack = "fas"
   name = "Email Notifications"
-  description = "Firebase uses SMTP Email Provider API such as sendgrid to send you emails with form contents"
+  description = "Firebase uses SMTP Email Provider API such as sendgrid to send you emails with form contents."
 
 +++
