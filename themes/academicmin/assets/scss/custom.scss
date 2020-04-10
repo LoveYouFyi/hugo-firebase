@@ -206,6 +206,10 @@ a {
   }
   .nav-icons {
     float:right; // iphone 6
+    // Media Query for IE10+ only... IE10 + IE11
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      display: none !important; // because search js not working in ie11
+    }
   }
 }
 .dark .navbar {
