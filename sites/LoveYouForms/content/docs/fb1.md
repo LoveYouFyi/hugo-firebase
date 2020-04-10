@@ -8,10 +8,10 @@ draft: false
 menu:
   docs:
     parent: Firebase
-    weight: 1
+    weight: 30
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 1
+weight: 30
 ---
 
 In this tutorial, I'll share my top 10 tips for getting started with Academic:
