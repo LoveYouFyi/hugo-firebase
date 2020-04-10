@@ -152,6 +152,16 @@ a {
 }
 
 //
+// Media
+//
+// Media Query for IE10+ only... IE10 + IE11
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  img {
+    width: 100% !important; // otherwise images distorted
+  }
+}
+
+//
 // Text Highlights and Emphasis
 //
 .highlight {
