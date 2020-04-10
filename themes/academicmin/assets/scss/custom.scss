@@ -262,7 +262,6 @@ a {
     max-width: 100%;
     height: 26px;
   }
-
   //
   // 'docs' Table of contents for 'docs' content type
   //
@@ -271,6 +270,13 @@ a {
   }
 
 } // End 'Mobile Only'
+
+@media (min-width: 991.98px) {
+  // ie11 -otherwise svg does not show
+  .navbar-brand img {
+    width: 282px !important;
+  }
+}
 
 // Container
 .navbar .container {
