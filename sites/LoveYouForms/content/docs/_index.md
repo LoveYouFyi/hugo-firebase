@@ -5,7 +5,7 @@ summary: Learn how to use Academic's docs layout for publishing online courses, 
 #weight: 1
 
 # Page metadata.
-title: Overview
+title: This is how you do it
 date: "2018-09-09T00:00:00Z"
 lastmod: "2019-09-09T00:00:00Z"
 draft: false  # Is this a draft? true/false
@@ -15,10 +15,9 @@ type: docs  # Do not modify.
 # Add menu entry to sidebar.
 # - name: Declare this menu item as a parent with ID `name`.
 # - weight: Position of link in menu.
-menu:
-  docs:
-    name: Overview
-    weight: 13
+#menu:
+  #docs:
+    #weight: 13
 ---
 
 ## Flexibility
