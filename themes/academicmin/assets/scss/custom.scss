@@ -125,6 +125,7 @@ code {
     font-weight: 400 !important;
   }
 }
+
 span.nobreak {
   white-space: nowrap;
 }
@@ -635,9 +636,14 @@ body {
       margin-left: -2rem;
       margin-right: -2rem;
       border-radius: 0px;
+      // Media Query for IE10+ only... IE10 + IE11
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        margin-right: -90px;
+      }
     }
   }
 }
+
 
 //
 // Font Awesome
