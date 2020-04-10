@@ -413,10 +413,13 @@ body {
     width: 100%;
     a {
       margin: 0 auto;
+      // Media Query for IE10+ only... IE10 + IE11
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        margin: 0px; // otherwise image not centered, positioned far right
+      }
     }
   }
 }
-
 
 //
 // Button
