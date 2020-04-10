@@ -3,67 +3,34 @@
 #     desired widget in your `content/home/` folder.
 #   The weight parameter defines the order that the links will appear in.
 
-#[[main]]
-  #name = "Demo"
-  #url = "#hero"
-  #weight = 10
-
 [[main]]
   name = "Docs"
   url = "docs"
-  weight = 15
-
-#[[main]]
-  #name = "Blog"
-  #url = "blog"
-  #weight = 30
+  weight = 10
 
 [[main]]
   name = "GitHub &nbsp; <i class='fas fa-external-link-alt' style='font-size: 16px;'></i>"
   url = "https://github.com/LoveYouFyi/loveyouforms"
-  weight = 40
+  weight = 20
+
+# Docs sections and links
+# Main Sections here, then child pages match to main sections by matching the
+# 'identifier' below with the child page's 'parent' [menu.docs.parent] 
 
 [[docs]]
   name = "Overview"
   url = "/docs"
   weight = 1
 
-
 [[docs]]
   name = "Firebase"
-  weight = 3
+  weight = 10
   identifier = "firebase"
 
-#[[docs]]
-  #name = "one"
-  #url = "one"
-  #weight = 14
-
-
-#[[main]]
-  #name = "Posts"
-  #url = "#posts"
-  #weight = 20
-
-#[[main]]
-  #name = "Projects"
-  #url = "#projects"
-  #weight = 30
-
-#[[main]]
-  #name = "Publications"
-  #url = "#featured"
-  #weight = 40
-
-#[[main]]
-  #name = "Courses"
-  #url = "courses/"
-  #weight = 50
-
-#[[main]]
-  #name = "Contact"
-  #url = "#contact"
-  #weight = 60
+[[docs]]
+  name = "Forms"
+  weight = 20
+  identifier = "forms"
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.

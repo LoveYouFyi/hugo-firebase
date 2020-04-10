@@ -5,7 +5,7 @@ summary: Learn how to use Academic's docs layout for publishing online courses, 
 #weight: 1
 
 # Page metadata.
-title: This is how you do it
+title: Overview
 date: "2018-09-09T00:00:00Z"
 lastmod: "2019-09-09T00:00:00Z"
 draft: false  # Is this a draft? true/false
