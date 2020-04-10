@@ -23,15 +23,15 @@
   url = "https://github.com/LoveYouFyi/loveyouforms"
   weight = 40
 
-[[docs]]
-  name = "Overview"
-  url = "docs"
-  weight = 13
+#[[docs]]
+  #name = "Overview"
+  #url = "docs"
+  #weight = 13
 
-[[docs]]
-  name = "one"
-  url = "one"
-  weight = 14
+#[[docs]]
+  #name = "one"
+  #url = "one"
+  #weight = 14
 
 
 #[[main]]

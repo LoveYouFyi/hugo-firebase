@@ -516,6 +516,7 @@ body {
   border-bottom: 1px solid $gray;
   padding: .25rem 0;
   &.active {
+    margin-top: 0;
     margin-bottom: 0; // only works on the first docs-toc-item so disable for all
   }
   &.active a {

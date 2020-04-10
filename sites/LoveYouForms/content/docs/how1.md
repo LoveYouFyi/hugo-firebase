@@ -5,14 +5,12 @@ toc: true
 type: docs
 date: "2019-05-05T00:00:00+01:00"
 draft: false
-name: one
-#menu:
-  #docs:
-    #parent: How
-    #weight: 11
+menu:
+  docs:
+    weight: 14
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 160
+weight: 11
 ---
 
 In this tutorial, I'll share my top 10 tips for getting started with Academic:
