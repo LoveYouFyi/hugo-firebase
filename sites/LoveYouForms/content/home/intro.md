@@ -53,6 +53,6 @@ border_bottom = true
 +++
 <div style="text-align: center;">
 
-<h2>Pay only for <u>usage beyond the generous free tiers</u> of the integrated service providers.</h2>
+<h2>Pay only for <u>usage beyond the generous free tiers</u> of the integrated service providers</h2>
 
 </div>

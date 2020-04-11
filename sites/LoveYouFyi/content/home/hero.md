@@ -70,8 +70,8 @@ border_bottom = false
   <span class="highlight primary3">Hewlett-Packard</span>
   <span class="highlight primary3">Chevron</span>
   <span class="highlight primary3 nobreak">Blue Cross Blue Shield</span>
-  <span class="highlight primary3">Harris</span>
   <span class="highlight primary3">Bayer</span>
+  <span class="highlight primary3">and Agency</span>
 </h3>
 <br>
 
