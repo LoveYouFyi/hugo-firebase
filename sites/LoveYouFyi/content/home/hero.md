@@ -60,7 +60,7 @@ border_bottom = false
 </div>
 
 <div class="hero-title-2">
-  Full Stack Developer 
+  Software Developer 
   <span class="highlight primary3">JavaScript</span>
   <span class="highlight primary3">Nodejs</span>
   <span class="highlight primary3">React</span>
