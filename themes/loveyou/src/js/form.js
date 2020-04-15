@@ -110,19 +110,37 @@ const ajaxRequest = event => {
   // initiate request = onloadstart
   xhr.onloadstart = function() {
     message(form, 'block', 0, 'Processing...'); 
+//    console.error("message 1: ", message(form, 'block', 0, 'Processing...'));
+//    console.error("message 1: ", form, 'block', 0, 'Processing...');
   }
   // error sending request (not error returned with response)
   xhr.onerror = function () {
     message(form, 'block', 0, 'Error: Sorry, please try again or contact us by phone?'); 
+    console.error("message 2: ", message(form, 'block', 0, 'Error: Sorry, please try again or contact us by phone?'));
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function(event) {
+    ////////////////////////////////////////////////////////////////////////////     
+    const json = '{"result":true, "count":42}';
+    const obj = JSON.parse(json);
+    console.log(obj.count);
+    // expected output: 42
+    console.log(obj.result);
+    // expected output: true
+    ////////////////////////////////////////////////////////////////////////////     
     let res = event.target.response; // responseType set to json
+    console.log("res 1: ", res)
+    console.log("typeof res: ", typeof res)
+    res = JSON.parse(res);
+    console.log("resObj 2: ", res);
+    console.log("typeof resObj: ", typeof res);
+    console.log("JSON.stringify(resObj, null, 2): ", JSON.stringify(res, null, 2));
+
     // error handling
     // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
     if (res?.error?.message) { 
       message(form, 'block', res.error.message.timeout, res.error.message.text);
-      console.error(res.error.message.text);
+      console.error("message 3: ", message(form, 'block', res.error.message.timeout, res.error.message.text));
     }
     // if urlRedirect
     else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
@@ -131,7 +149,17 @@ const ajaxRequest = event => {
     } 
     // if no urlRedirect
     else {
-      formReset(form);
+//      formReset(form);
+//      console.error("formReset(form)", formReset(form));
+console.log("res 2: ", res)
+console.log("typeof res: ", typeof res)
+console.log("res.data $$$$$$$$$$$$$$$$$ ", res.data)
+console.log("typeof res.data $$$$$$$$$$$$$$$$$ ", typeof res.data)
+console.log("res.data.message $$$$$$$$$$$$$$$$$ ", res.data.message)
+console.log("res.data.message.timeout $$$$$$$$$$$$$$$$$ ", res.data.message.timeout)
+console.log("res.data.message.text $$$$$$$$$$$$$$$$$ ", res.data.message.text)
+
+console.log("form here!!!!!!!!!!!!!!!!! ", form, 'none', res.data.message.timeout, res.data.message.text)
       message(form, 'none', res.data.message.timeout, res.data.message.text);
     } 
   }
@@ -153,6 +181,6 @@ let forEachPolyfill = () => {
   }
 }
 
-document.onload = forEachPolyfill();
+document.onload = forEachPolyfill(); // call this first
 document.onload = listenFormSubmit(ajaxRequest);
 document.onload = radiosChecked();
