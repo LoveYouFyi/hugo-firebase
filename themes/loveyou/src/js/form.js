@@ -120,18 +120,12 @@ const ajaxRequest = event => {
   }
   // successful response = onload (any response from application including error)
   xhr.onload = function(event) {
-    ////////////////////////////////////////////////////////////////////////////     
-    const json = '{"result":true, "count":42}';
-    const obj = JSON.parse(json);
-    console.log(obj.count);
-    // expected output: 42
-    console.log(obj.result);
-    // expected output: true
-    ////////////////////////////////////////////////////////////////////////////     
     let res = event.target.response; // responseType set to json
-    console.log("res 1: ", res)
-    console.log("typeof res: ", typeof res)
-    res = JSON.parse(res);
+    console.log("res 1: ", res);
+    console.log("typeof res: ", typeof res);
+    if (typeof res === 'string') {
+      res = JSON.parse(res);
+    }
     console.log("resObj 2: ", res);
     console.log("typeof resObj: ", typeof res);
     console.log("JSON.stringify(resObj, null, 2): ", JSON.stringify(res, null, 2));
