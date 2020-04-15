@@ -14,14 +14,21 @@ const message = (form, action, delay, message) => {
   let parent = form.parentNode; // get form parent element
   let elements =  parent.querySelectorAll('[love-message="form-message"]'); // select child elements
   // set elements innerHTML
-  elements.forEach(e => {
-    e.innerHTML = message;
-  });
+//  elements.forEach(e => {
+    //e.innerHTML = message;
+    //console.log("e: ", e);
+  //});
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].innerHTML = message;
+  }
   // show/hide elements
   setTimeout(function(){
-    elements.forEach(e => {
-      e.style.display = action;
-    });
+//    elements.forEach(e => {
+      //e.style.display = action;
+    //});
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.display = action;
+    }
   }, delay); 
 }
 
