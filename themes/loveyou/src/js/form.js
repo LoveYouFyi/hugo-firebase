@@ -2,6 +2,7 @@
  * AJAX Form Submissions (Vanilla JS)
  */
 
+
 // Form listeners 'submit'
 const listenFormSubmit = ajaxRequest => {
   document.querySelectorAll('form').forEach(form => {
@@ -14,21 +15,14 @@ const message = (form, action, delay, message) => {
   let parent = form.parentNode; // get form parent element
   let elements =  parent.querySelectorAll('[love-message="form-message"]'); // select child elements
   // set elements innerHTML
-//  elements.forEach(e => {
-    //e.innerHTML = message;
-    //console.log("e: ", e);
-  //});
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].innerHTML = message;
-  }
+  elements.forEach(e => {
+    e.innerHTML = message;
+  });
   // show/hide elements
   setTimeout(function(){
-//    elements.forEach(e => {
-      //e.style.display = action;
-    //});
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].style.display = action;
-    }
+    elements.forEach(e => {
+      e.style.display = action;
+    });
   }, delay); 
 }
 
@@ -148,5 +142,17 @@ const ajaxRequest = event => {
   xhr.send(formData);
 }
 
+let forEachPolyfill = () => {
+  if (typeof window !== 'undefined' &&  window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        thisArg = thisArg || window;
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+  }
+}
+
+document.onload = forEachPolyfill();
 document.onload = listenFormSubmit(ajaxRequest);
 document.onload = radiosChecked();

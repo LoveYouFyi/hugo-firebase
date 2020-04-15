@@ -1,9 +1,9 @@
 {
   "bundle": {
-    "css": "bundle.css",
-    "js": "bundle.js"
+    "css": "bundle.bdd03da71fbbf6a967ac.css",
+    "js": "bundle.03cb77eee2b44689ae91.js"
   },
   "vendor": {
-    "js": "vendor.js"
+    "js": "vendor.b2cf8a5027c17312f9f1.js"
   }
 }
