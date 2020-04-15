@@ -335,7 +335,7 @@
   /* ---------------------------------------------------------------------------
   * Change Theme Mode (0: Day, 1: Night, 2: Auto).
   * --------------------------------------------------------------------------- */
-
+/*
   function canChangeTheme() {
     // If the theme changer component is present, then user is allowed to change the theme variation.
     return $('.js-theme-selector').length;
@@ -433,7 +433,7 @@
     }
     return isDarkTheme;
   }
-
+*/
   /**
    * Render theme variation (day or night).
    *
@@ -441,7 +441,8 @@
    * @param {boolean} init
    * @returns {undefined}
    */
-  function renderThemeVariation(isDarkTheme, init = false) {
+/* 
+   function renderThemeVariation(isDarkTheme, init = false) {
     // Is code highlighting enabled in site config?
     const codeHlEnabled = $('link[title=hl-light]').length > 0;
     const codeHlLight = $('link[title=hl-light]')[0];
@@ -519,7 +520,7 @@
     let isDarkTheme = getThemeVariation();
     renderThemeVariation(isDarkTheme, true);
   }
-
+*/
   /* ---------------------------------------------------------------------------
   * Normalize Bootstrap Carousel Slide Heights.
   * --------------------------------------------------------------------------- */
@@ -585,7 +586,7 @@
     if (code_highlighting) {
       hljs.initHighlighting();
     }
-
+/*
     // Initialize theme variation.
     initThemeVariation();
 
@@ -629,6 +630,7 @@
         renderThemeVariation(isDarkTheme);
       }
     });
+    */
   });
 
   /* ---------------------------------------------------------------------------
