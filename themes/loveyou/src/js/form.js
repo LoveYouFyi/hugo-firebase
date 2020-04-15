@@ -126,7 +126,7 @@ const ajaxRequest = event => {
     // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
     if (res?.error?.message) { 
       message(form, 'block', res.error.message.timeout, res.error.message.text);
-      console.error("message 3: ", message(form, 'block', res.error.message.timeout, res.error.message.text));
+      console.error(res.error.message.text);
     }
     // if urlRedirect
     else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
