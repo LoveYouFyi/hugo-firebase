@@ -10,6 +10,7 @@
   },
   "browsers": [
     "ie 11",
+    "edge 13",
     ">0.25%",
     "not ie 10",
     "not op_mini all"

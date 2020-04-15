@@ -1,5 +1,7 @@
 import './../css/bundle.scss';
 
+//import './form.js';
+
 import './form.js';
 
 // NOTE: TO use Jquery, just call the modules you want
