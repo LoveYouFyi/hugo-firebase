@@ -1,16 +1,20 @@
-const AssetsPlugin = require('assets-webpack-plugin'); // https://www.npmjs.com/package/assets-webpack-plugin
+// Academic theme did not use babel, so did not support older browsers
+// Important: Must edit filenames after compile so they match original file names
+// e.g. academic-search.js becomes academicSearch.js -> must manually edit
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // https://www.npmjs.com/package/clean-webpack-plugin
-const path = require('path'); // https://www.npmjs.com/package/path
 
 module.exports = {
   entry: {
-    academicSearch: './js/src/academic-search.js',
-    academic: './js/src/academic.js',
-    algoliaSearch: './js/src/algolia-search.js'
+    // hyphenated names need to be as 'string'
+     academic: './js/src/academic.js',
+    'academic-search': './js/src/academic-search.js',
+    'algolia-search': './js/src/algolia-search.js',
+    'mathjax-config': './js/src/mathjax-config.js'
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
+//  new CleanWebpackPlugin(), // disabled b/c was deleting child dir 'src' in /js/src
   ],
 
    module: {

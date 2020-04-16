@@ -8,7 +8,7 @@ module.exports = merge(common, {
 
   output: {
 		filename: '[name].js',
-    path: path.resolve(__dirname, './js'),
+    path: path.resolve(__dirname, './js/'),
   },
 
 });
