@@ -6,8 +6,6 @@ const path = require('path'); // https://www.npmjs.com/package/path
 module.exports = {
   entry: {
     bundle: './js/bundle.js',
-    academicSearch: './js/academic-search.js',
-    academic: './js/academic.js',
     vendor: './js/vendor.js'
   },
 
