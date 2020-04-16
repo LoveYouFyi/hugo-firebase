@@ -146,6 +146,8 @@ const ajaxRequest = event => {
   xhr.send(formData);
 }
 
+// ie11 and edge15 forEach broken, converts all forEach to for loop
+// babel does not convert forEach as it's es5 and babel converts all to es5
 let forEachPolyfill = () => {
   if (typeof window !== 'undefined' &&  window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = function (callback, thisArg) {
