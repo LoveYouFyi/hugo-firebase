@@ -58,7 +58,7 @@ border_bottom = false
 
 <p class="hero-text">(static sites love this app)</p>
 
-<div class="hero-title-1">Ultimate Control for $0.00/month</div>
+<div class="hero-title-1" style="font-weight: bold;">Ultimate Control for $0.00/month</div>
 <!--
 <span class="hero-text">Built with: <u>Firebase</u>, <u>Google Sheets</u>, and your <u>favorite SMTP email provider</u></span>
 -->
