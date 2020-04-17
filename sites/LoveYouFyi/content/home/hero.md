@@ -56,7 +56,7 @@ border_bottom = false
 +++
 <!-- <h1><strong>Nils 'Erik' Hendrick</strong></h1> -->
 <div style="max-width: 375px; margin:2rem auto;">
-  <img src="/img/nils-erik-hendrick-name-white.svg" />
+  <img src="/img/nils-erik-hendrick-name-slight-gray.svg" />
 </div>
 
 <div class="hero-title-2">
