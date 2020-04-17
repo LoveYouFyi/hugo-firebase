@@ -8,7 +8,7 @@ weight = 10  # Order that this section will appear.
 # title = "Love You Forms"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-hero_media = "logo-text-white.svg"
+hero_media = "logo-text-light-gray.svg"
 #hero_media_width = "400px" # inline sets max-width, and overrides all breakpoints
 border_bottom = false
 
@@ -19,7 +19,7 @@ border_bottom = false
   #   Any HTML color name or Hex value is valid.
 
   # Background color -- Forces this color for both light and dark theme
-  color = "#d33a2c"
+  color = "#26282a"
   # color = "#fff"
 
   # Background gradient.

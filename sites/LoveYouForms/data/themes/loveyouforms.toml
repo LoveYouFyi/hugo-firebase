@@ -6,7 +6,9 @@ light = true
 
 # Primary
 base = "#fff"
-primary = "#bc3428" # light red #d33a2c
+primary = "#26282a"
+#secondary = "#d33a2c" # light red
+secondary = "#bc3428" # dark red
 
 # Text
 text = "#202124"

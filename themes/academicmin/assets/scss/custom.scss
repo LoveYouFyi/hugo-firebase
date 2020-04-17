@@ -45,9 +45,10 @@ $fontSize-6: .8825rem; // 14px if base 16
 // Colors
 //$sta-base: #fff;
 //$sta-primary: #d33a2c; // <-- smashing // rachael #b30000
+//$sta-secondary: #d33a2c // 
 $primary1: lighten($sta-primary, 5%);
 $primary2: lighten($sta-primary, 50%);
-$secondary: #3b78e7;
+$compliment: #3b78e7;
 //$sta-text: #202124; // dark
 //$sta-text1: #37474f; // darker
 //$sta-text2: rgba(0, 0, 0, 0.65); // light
@@ -138,7 +139,7 @@ span.nobreak {
 //
 
 a {
-  color: $sta-primary;
+  color: $sta-secondary;
   text-decoration: none;
   transition: none !important;
   &:hover,
@@ -432,7 +433,7 @@ body {
   color: $sta-text3;
   border: none;
   border-radius: 0;
-  background: $sta-primary;
+  background: $sta-secondary;
   transition: none;
   &:hover {
     color: $sta-text;
@@ -790,7 +791,7 @@ code, pre, .hljs {
   background: #f1f3f4;
 }
 .hljs-keyword {
-  color: $secondary;
+  color: $compliment;
   font-weight: normal;
 }
 .hljs-title,
@@ -809,7 +810,7 @@ code, pre, .hljs {
 .hljs-attr {
   font-weight: normal;
   font-style: normal;
-  color: $sta-primary;  // firebase #d81b60;
+  color: $sta-secondary;  // firebase #d81b60;
 }
 
 //

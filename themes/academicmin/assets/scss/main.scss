@@ -16,6 +16,7 @@ $sta-font-mono: "{{ $scr.Get "mono_font" }}";
 
 $sta-base: {{ $scr.Get "base" }};
 $sta-primary: {{ $scr.Get "primary" }};
+$sta-secondary: {{ $scr.Get "secondary" }};
 $sta-primary-light: lighten($sta-primary, $sta-lighten-percentage);
 $sta-primary-dark: darken($sta-primary, $sta-darken-percentage);
 
