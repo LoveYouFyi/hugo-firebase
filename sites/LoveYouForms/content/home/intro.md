@@ -8,7 +8,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 11  # Order that this section will appear.
 
-title = "Ultimate Control for $0.00/month"
+#title = "Ultimate Control for $0.00/month"
 subtitle = ""
 align_left = true
 border_bottom = true
