@@ -30,6 +30,8 @@ This feature can be used for publishing content such as:
 
 The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
 
+{{< figure src="/docs/img/hero-screenshot.jpg" title="A caption" lightbox="true" >}}
+
 ## Delete tutorials
 
 **To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
