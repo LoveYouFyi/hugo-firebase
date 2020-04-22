@@ -36,6 +36,8 @@ The `courses` folder may be renamed. For example, we can rename it to `docs` for
 
 **To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
 
+{{< img src="hero-screenshot.jpg" alt="Screenshot of the Onion homepage" >}}
+
 ## Update site menu
 
 After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
