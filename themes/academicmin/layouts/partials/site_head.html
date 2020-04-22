@@ -124,7 +124,14 @@
     {{end}}
 
   {{ end }}
-
+  <script> 
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.customMedia = {
+        '--sm': '(min-width: 0px)',
+        '--md': '(min-width: 900px)',
+        '--lg': '(min-width: 1400px)',
+    };
+  </script>
   {{/* We cannot use SRI with Google Fonts because the CSS is dynamically generated according to the user agent. */}}
   {{/* Hugo's htmlEscape cannot escape "|" in Google Font URIs so we implement our own escape functionality. */}}
   {{ with ($scr.Get "google_fonts") }}
