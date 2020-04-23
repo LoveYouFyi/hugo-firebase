@@ -51,15 +51,15 @@
 {{ $has_loading := fileExists "assets/images/image-loading-800x382.gif" | or (fileExists "assets/images/image-loading-800x382.gif") }}
 {{ $loading := "" }}
 {{ if $has_loading }}
-  {{ $loading = (partial "functions/get_image_loading_rectangle" (dict "constraint" "max_height" "size" 70)) }}
+  {{ $loading = (partial "functions/get_image_loading_rectangle") }}
 {{ end }}
 
 {{/* Lazy load only when we know image dimensions in order to preserve anchor linking. */}}
 {{ if $asset }}
+  <!-- when media query matches -> the corresponding <source> image is used -->
+  <!-- if no media query matches -> the data-src from <img> is used -->
+  <!-- the <img> 'src' image loads by default prior to lazyload activating -->
   <picture>
-    <!-- when media query matches -> the corresponding <source> image is used -->
-    <!-- if no media query matches -> the data-src from <img> is used -->
-    <!-- the <img> 'src' image loads by default prior to lazyload activating -->
     <source data-srcset="{{$tiny.RelPermalink}}" media="--sm">
     <source data-srcset="{{$small.RelPermalink}}" media="--md">
     <img src="{{$loading.RelPermalink}}" data-src="{{$large.RelPermalink}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
