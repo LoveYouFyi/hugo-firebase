@@ -46,22 +46,13 @@
   <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{.}}"{{ end }}{{ with .Get "rel" }} rel="{{.}}"{{ end }}>
 {{ end -}}
 
-{{/*
-<picture>
-  <source data-srcset="{{ image.cropZoom(240,240).url }}" media="--sm">
-  <img src="/user/themes/bodigiti/images/image-loading-600x600.gif" data-src="{{ image.cropZoom(380,380).url }}" class="lazyload" alt="{{slide.alt}}">
-</picture>
-*/}}
 
-
-
-{{/* Get site logo. */}}
+{{/* Get Image Loading. */}}
 {{ $has_loading := fileExists "assets/images/image-loading-800x382.gif" | or (fileExists "assets/images/image-loading-800x382.gif") }}
 {{ $loading := "" }}
 {{ if $has_loading }}
-  {{ $loading := resources.Get "assets/images/image-loading-800x382.gif" | default (resources.Get "assets/images/image-loading-800x382.gif") }}
+  {{ $loading = (partial "functions/get_image_loading_rectangle" (dict "constraint" "max_height" "size" 70)) }}
 {{ end }}
-{{ $has_loading }}
 
 {{/* Lazy load only when we know image dimensions in order to preserve anchor linking. */}}
 {{ if $asset }}
@@ -69,7 +60,7 @@
     <source data-srcset="{{$tiny.RelPermalink}}" media="--sm">
     <source data-srcset="{{$small.RelPermalink}}" media="--md">
     <source data-srcset="{{$large.RelPermalink}}" media="--lg">
-    <img src="{{$loading}}" data-src="{{$large.RelPermalink}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
+    <img src="{{$loading.RelPermalink}}" data-src="{{$large.RelPermalink}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
     <!-- <img data-src="{{$large}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" width="{{ (.Get "width") | default $asset.Width }}" height="{{ (.Get "height") | default $asset.Height }}" typeof="foaf:Image"> -->
   </picture>
 {{ else if and (.Get "width") (.Get "height") }}
