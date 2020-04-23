@@ -5,7 +5,6 @@
 {{/* Workaround fact Hugo does not support GetMatch in assets dir */}}
 {{/* Hugo doesn't support image ops on SVG: https://discourse.gohugo.io/t/ho-do-i-convert-a-generic-resource-to-image-resource/22570/4 */}}
 {{ $loading := resources.Get "images/image-loading-800x382.gif" | default (resources.Get "images/image-loading-800x382.gif") }}
-{{ $loading_proc := $loading }}
 
-{{ return $loading_proc }}
+{{ return $loading }}
 
