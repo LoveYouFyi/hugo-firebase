@@ -37,6 +37,8 @@ isotope_enabled = true
 ############################
 lazysizes_enabled = true # see 'Load async scripts' 
 
+
+
 ############################
 ## CSS layouts/partials/site_head.html
 ############################
@@ -299,3 +301,14 @@ plugins_js  = ["custom", "forms"]
 [marketing]
   google_analytics = ""
   google_tag_manager = ""
+
+[lazysizes_picture_queries]
+  enabled = true
+  html = '''<script> 
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.customMedia = {
+      '--sm': '(max-width: 500px)',
+      '--md': '(max-width: 800px)',
+    };
+  </script>
+  '''

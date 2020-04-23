@@ -35,6 +35,7 @@
   {{ end }}
   <meta name="description" content="{{ $desc }}">
 
+
   {{ range .Translations }}
   <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
   {{ end }}
@@ -124,13 +125,19 @@
     {{end}}
 
   {{ end }}
-  <script> 
-    window.lazySizesConfig = window.lazySizesConfig || {};
-    window.lazySizesConfig.customMedia = {
-        '--sm': '(max-width: 500px)',
-        '--md': '(max-width: 800px)',
-    };
-  </script>
+
+  {{ $lq := "" }}
+  {{ $lqSM := "" }}
+
+  {{ if site.Params.lq.enable }}
+    {{ if site.Params.lq.sm.enable }}
+      {{ $lqSM = "'--sm': '({{site.Params.lq.sm.type}}: {{site.Params.lq.sm.px}}),'" }}
+    {{ end }}
+  {{ end }}
+
+  {{ site.Params.lazysizes_picture_queries.html | safeHTML }}
+
+
   {{/* We cannot use SRI with Google Fonts because the CSS is dynamically generated according to the user agent. */}}
   {{/* Hugo's htmlEscape cannot escape "|" in Google Font URIs so we implement our own escape functionality. */}}
   {{ with ($scr.Get "google_fonts") }}
