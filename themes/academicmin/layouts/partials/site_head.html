@@ -126,17 +126,10 @@
 
   {{ end }}
 
-  {{ $lq := "" }}
-  {{ $lqSM := "" }}
-
-  {{ if site.Params.lq.enable }}
-    {{ if site.Params.lq.sm.enable }}
-      {{ $lqSM = "'--sm': '({{site.Params.lq.sm.type}}: {{site.Params.lq.sm.px}}),'" }}
-    {{ end }}
+  {{/* LazySizes Media Queries for <picture> Image element */}}
+  {{ if site.Params.lazysizes_picture_media_queries_enabled }}
+    {{ site.Params.lazysizes_picture_media_queries_html | safeHTML }}
   {{ end }}
-
-  {{ site.Params.lazysizes_picture_queries.html | safeHTML }}
-
 
   {{/* We cannot use SRI with Google Fonts because the CSS is dynamically generated according to the user agent. */}}
   {{/* Hugo's htmlEscape cannot escape "|" in Google Font URIs so we implement our own escape functionality. */}}

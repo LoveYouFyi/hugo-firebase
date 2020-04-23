@@ -35,9 +35,17 @@ isotope_enabled = true
 ############################
 ## Async JavaScript layouts/partials/site_head.html (load at top of site)
 ############################
+# LazySizes
 lazysizes_enabled = true # see 'Load async scripts' 
-
-
+lazysizes_picture_media_queries_enabled = true
+lazysizes_picture_media_queries_html = '''<script> 
+      window.lazySizesConfig = window.lazySizesConfig || {};
+      window.lazySizesConfig.customMedia = {
+        '--sm': '(max-width: 500px)',
+        '--md': '(max-width: 800px)',
+      };
+    </script>
+  '''
 
 ############################
 ## CSS layouts/partials/site_head.html
@@ -302,13 +310,4 @@ plugins_js  = ["custom", "forms"]
   google_analytics = ""
   google_tag_manager = ""
 
-[lazysizes_picture_queries]
-  enabled = true
-  html = '''<script> 
-    window.lazySizesConfig = window.lazySizesConfig || {};
-    window.lazySizesConfig.customMedia = {
-      '--sm': '(max-width: 500px)',
-      '--md': '(max-width: 800px)',
-    };
-  </script>
-  '''
+
