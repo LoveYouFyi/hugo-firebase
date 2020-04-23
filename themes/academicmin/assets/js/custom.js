@@ -25,12 +25,3 @@ function mCallback (mutations) {
 
 observer.observe(mPar, options);
 */
-
-/* MUST BE LOADED AT TOP UNDER WHERE LAZY SIZES IS LOADED
-window.lazySizesConfig = window.lazySizesConfig || {};
-window.lazySizesConfig.customMedia = {
-    '--sm': '(max-width: 480px)',
-    '--md': '(max-width: 900px)',
-    '--lg': '(min-width: 1400px)',
-};
-*/
