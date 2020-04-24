@@ -35,26 +35,7 @@ isotope_enabled = true
 ############################
 ## Async JavaScript layouts/partials/site_head.html (load at top of site)
 ############################
-# LazySizes
-lazysizes_enabled = true # see 'Load async scripts' 
-lazysizes_picture_media_queries_enabled = true
-lazysizes_picture_media_queries_html = '''<script> 
-      window.lazySizesConfig = window.lazySizesConfig || {};
-      window.lazySizesConfig.customMedia = {
-        '--xs': '(max-width: 500px)',
-        '--sm': '(max-width: 800px)',
-        '--md': '(max-width: 1200px)',
-        '--lg': '(max-width: 1500px)',
-      };
-    </script>
-  '''
-# <picture> element's <source> sizes (required for lazysizes)
-picture_source_sizes = [ 
-  { name = 'xs', width = 500 },
-  { name = 'sm', width = 800 },
-  { name = 'md', width = 1200 },
-  { name = 'lg', width = 1500 }
-]
+# LazySizes params in theme/data/images.toml
 
 ############################
 ## CSS layouts/partials/site_head.html

@@ -1,14 +1,6 @@
 
-
 # Common params shared by all (or most) sites.
 [params]
-picture_source_sizes = [ 
-  { name = 'xs', width = 500 },
-  { name = 'sm', width = 800 },
-  { name = 'md', width = 1200 },
-  { name = 'lg', width = 1500 }
-]
-
 [params.form]
 url="https://us-central1-loveyou-forms.cloudfunctions.net/formHandler"
 [params.hero_site]

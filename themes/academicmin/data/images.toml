@@ -1,0 +1,32 @@
+#####################
+# LazySizes
+
+# if PictureSizes not enabled LazySizes uses only original image
+lazysizes_enabled = true # see 'Load async scripts' 
+
+# PictureSizes only works if LazySizes enabled
+# PictureSizes  adds to LazySizes functionality
+# <picture> element's <source> sizes
+picture_sizes_enabled = false
+picture_sizes = [ 
+  { name = 'xs', width = 500, media = '(max-width: 500px)' },
+  { name = 'sm', width = 800, media = '(max-width: 800px)' },
+  { name = 'md', width = 1200, media = '(max-width: 1200px)' },
+  { name = 'lg', width = 1500, media = '(max-width: 1500px)' }
+]
+
+# Alternate method for adding media queries to all <picture> <source> elements
+# by adding script at top of website/head after loading of lazysizes file
+#lazysizes_picture_media_queries_html = '''
+  #<script> 
+    #window.lazySizesConfig = window.lazySizesConfig || {};
+    #window.lazySizesConfig.customMedia = {
+      #'--xs': '(max-width: 500px)',
+      #'--sm': '(max-width: 800px)',
+      #'--md': '(max-width: 1200px)',
+      #'--lg': '(max-width: 1500px)',
+    #};
+  #</script>
+#'''
+
+

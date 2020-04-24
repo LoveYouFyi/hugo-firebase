@@ -42,19 +42,25 @@
       {{/* media query sizes  */}}
       {{/* variable define `largest` - ends as the largest downsized image */}}
       {{ $largest := "" }}
-      {{/* set largest as original image in case original is smaller than smallest picture_source_sizes */}}
+      {{/* set largest as original image in case original is smaller than smallest picture_sizes */}}
       {{ $largest = $asset.RelPermalink }}
-      {{ range $elem := site.Params.picture_source_sizes }}
-        {{ if gt $asset.Width $elem.width }}
-          {{/* create string by appending number with 'x' */}}
-          {{ $widthX := print $elem.width "x"}}
-          {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
-          {{/* variable update */}}
-          {{ $largest = ($.Scratch.Get "img").RelPermalink }}
-          <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
+      {{ if site.Data.images.lazysizes_enabled }}
+        {{ if site.Data.images.picture_sizes_enabled }}
+          {{ range $elem := site.Data.images.picture_sizes }}
+            {{ if gt $asset.Width $elem.width }}
+              {{/* create string by appending number with 'x' */}}
+              {{ $widthX := print $elem.width "x"}}
+              {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
+              {{/* variable update */}}
+              {{ $largest = ($.Scratch.Get "img").RelPermalink }}
+              <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="{{$elem.media}}">
+            {{ end }}
+          {{ end }}
         {{ end }}
+        <img src="{{$loading.RelPermalink}}" data-src="{{$largest}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
+      {{ else }}
+        <img src="{{$largest}}" alt="{{ with .Get "alt" }}{{.}}{{end}}">
       {{ end }}
-      <img src="{{$loading.RelPermalink}}" data-src="{{$largest}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
       <!-- START: Comment/disable -->
       {{/* <img data-src="{{$large}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" width="{{ (.Get "width") | default $asset.Width }}" height="{{ (.Get "height") | default $asset.Height }}" typeof="foaf:Image"> */}}
       <!-- END: Comment/disable -->

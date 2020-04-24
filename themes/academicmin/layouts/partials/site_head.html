@@ -115,7 +115,7 @@
       {{end}}
 
       {{/* Only load Lazysizes if required. */}}
-      {{ if (eq $k "lazysizes") | and (not (site.Params.lazysizes_enabled)) }}
+      {{ if (eq $k "lazysizes") | and (not (site.Data.images.lazysizes_enabled)) }}
         {{ $load = false }}
       {{end}}
 
@@ -127,10 +127,11 @@
   {{ end }}
 
   {{/* LazySizes Media Queries for <picture> Image element */}}
-  {{ if site.Params.lazysizes_picture_media_queries_enabled }}
-    {{ site.Params.lazysizes_picture_media_queries_html | safeHTML }}
+{{/*
+  {{ if site.Data.images.lazysizes_picture_media_queries_enabled }}
+    {{ site.Data.images.lazysizes_picture_media_queries_html | safeHTML }}
   {{ end }}
-
+*/}}
   {{/* We cannot use SRI with Google Fonts because the CSS is dynamically generated according to the user agent. */}}
   {{/* Hugo's htmlEscape cannot escape "|" in Google Font URIs so we implement our own escape functionality. */}}
   {{ with ($scr.Get "google_fonts") }}
