@@ -27,6 +27,18 @@
 {{ end }}
 {{ if gt $asset.Width 1500 }}
   {{ .Scratch.Set "large" ($asset.Resize $largew) }}
+    <h1>{{.Scratch.Get "large"}}</h1>
+{{ end }}
+
+{{/* media query sizes  */}}
+{{ range $elem := site.Params.imagesizes }}
+  {{ if gt $asset.Width $elem.width }}
+    {{ $elem.name }}
+    {{ $elem.width }}
+    {{ $.Scratch.Set "img" ($asset.Resize $elem.width) }}
+    <h1>{{$.Scratch.Get "img"}}</h1>
+    <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
+  {{ end }}
 {{ end }}
 
 {{/* add the processed images to the scratch */}}

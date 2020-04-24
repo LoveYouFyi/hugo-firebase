@@ -311,3 +311,19 @@ plugins_js  = ["custom", "forms"]
   google_tag_manager = ""
 
 
+[[imagesizes]]
+  name = 'xs'
+  width = '500x'
+[[imagesizes]]
+  name = 'sm'
+  width = '800x'
+[[imagesizes]]
+  name = 'md'
+  width = '1200x'
+[[imagesizes]]
+  name = 'lg'
+  width = '1500x'
+
+
+
+
