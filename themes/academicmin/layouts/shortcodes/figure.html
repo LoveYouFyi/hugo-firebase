@@ -16,10 +16,18 @@
 {{ $largew := default "1500x" }}
 
 {{/* resize the src/asset image to the given sizes */}}
-{{ .Scratch.Set "tiny" ($asset.Resize $tinyw) }}
-{{ .Scratch.Set "small" ($asset.Resize $smallw) }}
-{{ .Scratch.Set "medium" ($asset.Resize $mediumw) }}
-{{ .Scratch.Set "large" ($asset.Resize $largew) }}
+{{ if gt $asset.Width 500 }}
+  {{ .Scratch.Set "tiny" ($asset.Resize $tinyw) }}
+{{ end }}
+{{ if gt $asset.Width 800 }}
+  {{ .Scratch.Set "small" ($asset.Resize $smallw) }}
+{{ end }}
+{{ if gt $asset.Width 1200 }}
+ {{ .Scratch.Set "medium" ($asset.Resize $mediumw) }}
+{{ end }}
+{{ if gt $asset.Width 1500 }}
+  {{ .Scratch.Set "large" ($asset.Resize $largew) }}
+{{ end }}
 
 {{/* add the processed images to the scratch */}}
 {{ $tiny := .Scratch.Get "tiny" }}
