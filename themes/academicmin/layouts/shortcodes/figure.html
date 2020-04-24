@@ -40,11 +40,11 @@
       <!-- if no media query matches -> the data-src from <img> is used -->
       <!-- the <img> 'src' image loads by default prior to lazyload activating -->
       {{/* media query sizes  */}}
-      {{/* variable define: `$target` results as the largest downsized image */}}
+      {{/* variable define `largest` - ends as the largest downsized image */}}
       {{ $largest := "" }}
+      {{/* set largest as original image in case original is smaller than smallest picture_source_sizes */}}
+      {{ $largest = $asset.RelPermalink }}
       {{ range $elem := site.Params.picture_source_sizes }}
-        {{/* set largest as original image in case original is smaller than smallest picture_source_sizes */}}
-        {{ $largest = $asset.RelPermalink }}
         {{ if gt $asset.Width $elem.width }}
           {{/* create string by appending number with 'x' */}}
           {{ $widthX := print $elem.width "x"}}
