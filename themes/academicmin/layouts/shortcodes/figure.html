@@ -18,14 +18,6 @@
 {{/* Get caption. Support legacy `title` option. */}}
 {{ $caption := .Get "title" | default (.Get "caption") | default "" }}
 
-<figure{{ with .Get "class" }} class="{{.}}"{{ end }} {{ with $caption }}id="figure-{{ anchorize . }}"{{ end }}>
-
-{{ if $lightbox }}
-  <a data-fancybox="{{$group}}" href="{{$image_src}}" {{ with $caption }}data-caption="{{ .|markdownify|emojify }}"{{ end }}>
-{{ else if .Get "link"}}
-  <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{.}}"{{ end }}{{ with .Get "rel" }} rel="{{.}}"{{ end }}>
-{{ end -}}
-
 {{/* Get 'Image Loading' image. */}}
 {{ $has_loading := fileExists "assets/images/image-loading-800x382.gif" | or (fileExists "assets/images/image-loading-800x382.gif") }}
 {{ $loading := "" }}
@@ -33,41 +25,51 @@
   {{ $loading = (partial "functions/get_image_loading_rectangle" (dict "constraint" "max_height" "size" 382)) }}
 {{ end }}
 
-{{/* Lazy Image | now ignoring academic: 'load only when we know image dimensions in order to preserve anchor linking.' */}}
-{{ if $asset }}
-  <picture>
-    <!-- when media query matches -> the corresponding <source> image is used -->
-    <!-- if no media query matches -> the data-src from <img> is used -->
-    <!-- the <img> 'src' image loads by default prior to lazyload activating -->
-    {{/* media query sizes  */}}
-    {{ range $elem := site.Params.imagesizes }}
-      {{ if gt $asset.Width $elem.width }}
-        {{ $widthX := print $elem.width "x"}}
-        {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
-        <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
+<figure{{ with .Get "class" }} class="{{.}}"{{ end }} {{ with $caption }}id="figure-{{ anchorize . }}"{{ end }}>
+
+  {{ if $lightbox }}
+    <a data-fancybox="{{$group}}" href="{{$image_src}}" {{ with $caption }}data-caption="{{ .|markdownify|emojify }}"{{ end }}>
+  {{ else if .Get "link"}}
+    <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{.}}"{{ end }}{{ with .Get "rel" }} rel="{{.}}"{{ end }}>
+  {{ end -}}
+
+  {{/* Lazy Image | NOW IGNORING ACADEMIC ---> 'load only when we know image dimensions in order to preserve anchor linking.' */}}
+  {{ if $asset }}
+    <picture>
+      <!-- when media query matches -> the corresponding <source> image is used -->
+      <!-- if no media query matches -> the data-src from <img> is used -->
+      <!-- the <img> 'src' image loads by default prior to lazyload activating -->
+      {{/* media query sizes  */}}
+      {{ range $elem := site.Params.imagesizes }}
+        {{ if gt $asset.Width $elem.width }}
+          {{ $widthX := print $elem.width "x"}}
+          {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
+          <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
+        {{ end }}
       {{ end }}
-    {{ end }}
-    <img src="{{$loading.RelPermalink}}" data-src="" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
-    {{/* <img data-src="{{$large}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" width="{{ (.Get "width") | default $asset.Width }}" height="{{ (.Get "height") | default $asset.Height }}" typeof="foaf:Image"> */}}
-  </picture>
-  <!-- START: Comment/disable Multiline -->
-  {{/*
-  {{ else if and (.Get "width") (.Get "height") }}
-    <img data-src="{{$image_src}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" {{ with .Get "width" }}width="{{.}}"{{end}} {{ with .Get "height" }}height="{{.}}"{{end}}>
-  {{ else }}
-    <img src="{{$image_src}}" alt="{{ with .Get "alt" }}{{.}}{{end}}" {{ with .Get "width" }}width="{{.}}"{{end}} {{ with .Get "height" }}height="{{.}}"{{end}}>
-  */}}
-  <!-- END: Comment/disable Multiline -->
-{{ end }}
+      <img src="{{$loading.RelPermalink}}" data-src="" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
+      <!-- START: Comment/disable -->
+      {{/* <img data-src="{{$large}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" width="{{ (.Get "width") | default $asset.Width }}" height="{{ (.Get "height") | default $asset.Height }}" typeof="foaf:Image"> */}}
+      <!-- END: Comment/disable -->
+    </picture>
+    <!-- START: Comment/disable Multiline -->
+    {{/*
+    {{ else if and (.Get "width") (.Get "height") }}
+      <img data-src="{{$image_src}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" {{ with .Get "width" }}width="{{.}}"{{end}} {{ with .Get "height" }}height="{{.}}"{{end}}>
+    {{ else }}
+      <img src="{{$image_src}}" alt="{{ with .Get "alt" }}{{.}}{{end}}" {{ with .Get "width" }}width="{{.}}"{{end}} {{ with .Get "height" }}height="{{.}}"{{end}}>
+    */}}
+    <!-- END: Comment/disable Multiline -->
+  {{ end }}
 
-{{- if or $lightbox (.Get "link") }}</a>{{ end }}
+  {{- if or $lightbox (.Get "link") }}</a>{{ end }}
 
-{{ if $caption }}
-  {{/* Localize the figure numbering (if enabled). */}}
-  {{ $figure := split (i18n "figure" | default "Figure %d:") "%d" }}
-  <figcaption{{ if eq (.Get "numbered") "true" }} data-pre="{{ index $figure 0 }}" data-post="{{ index $figure 1 }}" class="numbered"{{ end }}>
-    {{ $caption | markdownify | emojify }}
-  </figcaption>
-{{ end }}
+  {{ if $caption }}
+    {{/* Localize the figure numbering (if enabled). */}}
+    {{ $figure := split (i18n "figure" | default "Figure %d:") "%d" }}
+    <figcaption{{ if eq (.Get "numbered") "true" }} data-pre="{{ index $figure 0 }}" data-post="{{ index $figure 1 }}" class="numbered"{{ end }}>
+      {{ $caption | markdownify | emojify }}
+    </figcaption>
+  {{ end }}
 
 </figure>

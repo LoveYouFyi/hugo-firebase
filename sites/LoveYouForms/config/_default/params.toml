@@ -49,6 +49,13 @@ lazysizes_picture_media_queries_html = '''<script>
     </script>
   '''
 
+imagesizes = [ 
+  { name = 'xs', width = 500 },
+  { name = 'sm', width = 800 },
+  { name = 'md', width = 1200 },
+  { name = 'lg', width = 1500 }
+]
+
 ############################
 ## CSS layouts/partials/site_head.html
 ############################
@@ -313,19 +320,15 @@ plugins_js  = ["custom", "forms"]
   google_tag_manager = ""
 
 
-[[imagesizes]]
-  name = 'xs'
-  width = 500
-[[imagesizes]]
-  name = 'sm'
-  width = 800
-[[imagesizes]]
-  name = 'md'
-  width = 1200
-[[imagesizes]]
-  name = 'lg'
-  width = 1500
-
-
-
-
+#[[imagesizes]]
+  #name = 'xs'
+  #width = 500
+#[[imagesizes]]
+  #name = 'sm'
+  #width = 800
+#[[imagesizes]]
+  #name = 'md'
+  #width = 1200
+#[[imagesizes]]
+  #name = 'lg'
+  #width = 1500
