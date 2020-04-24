@@ -7,7 +7,7 @@ lazysizes_enabled = true # see 'Load async scripts'
 # PictureSizes only works if LazySizes enabled
 # PictureSizes  adds to LazySizes functionality
 # <picture> element's <source> sizes
-picture_sizes_enabled = false
+picture_sizes_enabled = true
 picture_sizes = [ 
   { name = 'xs', width = 500, media = '(max-width: 500px)' },
   { name = 'sm', width = 800, media = '(max-width: 800px)' },

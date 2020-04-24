@@ -299,17 +299,3 @@ plugins_js  = ["custom", "forms"]
 [marketing]
   google_analytics = ""
   google_tag_manager = ""
-
-
-#[[imagesizes]]
-  #name = 'xs'
-  #width = 500
-#[[imagesizes]]
-  #name = 'sm'
-  #width = 800
-#[[imagesizes]]
-  #name = 'md'
-  #width = 1200
-#[[imagesizes]]
-  #name = 'lg'
-  #width = 1500
