@@ -30,17 +30,7 @@
     <h1>{{.Scratch.Get "large"}}</h1>
 {{ end }}
 
-{{/* media query sizes  */}}
-{{ range $elem := site.Params.imagesizes }}
-  {{ if gt $asset.Width $elem.width }}
-    {{ $elem.name }}
-    {{ $elem.width }}
-    {{ $widthX := print $elem.width "x"}}
-    {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
-    <div>data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}"</div>
-    <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
-  {{ end }}
-{{ end }}
+
 
 {{/* add the processed images to the scratch */}}
 {{ $tiny := .Scratch.Get "tiny" }}
@@ -78,8 +68,14 @@
     <!-- when media query matches -> the corresponding <source> image is used -->
     <!-- if no media query matches -> the data-src from <img> is used -->
     <!-- the <img> 'src' image loads by default prior to lazyload activating -->
-    <source data-srcset="{{$tiny.RelPermalink}}" media="--sm">
-    <source data-srcset="{{$small.RelPermalink}}" media="--md">
+    {{/* media query sizes  */}}
+    {{ range $elem := site.Params.imagesizes }}
+      {{ if gt $asset.Width $elem.width }}
+        {{ $widthX := print $elem.width "x"}}
+        {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
+        <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
+      {{ end }}
+    {{ end }}
     <img src="{{$loading.RelPermalink}}" data-src="{{$large.RelPermalink}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
     <!-- <img data-src="{{$large}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" width="{{ (.Get "width") | default $asset.Width }}" height="{{ (.Get "height") | default $asset.Height }}" typeof="foaf:Image"> -->
   </picture>

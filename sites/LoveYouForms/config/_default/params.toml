@@ -41,8 +41,10 @@ lazysizes_picture_media_queries_enabled = true
 lazysizes_picture_media_queries_html = '''<script> 
       window.lazySizesConfig = window.lazySizesConfig || {};
       window.lazySizesConfig.customMedia = {
-        '--sm': '(max-width: 500px)',
-        '--md': '(max-width: 800px)',
+        '--xs': '(max-width: 500px)',
+        '--sm': '(max-width: 800px)',
+        '--md': '(max-width: 1200px)',
+        '--lg': '(max-width: 1500px)',
       };
     </script>
   '''
