@@ -1,3 +1,7 @@
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# Must Restart Hugo Server Manually After Making Changes to this File
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 #####################
 # LazySizes
 
@@ -9,10 +13,10 @@ lazysizes_enabled = true # see 'Load async scripts'
 # <picture> element's <source> sizes
 picture_sizes_enabled = true
 picture_sizes = [ 
-  { name = 'xs', width = 500, media = '(max-width: 500px)' },
-  { name = 'sm', width = 800, media = '(max-width: 800px)' },
-  { name = 'md', width = 1200, media = '(max-width: 1200px)' },
-  { name = 'lg', width = 1500, media = '(max-width: 1500px)' }
+  { name = 'xs', width = 544, media = '(max-width: 500px)' },
+  { name = 'sm', width = 896, media = '(max-width: 800px)' },
+  { name = 'md', width = 1200, media = '(max-width: 1104px)' },
+  { name = 'lg', width = 1500, media = '(max-width: 1404px)' }
 ]
 
 # Alternate method for adding media queries to all <picture> <source> elements
