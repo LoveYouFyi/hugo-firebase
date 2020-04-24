@@ -313,16 +313,16 @@ plugins_js  = ["custom", "forms"]
 
 [[imagesizes]]
   name = 'xs'
-  width = '500x'
+  width = 500
 [[imagesizes]]
   name = 'sm'
-  width = '800x'
+  width = 800
 [[imagesizes]]
   name = 'md'
-  width = '1200x'
+  width = 1200
 [[imagesizes]]
   name = 'lg'
-  width = '1500x'
+  width = 1500
 
 
 

@@ -35,8 +35,9 @@
   {{ if gt $asset.Width $elem.width }}
     {{ $elem.name }}
     {{ $elem.width }}
-    {{ $.Scratch.Set "img" ($asset.Resize $elem.width) }}
-    <h1>{{$.Scratch.Get "img"}}</h1>
+    {{ $widthX := print $elem.width "x"}}
+    {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
+    <div>data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}"</div>
     <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
   {{ end }}
 {{ end }}
