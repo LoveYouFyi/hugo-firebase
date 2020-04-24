@@ -18,7 +18,7 @@
 {{/* Get caption. Support legacy `title` option. */}}
 {{ $caption := .Get "title" | default (.Get "caption") | default "" }}
 
-{{/* Get 'Image Loading' image. */}}
+{{/* Get `Image Loading` image. */}}
 {{ $has_loading := fileExists "assets/images/image-loading-800x382.gif" | or (fileExists "assets/images/image-loading-800x382.gif") }}
 {{ $loading := "" }}
 {{ if $has_loading }}
@@ -40,14 +40,21 @@
       <!-- if no media query matches -> the data-src from <img> is used -->
       <!-- the <img> 'src' image loads by default prior to lazyload activating -->
       {{/* media query sizes  */}}
-      {{ range $elem := site.Params.imagesizes }}
+      {{/* variable define: `$target` results as the largest downsized image */}}
+      {{ $largest := "" }}
+      {{ range $elem := site.Params.picture_source_sizes }}
+        {{/* set largest as original image in case original is smaller than smallest picture_source_sizes */}}
+        {{ $largest = $asset.RelPermalink }}
         {{ if gt $asset.Width $elem.width }}
+          {{/* create string by appending number with 'x' */}}
           {{ $widthX := print $elem.width "x"}}
           {{ $.Scratch.Set "img" ($asset.Resize $widthX) }}
+          {{/* variable update */}}
+          {{ $largest = ($.Scratch.Get "img").RelPermalink }}
           <source data-srcset="{{($.Scratch.Get "img").RelPermalink}}" media="--{{$elem.name}}">
         {{ end }}
       {{ end }}
-      <img src="{{$loading.RelPermalink}}" data-src="" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
+      <img src="{{$loading.RelPermalink}}" data-src="{{$largest}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}">
       <!-- START: Comment/disable -->
       {{/* <img data-src="{{$large}}" class="lazyload" alt="{{ with .Get "alt" }}{{.}}{{end}}" width="{{ (.Get "width") | default $asset.Width }}" height="{{ (.Get "height") | default $asset.Height }}" typeof="foaf:Image"> */}}
       <!-- END: Comment/disable -->

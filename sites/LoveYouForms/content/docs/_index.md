@@ -30,12 +30,9 @@ This feature can be used for publishing content such as:
 
 The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
 
-
-
 ## Delete tutorials
 
 **To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
-
 
 ## Update site menu
 
@@ -66,3 +63,7 @@ Or, if you are creating a software documentation site, you can rename the `cours
 If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.
 
 {{< figure src="hero-screenshot.jpg" alt="Hey this is the alt" title="A caption" lightbox="true" >}}
+
+## Small Image
+
+{{< figure src="small.jpg" alt="Hey this is the alt" title="A caption" lightbox="true" >}}

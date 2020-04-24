@@ -48,8 +48,8 @@ lazysizes_picture_media_queries_html = '''<script>
       };
     </script>
   '''
-
-imagesizes = [ 
+# <picture> element's <source> sizes (required for lazysizes)
+picture_source_sizes = [ 
   { name = 'xs', width = 500 },
   { name = 'sm', width = 800 },
   { name = 'md', width = 1200 },
