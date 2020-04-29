@@ -56,22 +56,22 @@
 <!-- field name="..." must match field name in database formField -->
 <div class="form-wrapper" love-note="each <form> needs parent wrapper">
   <p class="contact" love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
-  <form id="contact" class=" forms" name="contact" method="POST">
+  <form class=" forms" name="contact" method="POST">
     <div class="form-field ">
         <div class="form-label"><label class="inline"> Budget? <span class="required">*</span></label></div>
         <div class="form-data">
           <div class="form-input-wrapper " love-wrapper="radio" love-note="radios group needs parent element with attribute love-wrapper">
             <!-- radio input must have parent and grandparent for javascript radios-select to work -->
             <div love-note="radio <input> needs parent">
-              <input id="budget1" class="radio" type="radio" name="budget" value="$1000 or less" checked>
+              <input id="budgetA" class="radio" type="radio" name="budget" value="$1000 or less" checked>
               <label for="1000">$1000 or less</label>
             </div>
             <div love-note="radio <input> needs parent">
-              <input id="budget2" class="radio" type="radio" name="budget" value="$5,000 or less">
+              <input id="budgetB" class="radio" type="radio" name="budget" value="$5,000 or less">
               <label for="5000">$5,000 or less</label>
             </div>
             <div love-note="radio <input> needs parent">
-              <input id="budget3" class="radio" type="radio" name="budget" value="$15,000 or less">
+              <input id="budgetC" class="radio" type="radio" name="budget" value="$15,000 or less">
               <label for="15000">$15,000 or less</label>
             </div>
           </div>
@@ -169,7 +169,7 @@
 <br>
 <div class="form-wrapper">
   <p class="js-form-message contact" style="display: none;"></p>
-  <form id="contactToo" class=" forms" name="contact" method="POST">
+  <form class=" forms" name="contact" method="POST">
     <div class="form-field ">
         <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
         <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
