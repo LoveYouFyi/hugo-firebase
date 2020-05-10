@@ -1,15 +1,9 @@
 {
-  "academic": {
-    "js": "academic.7ef78818684313f6c54b.js"
-  },
-  "academicSearch": {
-    "js": "academicSearch.e7682e5d20df953e8435.js"
-  },
   "bundle": {
     "css": "bundle.bdd03da71fbbf6a967ac.css",
-    "js": "bundle.95e56429e82e3c4e5da7.js"
+    "js": "bundle.c438ce9328b89972e68a.js"
   },
   "vendor": {
-    "js": "vendor.009ab735048dc4854667.js"
+    "js": "vendor.ff08df5f8e3dcc839d6d.js"
   }
 }

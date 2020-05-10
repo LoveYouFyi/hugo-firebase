@@ -139,8 +139,8 @@ const ajaxRequest = event => {
       message(form, 'none', res.data.message.timeout, res.data.message.text);
     } 
   }
-  // Send Request
-  xhr.open('POST', formUrlAction);
+  // Send Request (bypass url caching by appending url-parameter timestamp)
+  xhr.open('POST', formUrlAction + ((/\?/).test(formUrlAction) ? "&" : "?") + (new Date()).getTime());
   xhr.setRequestHeader('Content-Type', 'text/plain');
   xhr.responseType = 'json';
   xhr.send(formData);
