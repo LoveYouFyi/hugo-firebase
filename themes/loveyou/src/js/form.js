@@ -4,104 +4,28 @@
 
 
 // Form listeners 'submit'
-const listenFormSubmit = ajaxRequest => {
+const listenFormSubmit = function listenFormSubmit(ajaxRequest) {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', ajaxRequest, false);
   });
 }
 
-// Messages (client-side)
-const message = (form, action, delay, message) => {
-  let parent = form.parentNode; // get form parent element
-  let elements =  parent.querySelectorAll('[love-message="form-message"]'); // select child elements
-  // set elements innerHTML
-  elements.forEach(e => {
-    e.innerHTML = message;
-  });
-  // show/hide elements
-  setTimeout(function(){
-    elements.forEach(e => {
-      e.style.display = action;
-    });
-  }, delay); 
-}
-
-// Radio listeners and check/uncheck
-const radiosChecked = () => {
-  // check/uncheck
-  let radioCheck = event => {
-    // uncheck all
-    let grandParent = event.target.parentNode.parentNode; // get form parent element
-    grandParent.querySelectorAll('[type="radio"]').forEach(e => {
-      e.removeAttribute('checked');
-    });
-    // check selected
-    event.target.setAttribute('checked', "true");
-  };
-  // Listeners (after above since need access to radioCheck)
-  document.querySelectorAll('[type="radio"]').forEach(e => {
-    e.addEventListener('click', radioCheck);
-  });
-}
-
-// Reset form values
-const formReset = form => {
-  let parent = form.parentNode; // get form parent element
-  /**
-   * Inputs (except specified), selects, and textareas: set innerHTML to empty string
-   */
-  let elements =  parent.querySelectorAll('input:not([type="hidden"]):not([type="radio"]), select, textarea'); 
-  elements.forEach(e => {
-    e.value = '';
-  });
-  /**
-   * Radios reset: select first radio of group
-   */
-  let radios =  parent.querySelectorAll('[love-wrapper="radio"] [type=radio]'); 
-  let elementName = "";
-  radios.forEach(e => {
-    e.removeAttribute('checked');
-    if (elementName !== e.name) {
-      e.setAttribute('checked', "true");
-      e.click(); // Only way to visually show the first item as clicked;
-    }
-    elementName = e.name;
-  });
-}
-
-// Serialize form for submit (longform because babel does not convert Object.values w/ 'reduce' for ie11)
-const serializeForm = form => {
-	// Setup our serialized data
-	let serialized = {};
-	// Loop through each field in the form
-	for (let i = 0; i < form.elements.length; i++) {
-		let field = form.elements[i];
-    // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
-    if (!field.name 
-      || field.disabled 
-      || field.type === 'file' 
-      || field.type === 'reset' 
-      || field.type === 'submit' 
-      || field.type === 'button'
-    ) continue; // 'continue 'jumps over' one iteration in the loop, here, it skips the element if not of this type
-		// Convert field data to a query string
-		if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
-      serialized[field.name] = { type: field.type, value: field.value };
-    }
-  }
-  serialized = JSON.stringify(serialized);
-  return serialized;
-};
-
 // Ajax request
-const ajaxRequest = event => {
+const ajaxRequest = function ajaxRequest(event) {
   event.preventDefault(); // stop submit so input values do not get cleared before being able to act on them
   /**
    * Form data
    */
   let form = event.target;
   let formUrlAction = form.querySelector('[name=urlAction]').value;
-  let formData = serializeForm(form);
+//  let formData = serializeForm(form);
+  let stuff = new FormData(form);
+  console.log("stuff: ", stuff);
+//  let arrays = [ ...stuff ]
+//  console.log("arrays: ", arrays);
+  for (let key of stuff.keys()) {
+    console.log("key ", stuff.get(key));
+  }
 
   /**
    * Ajax Request Object
@@ -116,34 +40,11 @@ const ajaxRequest = event => {
     message(form, 'block', 0, 'Error: Sorry, please try again or contact us by phone?'); 
   }
   // successful response = onload (any response from application including error)
-  xhr.onload = function(event) {
-    let res = event.target.response; // responseType set to json
-    // some browsers (chrome) 'res' is object other browsers (ie11) 'res' is string
-    if (typeof res === 'string') {
-      res = JSON.parse(res);
-    }
-    // error handling
-    // ECMAScript 2020 check if property defined with '?' res?.message?.error because if undefined will error
-    if (res?.error?.message) { 
-      message(form, 'block', res.error.message.timeout, res.error.message.text);
-      console.error(res.error.message.text);
-    }
-    // if urlRedirect
-    else if (res?.data?.redirect && res.data.redirect !== 'false') { // compare 'false' as string b/c not proper boolean
-      formReset(form);
-      window.location.href = res.data.redirect;
-    } 
-    // if no urlRedirect
-    else {
-      formReset(form);
-      message(form, 'none', res.data.message.timeout, res.data.message.text);
-    } 
-  }
   // Send Request (bypass url caching by appending url-parameter timestamp)
   xhr.open('POST', formUrlAction + ((/\?/).test(formUrlAction) ? "&" : "?") + (new Date()).getTime());
   xhr.setRequestHeader('Content-Type', 'text/plain');
   xhr.responseType = 'json';
-  xhr.send(formData);
+  xhr.send(stuff);
 }
 
 // ie11 and edge15 forEach broken, converts all forEach to for loop
@@ -160,5 +61,461 @@ let forEachPolyfill = () => {
 }
 
 document.onload = forEachPolyfill(); // call this first
-document.onload = listenFormSubmit(ajaxRequest);
-document.onload = radiosChecked();
+document.onload = listenFormSubmit(ajaxRequest)
+
+/* global FormData self Blob File */
+/* eslint-disable no-inner-declarations */
+
+if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData.prototype.keys)) {
+  const global = typeof window === 'object'
+    ? window
+    : typeof self === 'object' ? self : this
+
+  // keep a reference to native implementation
+  const _FormData = global.FormData
+
+  // To be monkey patched
+  const _send = global.XMLHttpRequest && global.XMLHttpRequest.prototype.send
+  const _fetch = global.Request && global.fetch
+  const _sendBeacon = global.navigator && global.navigator.sendBeacon
+
+  // Unable to patch Request constructor correctly
+  // const _Request = global.Request
+  // only way is to use ES6 class extend
+  // https://github.com/babel/babel/issues/1966
+
+  const stringTag = global.Symbol && Symbol.toStringTag
+
+  // Add missing stringTags to blob and files
+  if (stringTag) {
+    if (!Blob.prototype[stringTag]) {
+      Blob.prototype[stringTag] = 'Blob'
+    }
+
+    if ('File' in global && !File.prototype[stringTag]) {
+      File.prototype[stringTag] = 'File'
+    }
+  }
+
+  // Fix so you can construct your own File
+  try {
+    new File([], '') // eslint-disable-line
+  } catch (a) {
+    global.File = function File (b, d, c) {
+      const blob = new Blob(b, c)
+      const t = c && void 0 !== c.lastModified ? new Date(c.lastModified) : new Date()
+
+      Object.defineProperties(blob, {
+        name: {
+          value: d
+        },
+        lastModifiedDate: {
+          value: t
+        },
+        lastModified: {
+          value: +t
+        },
+        toString: {
+          value () {
+            return '[object File]'
+          }
+        }
+      })
+
+      if (stringTag) {
+        Object.defineProperty(blob, stringTag, {
+          value: 'File'
+        })
+      }
+
+      return blob
+    }
+  }
+
+  function normalizeValue ([name, value, filename]) {
+    if (value instanceof Blob) {
+      // Should always returns a new File instance
+      // console.assert(fd.get(x) !== fd.get(x))
+      value = new File([value], filename, {
+        type: value.type,
+        lastModified: value.lastModified
+      })
+    }
+
+    return [name, value]
+  }
+
+  function ensureArgs (args, expected) {
+    if (args.length < expected) {
+      throw new TypeError(`${expected} argument required, but only ${args.length} present.`)
+    }
+  }
+
+  function normalizeArgs (name, value, filename) {
+    return value instanceof Blob
+      // normalize name and filename if adding an attachment
+      ? [String(name), value, filename !== undefined
+        ? filename + '' // Cast filename to string if 3th arg isn't undefined
+        : typeof value.name === 'string' // if name prop exist
+          ? value.name // Use File.name
+          : 'blob'] // otherwise fallback to Blob
+
+      // If no attachment, just cast the args to strings
+      : [String(name), String(value)]
+  }
+
+  // normalize linefeeds for textareas
+  // https://html.spec.whatwg.org/multipage/form-elements.html#textarea-line-break-normalisation-transformation
+  function normalizeLinefeeds (value) {
+    return value.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n')
+  }
+
+  function each (arr, cb) {
+    for (let i = 0; i < arr.length; i++) {
+      cb(arr[i])
+    }
+  }
+
+  /**
+   * @implements {Iterable}
+   */
+  class FormDataPolyfill {
+    /**
+     * FormData class
+     *
+     * @param {HTMLElement=} form
+     */
+    constructor (form) {
+      this._data = []
+
+      if (!form) return this
+
+      const self = this
+
+      each(form.elements, elm => {
+        if (!elm.name || elm.disabled || elm.type === 'submit' || elm.type === 'button') return
+
+        if (elm.type === 'file') {
+          const files = elm.files && elm.files.length
+            ? elm.files
+            : [new File([], '', { type: 'application/octet-stream' })] // #78
+
+          each(files, file => {
+            self.append(elm.name, file)
+          })
+        } else if (elm.type === 'select-multiple' || elm.type === 'select-one') {
+          each(elm.options, opt => {
+            !opt.disabled && opt.selected && self.append(elm.name, opt.value)
+          })
+        } else if (elm.type === 'checkbox' || elm.type === 'radio') {
+          if (elm.checked) self.append(elm.name, elm.value)
+        } else {
+          const value = elm.type === 'textarea' ? normalizeLinefeeds(elm.value) : elm.value
+          self.append(elm.name, value)
+        }
+      })
+    }
+
+    /**
+     * Append a field
+     *
+     * @param   {string}           name      field name
+     * @param   {string|Blob|File} value     string / blob / file
+     * @param   {string=}          filename  filename to use with blob
+     * @return  {undefined}
+     */
+    append (name, value, filename) {
+      ensureArgs(arguments, 2)
+      var [a, s, d] = normalizeArgs.apply(null, arguments)
+      this._data.push([a, s, d])
+    }
+
+    /**
+     * Delete all fields values given name
+     *
+     * @param   {string}  name  Field name
+     * @return  {undefined}
+     */
+    delete (name) {
+      ensureArgs(arguments, 1)
+      const res = []
+      name = String(name)
+
+      each(this._data, entry => {
+        if (entry[0] !== name) {
+          res.push(entry)
+        }
+      })
+
+      this._data = res
+    }
+
+    /**
+     * Iterate over all fields as [name, value]
+     *
+     * @return {Iterator}
+     */
+    * entries () {
+      for (var i = 0; i < this._data.length; i++) {
+        yield normalizeValue(this._data[i])
+      }
+    }
+
+    /**
+     * Iterate over all fields
+     *
+     * @param   {Function}  callback  Executed for each item with parameters (value, name, thisArg)
+     * @param   {Object=}   thisArg   `this` context for callback function
+     * @return  {undefined}
+     */
+    forEach (callback, thisArg) {
+      ensureArgs(arguments, 1)
+      for (const [name, value] of this) {
+        callback.call(thisArg, value, name, this)
+      }
+    }
+
+    /**
+     * Return first field value given name
+     * or null if non existen
+     *
+     * @param   {string}  name      Field name
+     * @return  {string|File|null}  value Fields value
+     */
+    get (name) {
+      ensureArgs(arguments, 1)
+      const entries = this._data
+      name = String(name)
+      for (let i = 0; i < entries.length; i++) {
+        if (entries[i][0] === name) {
+          return normalizeValue(this._data[i])[1]
+        }
+      }
+      return null
+    }
+
+    /**
+     * Return all fields values given name
+     *
+     * @param   {string}  name  Fields name
+     * @return  {Array}         [{String|File}]
+     */
+    getAll (name) {
+      ensureArgs(arguments, 1)
+      const result = []
+      name = String(name)
+      for (let i = 0; i < this._data.length; i++) {
+        if (this._data[i][0] === name) {
+          result.push(normalizeValue(this._data[i])[1])
+        }
+      }
+
+      return result
+    }
+
+    /**
+     * Check for field name existence
+     *
+     * @param   {string}   name  Field name
+     * @return  {boolean}
+     */
+    has (name) {
+      ensureArgs(arguments, 1)
+      name = String(name)
+      for (let i = 0; i < this._data.length; i++) {
+        if (this._data[i][0] === name) {
+          return true
+        }
+      }
+      return false
+    }
+
+    /**
+     * Iterate over all fields name
+     *
+     * @return {Iterator}
+     */
+    * keys () {
+      for (const [name] of this) {
+        yield name
+      }
+    }
+
+    /**
+     * Overwrite all values given name
+     *
+     * @param   {string}    name      Filed name
+     * @param   {string}    value     Field value
+     * @param   {string=}   filename  Filename (optional)
+     * @return  {undefined}
+     */
+    set (name, value, filename) {
+      ensureArgs(arguments, 2)
+      name = String(name)
+      const result = []
+      let replaced = false
+
+      for (let i = 0; i < this._data.length; i++) {
+        const match = this._data[i][0] === name
+        if (match) {
+          if (!replaced) {
+            result[i] = normalizeArgs.apply(null, arguments)
+            replaced = true
+          }
+        } else {
+          result.push(this._data[i])
+        }
+      }
+
+      if (!replaced) {
+        result.push(normalizeArgs.apply(null, arguments))
+      }
+
+      this._data = result
+    }
+
+    /**
+     * Iterate over all fields
+     *
+     * @return {Iterator}
+     */
+    * values () {
+      for (const [, value] of this) {
+        yield value
+      }
+    }
+
+    /**
+     * Return a native (perhaps degraded) FormData with only a `append` method
+     * Can throw if it's not supported
+     *
+     * @return {FormData}
+     */
+    ['_asNative'] () {
+      const fd = new _FormData()
+
+      for (const [name, value] of this) {
+        fd.append(name, value)
+      }
+
+      return fd
+    }
+
+    /**
+     * [_blob description]
+     *
+     * @return {Blob} [description]
+     */
+    ['_blob'] () {
+      const boundary = '----formdata-polyfill-' + Math.random()
+      const chunks = []
+
+      for (const [name, value] of this) {
+        chunks.push(`--${boundary}\r\n`)
+
+        if (value instanceof Blob) {
+          chunks.push(
+            `Content-Disposition: form-data; name="${name}"; filename="${value.name}"\r\n`,
+            `Content-Type: ${value.type || 'application/octet-stream'}\r\n\r\n`,
+            value,
+            '\r\n'
+          )
+        } else {
+          chunks.push(
+            `Content-Disposition: form-data; name="${name}"\r\n\r\n${value}\r\n`
+          )
+        }
+      }
+
+      chunks.push(`--${boundary}--`)
+
+      return new Blob(chunks, {
+        type: 'multipart/form-data; boundary=' + boundary
+      })
+    }
+
+    /**
+     * The class itself is iterable
+     * alias for formdata.entries()
+     *
+     * @return  {Iterator}
+     */
+    [Symbol.iterator] () {
+      return this.entries()
+    }
+
+    /**
+     * Create the default string description.
+     *
+     * @return  {string} [object FormData]
+     */
+    toString () {
+      return '[object FormData]'
+    }
+  }
+
+  if (stringTag) {
+    /**
+     * Create the default string description.
+     * It is accessed internally by the Object.prototype.toString().
+     */
+    FormDataPolyfill.prototype[stringTag] = 'FormData'
+  }
+
+  // Patch xhr's send method to call _blob transparently
+  if (_send) {
+    const setRequestHeader = global.XMLHttpRequest.prototype.setRequestHeader
+
+    /**
+     * @param {string} name
+     * @param {string} value
+     * @returns {undefined}
+     * @see https://xhr.spec.whatwg.org/#dom-xmlhttprequest-setrequestheader
+     */
+    global.XMLHttpRequest.prototype.setRequestHeader = function (name, value) {
+      setRequestHeader.call(this, name, value)
+      if (name.toLowerCase() === 'content-type') this._hasContentType = true
+    }
+
+    /**
+     * @param {ArrayBuffer|ArrayBufferView|Blob|Document|FormData|string=} data
+     * @return {undefined}
+     * @see https://xhr.spec.whatwg.org/#the-send()-method
+     */
+    global.XMLHttpRequest.prototype.send = function (data) {
+      // need to patch send b/c old IE don't send blob's type (#44)
+      if (data instanceof FormDataPolyfill) {
+        const blob = data['_blob']()
+        if (!this._hasContentType) this.setRequestHeader('Content-Type', blob.type)
+        _send.call(this, blob)
+      } else {
+        _send.call(this, data)
+      }
+    }
+  }
+
+  // Patch fetch's function to call _blob transparently
+  if (_fetch) {
+    const _fetch = global.fetch
+
+    global.fetch = function (input, init) {
+      if (init && init.body && init.body instanceof FormDataPolyfill) {
+        init.body = init.body['_blob']()
+      }
+
+      return _fetch.call(this, input, init)
+    }
+  }
+
+  // Patch navigator.sendBeacon to use native FormData
+  if (_sendBeacon) {
+    global.navigator.sendBeacon = function (url, data) {
+      if (data instanceof FormDataPolyfill) {
+        data = data['_asNative']()
+      }
+      return _sendBeacon.call(this, url, data)
+    }
+  }
+
+  global['FormData'] = FormDataPolyfill
+}

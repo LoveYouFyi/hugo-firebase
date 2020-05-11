@@ -43,6 +43,7 @@
     "lyfyi:deploy:prod": "cd public/LoveYouFyi && firebase use loveyoufyi && firebase deploy --only hosting:prod",
     "** siteA BJORN's example **": "****",
     "siteA:dev": "hugo server -D --port 9091 --source=\"sites/siteA\"",
+    "siteA:clean": "del-cli public/project1/siteA/** !public/project1/siteA/.firebaserc !public/project1/siteA/firebase.json",
     "siteA:build:dev": "env HUGO_ENV='development' hugo --minify --source=\"sites/siteA\"",
     "siteA:build:prod": "env HUGO_ENV='production' hugo --minify --source=\"sites/siteA\"",
     "siteA:deploy:dev": "cd public/project1 && firebase use multisite-hosting-dev && firebase deploy --only hosting:siteA",
