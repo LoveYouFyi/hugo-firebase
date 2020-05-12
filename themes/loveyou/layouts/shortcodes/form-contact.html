@@ -6,6 +6,13 @@
   <p love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
   <form method="POST" love-note="each <form> needs attribute 'method' POST">
     <div love-wrapper="radio" class="" love-note="radios group needs parent element with attribute love-wrapper">
+      <!-- Multiple Select -->
+      <select multiple name="cars" id="cars" required="required">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="opel">Opel</option>
+        <option value="audi">Audi</option>
+      </select>
       <!-- radio input must have parent and grandparent for javascript radios-select to work -->
       <div love-note="radio <input> needs parent">
         <input type="radio" name="budget" id="budget1" value="$1000 or less" class="" checked>

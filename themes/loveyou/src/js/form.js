@@ -84,8 +84,19 @@ const serializeForm = form => {
       || field.type === 'submit' 
       || field.type === 'button'
     ) continue; // 'continue 'jumps over' one iteration in the loop, here, it skips the element if not of this type
+
+    // If a multi-select, get all selections
+		if (field.type === 'select-multiple') {
+      let values = "";
+			for (let n = 0; n < field.options.length; n++) {
+        if (!field.options[n].selected) continue;
+          values += field.options[n].value + ' ';
+      }
+		  serialized[field.name] = { type: field.type, value: values };
+    }
+
 		// Convert field data to a query string
-		if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
       serialized[field.name] = { type: field.type, value: field.value };
     }
   }
