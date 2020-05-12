@@ -20,18 +20,18 @@ border_bottom = true
   # icon = "r-project"
   # icon_pack = "fab"
   name = "Firebase"
-  description = "Database/Firestore receives form submissions which are handled by cloud functions."
+  description = "Node.js cloud functions handle form submissions which they save to the Firestore database. Cloud functions listen for new records and sync form data to Google Sheets and send email notifications containing the form data."
   
 [[feature]]
   # icon = "chart-line"
   # icon_pack = "fas"
   name = "Google Sheets Sync"
-  description = "Firebase cloud functions listens for new database entries and sends them to google sheets. Use Google Sheets to view form submissions. One sheet per app, with a new spreadsheet&#47;tab for each form type."
+  description = "Firebase cloud functions listens for new database entries and sends them to google sheets. Use Google Sheets to view form submissions. One sheet per app, with a new spreadsheet/tab for each form type."
   
 [[feature]]
   # icon = "camera-retro"
   # icon_pack = "fas"
   name = "Email Notifications"
-  description = "Firebase uses SMTP Email Provider API such as sendgrid to send you emails with form contents."
+  description = "Firebase uses your SMTP Email Provider API (such as sendgrid) to send emails with form data. A firebase cloud function listens for new database entries and sends emails to the address(es) for each individual web app."
 
 +++
