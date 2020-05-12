@@ -1,0 +1,10 @@
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script type="text/javascript">
+function dataCallback(response) {
+  console.log("dataCallback", response)
+  window.location.href = "/checkRecaptcha?response=" + encodeURIComponent(response)
+}
+function dataExpiredCallback() {
+  console.log("dataExpiredCallback")
+}
+</script>

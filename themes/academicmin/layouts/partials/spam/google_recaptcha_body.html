@@ -1,0 +1,10 @@
+{{ if site.Params.spam.google_recaptcha }}
+
+{{ $site_key := site.Params.spam.google_recaptcha_site_key | default "" }}
+
+<div class="g-recaptcha"
+data-sitekey="{{$site_key}}"
+data-callback="dataCallback"
+data-expired-callback="dataExpiredCallback"/> 
+
+{{ end }}

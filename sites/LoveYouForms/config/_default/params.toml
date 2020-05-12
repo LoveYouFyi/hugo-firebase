@@ -299,3 +299,10 @@ plugins_js  = ["custom", "forms"]
 [marketing]
   google_analytics = ""
   google_tag_manager = ""
+
+############################
+## Spam
+############################
+  [spam]
+    google_recaptcha = true
+    google_recaptcha_site_key = "6LftbPYUAAAAAGKg21zznAo9RYo7y7_XTjw2NOUi"
