@@ -1,10 +1,26 @@
 {{ if site.Params.spam.google_recaptcha }}
 
 {{ $site_key := site.Params.spam.google_recaptcha_site_key | default "" }}
-
+<!--
+<div id="g-recaptcha-container"></div>
+<script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render=explicit" async defer></script>
+<script>
+function recaptchaCallback (e) {
+  var container = document.getElementById('g-recaptcha-container');
+  container.innerHTML = '';
+  var recaptcha = document.createElement('div');
+  grecaptcha.render(recaptcha, {
+    'sitekey': '{{$site_key}}'
+  });
+  container.appendChild(recaptcha);
+  console.log("callback $$$$ ", e)
+}
+</script>
+-->
 <div class="g-recaptcha"
-data-sitekey="{{$site_key}}"
-data-callback="dataCallback"
-data-expired-callback="dataExpiredCallback"/> 
+  data-sitekey="_your_site_key_"
+  data-callback="onSubmit"
+  data-size="invisible">
+</div>
 
 {{ end }}
