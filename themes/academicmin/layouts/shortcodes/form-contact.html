@@ -4,7 +4,7 @@
 <!-- field name="..." must match field name in database formField -->
 <div love-note="each <form> needs parent wrapper">
   <p love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
-  <form method="POST" love-note="each <form> needs attribute 'method' POST">
+  <form love-note="each <form> needs attribute 'method' POST">
     <div love-wrapper="radio" class="" love-note="radios group needs parent element with attribute love-wrapper">
       <!-- Multiple Select -->
       <select multiple name="cars" required="required">
@@ -63,7 +63,7 @@
 <!-- field name="..." must match field name in database formField -->
 <div class="form-wrapper" love-note="each <form> needs parent wrapper">
   <p class="contact" love-message="form-message" style="display: none;" love-note="<form> needs element with attributes love-message and style"></p>
-  <form class=" forms" name="contact" method="POST">
+  <form class=" forms">
     <div class="form-field ">
         <div class="form-label"><label class="inline"> Budget? <span class="required">*</span></label></div>
         <div class="form-data">
@@ -174,7 +174,7 @@
 <br>
 <div class="form-wrapper">
   <p class="js-form-message contact" style="display: none;"></p>
-  <form class=" forms" name="contact" method="POST">
+  <form class=" forms">
     <div class="form-field ">
         <div class="form-label "><label class="inline"> Name <span class="required">*</span></label></div>
         <div class="form-data " data-grav-field="text" data-grav-disabled="true" data-grav-default="null">
