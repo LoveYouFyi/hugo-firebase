@@ -92,12 +92,12 @@ const serializeForm = form => {
         if (!field.options[n].selected) continue;
           values += field.options[n].value + ' ';
       }
-		  serialized[field.name] = { type: field.type, value: values };
+		  serialized[field.name] = values;
     }
 
 		// Convert field data to a query string
 		else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
-      serialized[field.name] = { type: field.type, value: field.value };
+      serialized[field.name] = field.value;
     }
   }
   serialized = JSON.stringify(serialized);
@@ -113,7 +113,7 @@ const ajaxRequest = event => {
   let form = event.target;
   let formUrlAction = form.querySelector('[name=urlAction]').value;
   let formData = serializeForm(form);
-
+  
   /**
    * Ajax Request Object
    */
