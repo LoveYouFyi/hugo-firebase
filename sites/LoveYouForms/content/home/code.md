@@ -25,7 +25,7 @@ const admin = require('firebase-admin');
 const serviceAccount = require('./service-account.json'); // download from firebase console
 admin.initializeApp({ // initialize firebase admin with credentials
   credential: admin.credential.cert(serviceAccount), // So functions can connect to database
-  databaseURL: 'https://loveyou-forms.firebaseio.com' // if using FireBase database (not FireStore)
+  databaseURL: 'https://loveyou-forms.firebaseio.com'
 });
 const db = admin.firestore(); // FireStore database reference
 // TIMESTAMPS: for adding server-timestamps to database docs
@@ -41,11 +41,8 @@ const jwtClient = new google.auth.JWT({ // JWT Authentication (for google sheets
   key: serviceAccount.private_key, // <--- CREDENTIALS
   scopes: ['https://www.googleapis.com/auth/spreadsheets'] // read and write sheets
 });
-// AKISMET
+// AKISMET SPAM FILTER
 const { AkismetClient } = require('akismet-api/lib/akismet.js'); // had to hardcode path
-const key = '5c73ad452f54'
-const blog = 'https://lyfdev.web.app'
-const client = new AkismetClient({ key, blog })
 
 
 /*------------------------------------------------------------------------------
@@ -91,22 +88,27 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
 
     const appRef = await db.collection('app').doc(formResults.appKey.value).get();
     const app = appRef.data();
+    let globalApp; // made available here for akismet
 
     // App key: if exists continue with global and app condition checks
     if (app) {
       const globalAppRef = await db.collection('global').doc('app').get();
-      const globalApp = globalAppRef.data();
+      globalApp = globalAppRef.data();
       // Messages: use global or app-specific messages
-      // global boolean 0/1, if set to 2 bypass global & use app-specific boolean
-      if (app.condition.messageGlobal || app.condition.messageGlobal == null) {
+      // global boolean 0/false, 1/true, or '2' bypass global & use app boolean
+      if (globalApp.condition.messageGlobal === 1
+          || (globalApp.condition.messageGlobal === 2 
+              && !!app.condition.messageGlobal)
+        ) {
         messages = globalApp.message;
       } else {
         messages = app.message;
       }
       // CORS validation: stop cloud function if CORS check does not pass
-      // global boolean 0/1, if set to 2 bypass global & use app-specific boolean
-      if (!globalApp.condition.corsBypass
-          || (globalApp.condition.corsBypass === 2 && !app.condition.corsBypass)
+      // global boolean 0/false, 1/true, or '2' bypass global & use app boolean
+      if (globalApp.condition.corsBypass === 0
+          || (globalApp.condition.corsBypass === 2 
+              && !app.condition.corsBypass)
         ) {
         // restrict to url requests that match the app
         res.setHeader('Access-Control-Allow-Origin', app.appInfo.appUrl);
@@ -122,8 +124,9 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       }
       // Form Submit Enabled/Disabled: stop cloud function if submitForm disabled
       // global boolean 0/1, if set to 2 bypass global & use app-specific boolean
-      if (!globalApp.condition.submitForm
-          || (globalApp.condition.submitForm === 2 && !app.condition.submitForm)
+      if (globalApp.condition.submitForm === 0
+          || (globalApp.condition.submitForm === 2 
+              && !app.condition.submitForm)
         ) {
         console.warn(`Form submit disabled for app "${app.appInfo.appName}"`);
         // return error response because submit is from approved app
@@ -212,10 +215,10 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
    const props = (() => {
 
       const trim = value => value.toString().trim();
-      const props =  { toUids: [], templateData: {} };
+      const props =  { toUids: '', templateData: {} }
 
       // compare database fields with form-submitted props and build object
-      const set = propsToParse => Object.entries(propsToParse).forEach(([prop, data]) => {
+      const setProps = propsToParse => Object.entries(propsToParse).forEach(([prop, data]) => {
         // appInfo fields do not have a 'value' property
         if (appInfo.hasOwnProperty(prop)) {
           props[prop] = trim(data);
@@ -223,7 +226,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
           // form fields have 'value' property
           props[prop] = trim(data.value);
         }
-        // toUids: appKey unless if spam then use [ alert message ]
+        // toUids: appKey unless if spam then use [ spam alert message ]
         if (prop === 'appKey') {
            props.toUids = trim(data.value);
         } else if (prop === 'toUidsSpamOverride') {
@@ -238,7 +241,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
         // Form Template Fields: Whitelist check [END]
       });
 
-      const get = ({ templateData, urlRedirect = false, ...key } = props) => ({
+      const getProps = ({ templateData, urlRedirect = false, ...key } = props) => ({
         data: {
           appKey: key.appKey, 
           createdDateTime: FieldValue.serverTimestamp(), 
@@ -256,12 +259,12 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
  
       return {
         set: props => {
-          return set(props);
+          setProps(props);
         },
         get: () => {
-          return get();
+          return getProps();
         }
-      }
+      };
     })();
     //
     // [END] Data Sanitize & Set Props
@@ -274,64 +277,82 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
 
 
     ////////////////////////////////////////////////////////////////////////////
-    // Akismet Spam Check
+    // Akismet Spam Filter
     // Minimally checks IP Address and User Agent
     // Also checks fields defined as 'content' and 'other' based on config
-    ////////////////////////////////////////////////////////////////////////////
+    //
+    let akismetEnabled = false;
+    if (globalApp.condition.spamFilterAkismet === 1
+        || (globalApp.condition.spamFilterAkismet === 2 
+            && !!app.condition.spamFilterAkismet)
+    ) { 
+      akismetEnabled = true;
+    }
+    
+    if (akismetEnabled) {
+      // Akismet credentials
+      const key = app.spamFilterAkismet.key;
+      const blog = app.appInfo.appUrl;
+      const client = new AkismetClient({ key, blog })
 
-    try {
-      // Ternary with reduce
-      // returns either 'content' fields as string, or 'other' props as {}
-      const akismetProps = fieldGroup => accumulatorType =>
-        // does data/array exist, and if so does it have length > 0
-        formTemplateRef.data().fieldsAkismet[fieldGroup]
-          && formTemplateRef.data().fieldsAkismet[fieldGroup].length > 0
-        // if exists then reduce
-        ? (formTemplateRef.data().fieldsAkismet[fieldGroup].reduce((a, field) => {
-          if (fieldGroup === 'content') {
-            return a + props.get().data.template.data[field] + " ";
-          } else if (fieldGroup === 'other') {
-            a[field] = props.get().data.template.data[field];
-            return a;
-          }
-        }, accumulatorType))
-        // null prevents from being added to object
-        : null;
+      try {
+        // Ternary with reduce
+        // returns either 'content' fields as string, or 'other' props as {}
+        const akismetProps = fieldGroup => accumulatorType =>
+          // does data/array exist, and if so does it have length > 0
+          formTemplateRef.data().fieldsAkismet[fieldGroup]
+            && formTemplateRef.data().fieldsAkismet[fieldGroup].length > 0
+          // if exists then reduce
+          ? (formTemplateRef.data().fieldsAkismet[fieldGroup].reduce((a, field) => {
+            if (fieldGroup === 'content') {
+              return a + props.get().data.template.data[field] + " ";
+            } else if (fieldGroup === 'other') {
+              a[field] = props.get().data.template.data[field];
+              return a;
+            }
+          }, accumulatorType))
+          // null prevents from being added to object
+          : null;
 
-      // Data to check for spam
-      const testData = {
-        ...req.ip && { ip: req.ip },
-        ...req.headers['user-agent'] && { useragent: req.headers['user-agent'] },
-        ...akismetProps('content')('') && { content: akismetProps('content')('') },
-        ...akismetProps('other')({})
+        // Data to check for spam
+        const testData = {
+          ...req.ip && { ip: req.ip },
+          ...req.headers['user-agent'] && { useragent: req.headers['user-agent'] },
+          ...akismetProps('content')('') && { content: akismetProps('content')('') },
+          ...akismetProps('other')({})
+        }
+
+        // Test if data is spam -> a successful test returns boolean
+        const isSpam = await client.checkSpam(testData);
+        // if spam suspected
+        if (typeof isSpam === 'boolean' && isSpam) {
+          props.set({spam: { value: 'true' }});
+          props.set({toUidsSpamOverride: { value: "SPAM_SUSPECTED_DO_NOT_EMAIL" } });
+        } 
+        // if spam check passed
+        else if (typeof isSpam === 'boolean' && !isSpam) {
+          props.set({spam: { value: 'false' }});
+        }
+
+      } catch(err) {
+
+        // Validate API Key
+        const isValid = await client.verifyKey();
+        if (isValid) {
+          console.info('Akismet: API key is valid');
+        } else if (!isValid) {
+          console.warn('Akismet: Invalid API key');
+        }
+
+        // if api key valid -> error is likely network failure of client.checkSpam()
+        console.error("Akismet ", err);
+
       }
-
-      // Test if data is spam -> a successful test returns boolean
-      const isSpam = await client.checkSpam(testData);
-      // if spam suspected
-      if (typeof isSpam === 'boolean' && isSpam) {
-        props.set({spam: { value: 'true' }});
-        props.set({toUidsSpamOverride: { value: "SPAM_SUSPECTED_DO_NOT_EMAIL" } });
-      } 
-      // if spam check passed
-      else if (typeof isSpam === 'boolean' && !isSpam) {
-        props.set({spam: { value: 'false' }});
-      }
-
-    } catch(err) {
-
-      // Validate API Key
-      const isValid = await client.verifyKey();
-      if (isValid) {
-        console.info('Akismet: API key is valid');
-      } else if (!isValid) {
-        console.warn('Akismet: Invalid API key');
-      }
-
-      // if api key valid -> error is likely network failure of client.checkSpam()
-      console.error("Akismet ", err);
 
     }
+    //
+    // [END] Akismet Spam Filter
+    ////////////////////////////////////////////////////////////////////////////
 
 
     // For serverTimestamp to work must first create new doc key then 'set' data
@@ -585,8 +606,7 @@ const schemaDefault = (col, schema) => functions.firestore.document(`${col}/{id}
 });
 
 // Default schema functions for 'app' and 'formTemplate' collections
-module.exports = {
-  schemaApp: schemaDefault('app', 'schemaApp'),
-  schemaFormTemplate: schemaDefault('formTemplate', 'schemaFormTemplate')
-};
+exports.schemaApp = schemaDefault('app', 'schemaApp'),
+exports.schemaFormTemplate = schemaDefault('formTemplate', 'schemaFormTemplate')
+
 ```
