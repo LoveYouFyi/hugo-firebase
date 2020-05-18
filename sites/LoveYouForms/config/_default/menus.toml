@@ -22,10 +22,10 @@
   url = "/docs"
   weight = 1
 
-[[docs]]
-  name = "Firebase"
-  weight = 10
-  identifier = "firebase"
+#[[docs]]
+  #name = "Firebase"
+  #weight = 10
+  #identifier = "firebase"
 
 [[docs]]
   name = "Forms"

@@ -20,7 +20,7 @@ type: docs  # Do not modify.
     #weight: 13
 ---
 
-## Motivation
+## Flexibility
 
 This feature can be used for publishing content such as:
 
