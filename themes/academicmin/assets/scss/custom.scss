@@ -96,6 +96,7 @@ body {
 }
 h1,h2,h3,h4,h5,h6 {
   color: $sta-text;
+  font-weight: 400;
 }
 h1 { @include sizeHeight-1; }
 h2 { @include sizeHeight-2; }

@@ -26,19 +26,32 @@ As of Today this documentation is in progress - more coming soon.
 
 ## Motivation
 
-To make it fast and simple to handle form submissions for **unlimited web forms** of **unlimited static websites** without relying on a paid service, or managing processes around constrictive free usage tiers.
+To make it fast and simple to handle form submissions for **unlimited web forms** of **unlimited websites** without minimum monthly per-app fees, or restrictive free usage offerings.
 
 ## What is LoveYouForms?
 
-It is a Node.js application which is served as cloud functions on the Firebase platform. It uses the scalable NoSQL cloud Firestore database of the Firebase platform.
+### Functional Explanation
+
+Your own form handling application that:
+
+* Manages unlimited number of websites &mdash; each with its own settings, email recipients, and Google Sheets spreadsheet sync.
+* Form Submissions &mdash; captures and saves them to your database.
+* Email Sending &mdash; sends emails with the form data to you (or whomever you include as a recipient)
+* Google Sheets &mdash; syncs form submissions to Google Sheets so you have a spreadsheet to view all form submissions. 
+* Spam Filter &mdash; option for using Akismet which prevents emails from being sent when a form submission is flagged as spam, but still syncs the data to Google Sheets for your periodic review in case a legitimate submission was accidentally flagged as spam. 
+
+### Technical Explanation
+
+It is a Node.js application which is served as cloud functions on the Google Firebase platform. It uses the scalable NoSQL cloud Firestore database of the Firebase platform. Cloud funtions make use of the Google API to sync form data to Google Sheets spreadsheets. Emails are sent using the SMTP Email Provider API of your choice (such as Sendgrid). Spam is optionally filtered with Akismet.
 
 ## Why Use LoveYouForms?
 
-Designed to:
-* make setup and usage quick as possible
-* leverage a stable and fully-managed backend/system platform
+The app runs on Google's Firebase platform. So the servers, Node.js environment, and database are managed by them, and scaling is automated.
 
-The app runs on Google's Firebase platform. So the servers, Node.js environment, database, and scaling are automated and managed by them.
+* Free or Cost Effective &mdash; although you need to supply your credit card to Google Firebase to activate all the functionality of the application's cloud functions, you may never pay anything for usage since their free tier is extremely generous. Google Sheets sync costs nothing unless you are processing an extremely high number of form submissions. Sendgrid's free tier allows 100 emails per day. For an unlimited number of websites, you should be able to process up to a combined 100 form submissions per day, or 3,000 emails per month without paying anything.
+* Minimal Maintenace &mdash; leverages stable and fully-managed backend systems for minimal maintenance by you: Firebase, Google Sheets, Sendgrid (or your choice of email provider), Akismet.
+* Performance &mdash; never worry about being able to handle volume, or scaling.
+
 
 ## When to Use LoveYouForms?
 
