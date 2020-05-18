@@ -153,7 +153,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
     //
     const formFieldsDefaultRef = await db.collection('formField').where('default', '==', true).get();
     const formFieldsDefault = formFieldsDefaultRef.docs.reduce((a, doc) => {
-      a[doc.id] = doc.data();
+      a[doc.id] = doc.data().value;
       return a;
     }, {});
     
@@ -292,14 +292,18 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
         // Ternary with reduce
         // returns either 'content' fields as string, or 'other' props as {}
         const akismetProps = fieldGroup => accumulatorType =>
-          // does data/array exist and is length > 0
-          formTemplateRef.data().fieldsAkismet[fieldGroup]
-            && formTemplateRef.data().fieldsAkismet[fieldGroup].length > 0
+          // if database contains fieldsAkismet and [fieldGroup] array 
+          ( typeof formTemplateRef.data().fieldsAkismet !== 'undefined'
+            && typeof formTemplateRef.data().fieldsAkismet[fieldGroup] !== 'undefined'
+            && formTemplateRef.data().fieldsAkismet[fieldGroup].length > 0)
           // if exists then reduce
           ? (formTemplateRef.data().fieldsAkismet[fieldGroup].reduce((a, field) => {
-            if (fieldGroup === 'content') {
+            // skip if field not found in props.get()...
+            if (typeof props.get().data.template.data[field] === 'undefined') { return a }
+            // reduce based on fieldGroup type
+            if (typeof accumulatorType === 'string') {
               return a + props.get().data.template.data[field] + " ";
-            } else if (fieldGroup === 'other') {
+            } else if (accumulatorType.constructor === Object) {
               a[field] = props.get().data.template.data[field];
               return a;
             }

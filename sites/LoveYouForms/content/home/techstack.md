@@ -31,7 +31,7 @@ border_bottom = true
 [[feature]]
   # icon = "camera-retro"
   # icon_pack = "fas"
-  name = "Email Notifications"
-  description = "Firebase uses your SMTP Email Provider API (such as sendgrid) to send emails with form data. A firebase cloud function listens for new database entries and sends emails to the address(es) for each individual web app."
+  name = "Email Notifications & Spam Filter"
+  description = "Firebase uses your SMTP Email Provider API (such as Sendgrid) to send emails with form data. Spam is optionally filtered with Akismet which is free for non-commercial sites and paid for professional or commercial sites."
 
 +++
