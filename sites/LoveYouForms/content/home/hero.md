@@ -45,9 +45,9 @@ border_bottom = false
   #icon_pack = "fas"
   #icon = "download"
   
-#[cta_alt]
-  #url = "https://sourcethemes.com/academic/"
-  #label = "View Documentation"
+[cta_alt]
+  url = "#code"
+  label = "View Code"
 
 # Note. An optional note to show underneath the cta links.
 [cta_note]
