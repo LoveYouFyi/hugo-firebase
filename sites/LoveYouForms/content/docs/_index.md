@@ -42,4 +42,8 @@ The app runs on Google's Firebase platform. So the servers, Node.js environment,
 
 ## When to Use LoveYouForms?
 
-Use it for websites which primary motivation is to capture form submissions from anonymous (not authenticated) visitors. Such as for capturing data from lead-generation webforms. 
+Use it for websites which primary motivation is to capture form submissions from anonymous visitors, that is, not authenticated / not logged in. Such as for capturing data from contact forms, lead-generation forms, email addresses, feedback, etc.
+
+Use it when relying on client-side data validation serves your needs. 
+
+The app is not intended for use when needs require robust server-side form-data validation.
