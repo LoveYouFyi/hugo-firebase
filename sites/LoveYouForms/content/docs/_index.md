@@ -22,7 +22,7 @@ type: docs  # Do not modify.
 
 ## Docs Under Construction!!!
 
-As of Today this documentation is in progress - more coming soon.
+Documentation is in progress - more coming soon.
 
 ## Motivation
 
@@ -35,7 +35,7 @@ To make it fast and simple to handle form submissions for **unlimited web forms*
 Your own form handling application that:
 
 * Manages unlimited number of websites &mdash; each with its own settings, email recipients, and Google Sheets spreadsheet sync.
-* Form Submissions &mdash; captures and saves them to your database.
+* Form Submissions &mdash; captures and saves form-submission data to your database.
 * Email Sending &mdash; sends emails with the form data to you (or whomever you include as a recipient)
 * Google Sheets &mdash; syncs form submissions to Google Sheets so you have a spreadsheet to view all form submissions. 
 * Spam Filter &mdash; option for using Akismet which prevents emails from being sent when a form submission is flagged as spam, but still syncs the data to Google Sheets for your periodic review in case a legitimate submission was accidentally flagged as spam. 
@@ -55,8 +55,8 @@ The app runs on Google's Firebase platform. So the servers, Node.js environment,
 
 ## When to Use LoveYouForms?
 
-Use it for websites which primary motivation is to capture form submissions from anonymous visitors, that is, not authenticated / not logged in. Such as for capturing data from contact forms, lead-generation forms, email addresses, feedback, etc.
+Use it for websites which primary motivation is to capture form submissions from anonymous visitors, that is, not authenticated / not logged in. Use it for capturing data from contact forms, lead-generation forms, email addresses, feedback, etc.
 
 Use it when relying on client-side data validation serves your needs. 
 
-The app is not intended for use when needs require robust server-side form-data validation.
+The app is not intended for use when needs require robust server-side data validation.
