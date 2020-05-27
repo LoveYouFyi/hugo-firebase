@@ -26,7 +26,7 @@ border_bottom = true
   # icon = "chart-line"
   # icon_pack = "fas"
   name = "Google Sheets Sync"
-  description = "Firebase cloud functions listens for new database entries and sends them to google sheets. Use Google Sheets to view form submissions. One sheet per app, with a new spreadsheet/tab for each form type."
+  description = "Firebase cloud function listens for new database entries and sends them to google sheets. Use Google Sheets to view form submissions. One sheet per app, with a new spreadsheet/tab for each form template."
   
 [[feature]]
   # icon = "camera-retro"
