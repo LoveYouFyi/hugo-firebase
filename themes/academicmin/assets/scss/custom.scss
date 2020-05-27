@@ -280,7 +280,7 @@ a {
   }
   .navbar-brand img {
     max-width: 100%;
-    height: 26px;
+    height: 20px;
   }
   //
   // 'docs' Table of contents for 'docs' content type
@@ -294,7 +294,7 @@ a {
 @media (min-width: 991.98px) {
   // ie11 -otherwise svg does not show
   .navbar-brand img {
-    width: 282px !important;
+    width: 216px !important;
   }
 }
 
@@ -333,7 +333,7 @@ body {
 }
 // Logo/brand: Image
 .navbar-brand img {
-  height: 26px;
+  height: 20px;
 }
 // menu links
 .navbar .navbar-nav .nav-link {
@@ -793,14 +793,18 @@ body {
 // Featurette Widget
 //
 
- .wg-featurette {
+.wg-featurette {
   .align-left {
     text-align: left;
   }
 }
 .featurette {
   font-size: $fontSize-base;
-  h1,h2,h3,h4,h5,h6,p,div,span {
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 300;
+    color: $sta-text4;
+  }
+  p,div,span {
     color: $sta-text;
   }
   h1,h2,h3 {
