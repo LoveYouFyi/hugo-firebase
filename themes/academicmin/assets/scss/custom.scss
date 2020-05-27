@@ -338,9 +338,9 @@ body {
 // menu links
 .navbar .navbar-nav .nav-link {
   font-size: $fontSize-4;
-  font-weight: 300 !important;
+  font-weight: 200 !important;
   &.active {
-    font-weight: 300 !important;
+    font-weight: 200 !important;
     color: $sta-text;
   }
   &:hover {
@@ -430,7 +430,7 @@ body {
 // Button
 //
 
- .btn {
+.btn {
   color: $sta-text3;
   border: none;
   border-radius: 0;
@@ -720,12 +720,35 @@ body {
 //
 
 .wg-hero-center {
+  * { // everything font-weight 
+    font-weight: 200;
+  }
+  h1,h2,h3,h4,h5,h6,p,div,pre,code {
+    text-align: center;
+  }
+  p {
+    margin-bottom: .75rem;
+  }
+  a {
+    font-weight: 400;
+    &.hero-cta-alt {
+      color: $sta-secondary !important;
+      &.active,
+      &:hover,
+      &:focus {
+        // override parent theme
+        transform: unset;
+        text-decoration: none;
+        color: $sta-text3 !important;
+      }
+    }
+  }
+  .fa, .fas {
+    font-weight: 600;
+  }
   .hero-media {
     max-width: 320px;
     margin-bottom: 22px;
-  }
-  h1,h2,h3,h4,h5,h6,p,div,pre,code, .cta-btns {
-    text-align: center;
   }
   .hero-title {
     font-weight: 700;
@@ -742,9 +765,6 @@ body {
   }
   .hero-text {
     @include sizeHeight-5;
-  }
-  p {
-    margin-bottom: .75rem;
   }
   .cta-btns {
     margin-top: 1.25rem;
