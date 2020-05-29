@@ -74,6 +74,7 @@ const objectValuesByKey = (array, propKey) => array.reduce((a, c) => {
   return a;
 }, []);
 
+
 /*------------------------------------------------------------------------------
   Form-Handler HTTP Cloud Function
   Receives data sent by form submission and creates database entry

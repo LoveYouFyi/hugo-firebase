@@ -19,8 +19,8 @@ border_bottom = true
 [[feature]]
   # icon = "r-project"
   # icon_pack = "fab"
-  name = "Firebase"
-  description = "Node.js cloud functions handle form submissions which they save to the Firestore database. Cloud functions listen for new records and sync form data to Google Sheets and send email notifications containing the form data."
+  name = "Firebase Database &amp; Functions"
+  description = "Node.js cloud functions handle server-side logic.  Functions handle form submissions and save them to the database;  listen for new records to sync form data to Google Sheets; and send email notifications with form data."
   
 [[feature]]
   # icon = "chart-line"
