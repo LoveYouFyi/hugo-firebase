@@ -26,21 +26,21 @@ Documentation is in progress - more coming soon.
 
 ## Motivation
 
-To make it fast and simple to handle and access/view form submissions for **unlimited web forms** of **unlimited websites** without minimum monthly per-web-app fees, or restrictive free usage offerings. All **from a single cloud application** that requires minimal maintenance.
+To make it fast and simple to handle, receive, and view form submissions for **unlimited web forms** of **unlimited websites** &mdash; **from a single cloud application** that requires minimal maintenance. 
 
-Depending on your scenario, you get webforms for your web-apps for free, near-free, or extremely reduced cost, with significant time-savings compared to developing, deploying or managing a new form-handling app for each web-app.
+Depending on your scenario, you get webforms for your web-apps for free, near-free, or at an extremely reduced cost. You also get significant time-savings compared to developing, deploying or managing a new form-handling app for each web-app.
 
 ## What is LoveYouForms?
 
 ### Functional Explanation
 
-Your own form handling application that:
+Your own form handling application:
 
 * **Manage Unlimited Websites** &mdash; each with its own settings, email recipients, and Google Sheets spreadsheet sync.
-* **Form Submissions** &mdash; captures and saves form-submission data to your database.
-* **Email Sending** &mdash; sends emails with the form data to you (or whomever you include as a recipient)
+* **Form Submissions** &mdash; captures and saves form-submitted data to your database.
+* **Email Sending** &mdash; sends emails with the form data to one or more email addresses.
 * **Google Sheets** &mdash; syncs form submissions to Google Sheets so you have a spreadsheet to view all form submissions. 
-* **Spam Filter** &mdash; option for using Akismet which prevents emails from being sent when a form submission is flagged as spam, but still syncs the data to Google Sheets for your periodic review in case a legitimate submission was accidentally flagged as spam. 
+* **Spam Filter** &mdash; option for using Akismet prevents emails from being sent when a form submission is flagged as spam, but still syncs the data to Google Sheets for your periodic review in case a legitimate submission was mistakenly flagged as spam. 
 
 ### Technical Explanation
 
@@ -61,4 +61,4 @@ Use it for websites which primary motivation is to capture form submissions from
 
 Use it when relying on client-side data validation serves your needs. 
 
-The app is not intended for use when needs require robust server-side data validation.
+The app is not presently intended for use when needs require robust server-side data validation. Though this can be achieved through further development.
