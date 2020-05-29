@@ -28,7 +28,11 @@ Documentation is in progress - more coming soon.
 
 To make it fast and simple to handle, receive, and view form submissions for **unlimited web forms** of **unlimited websites** &mdash; **from a single cloud application** that requires minimal maintenance. 
 
+<<<<<<< HEAD
 Depending on your scenario, you get webforms for your web-apps for free, near-free, or at an extremely reduced cost. You get significant time-savings compared to developing, deploying or maintaining a new form-handling app for each web-app.
+=======
+Depending on your scenario, you get webforms for your web-apps for free, near-free, or at an extremely reduced cost. You get significant time-savings compared to developing, and deploying or maintaining a new form-handling app for each web-app.
+>>>>>>> docs
 
 ## What is LoveYouForms?
 
