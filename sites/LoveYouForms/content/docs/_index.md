@@ -26,7 +26,9 @@ Documentation is in progress - more coming soon.
 
 ## Motivation
 
-To make it fast and simple to handle form submissions for **unlimited web forms** of **unlimited websites** without minimum monthly per-app fees, or restrictive free usage offerings.
+To make it fast and simple to handle and access/view form submissions for **unlimited web forms** of **unlimited websites** without minimum monthly per-web-app fees, or restrictive free usage offerings. 
+
+Depending on your scenario, you get webforms for your web-apps for free, near-free, or extremely reduced cost, with significant time-savings compared to developing, deploying or managing a new form-handling app for each web-app.
 
 ## What is LoveYouForms?
 
