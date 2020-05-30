@@ -7,11 +7,16 @@ weight = 10  # Order that this section will appear.
 
 # title = "Love You Forms"
 
-# Hero image (optional). Enter filename of an image in the `static/img/` folder.
+# Hero image optional. Enter filename of an image in the `static/img/` folder.
 hero_media = "nils-erik-hendrick-photo.png"
 hero_media_width = "280px"
 
 border_bottom = false
+
+[font] 
+  weight = "font-400" # font-200, font-400, font-700, font-900 
+  [font.highlight]
+    weight = "highlight-700" # font-200, font-400, font-700, font-900 
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -60,11 +65,11 @@ border_bottom = false
 </div>
 
 <div class="hero-title-2">
-  Software Developer 
+  <span>Software Developer</span>
   <span class="highlight primary3">JavaScript</span>
   <span class="highlight primary3">Nodejs</span>
   <span class="highlight primary3">React</span>
-  Php and Drupal
+  <span>Mobile and Web</span>
 </div>
 <h3>
   <span class="highlight primary3">Hewlett-Packard</span>

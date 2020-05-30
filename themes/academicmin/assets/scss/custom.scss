@@ -136,6 +136,14 @@ span.nobreak {
 }
 
 //
+// Font Weight
+//
+.font-200 { font-weight: 200 !important; }
+.font-400 { font-weight: 400 !important; }
+.font-700 { font-weight: 700 !important; }
+.font-900 { font-weight: 900 !important; }
+
+//
 // Anchors
 //
 
@@ -170,8 +178,11 @@ a {
 // Text Highlights and Emphasis
 //
 .highlight {
+  &-200 .highlight { font-weight: 200 !important; }
+  &-400 .highlight { font-weight: 400 !important; }
+  &-700 .highlight { font-weight: 700 !important; }
+  &-900 .highlight { font-weight: 900 !important; }
   padding: 0 .25rem;
-  font-weight: 700;
   &.primary2 {
     color: $sta-text;
     background: $primary1;
@@ -716,21 +727,20 @@ body {
 }
 
 //
-// Hero Widget
+// Hero Widgets
 //
 
+
+.wg-hero,
 .wg-hero-center {
-  * { // everything font-weight 
-    font-weight: 200;
-  }
-  h1,h2,h3,h4,h5,h6,p,div,pre,code {
+ h1,h2,h3,h4,h5,h6,p,div,pre,code {
     text-align: center;
   }
   p {
     margin-bottom: .75rem;
   }
   a {
-    font-weight: 400;
+//    font-weight: 400;
     &.hero-cta-alt {
       color: $sta-secondary !important;
       &.active,

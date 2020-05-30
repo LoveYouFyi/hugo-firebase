@@ -12,6 +12,12 @@ hero_media = "logo-text-light-gray.svg"
 #hero_media_width = "400px" # inline sets max-width, and overrides all breakpoints
 border_bottom = false
 
+# Font
+[font] 
+  weight = "font-200" # font-200, font-400, font-700, font-900 
+  [font.highlight]
+    weight = "highlight-700" # font-200, font-400, font-700, font-900 
+
 [design.background]
   # Apply a background color, gradient, or image.
   #   Uncomment (by removing `#`) an option to apply it.
