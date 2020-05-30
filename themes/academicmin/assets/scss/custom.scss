@@ -3,6 +3,10 @@
 // Mixins & Variables
 //
 $navbarHeight: 60px;
+$menu-primary-logo-height-sm: $sta-menu-primary-logo-height-sm;
+$menu-primary-logo-height-md: $sta-menu-primary-logo-height-md;
+$menu-primary-logo-height-lg: $sta-menu-primary-logo-height-lg;
+$menu-primary-logo-width-lg: $sta-menu-primary-logo-width-lg;
 
 // Font Size & Line Height
 $fontSize-base: 1rem; // 16px if base 16
@@ -314,7 +318,7 @@ a.highlight {
   }
   .navbar-brand img {
     max-width: 100%;
-    height: 20px;
+    height: $menu-primary-logo-height-lg;
   }
   //
   // 'docs' Table of contents for 'docs' content type
@@ -326,9 +330,9 @@ a.highlight {
 } // End 'Mobile Only'
 
 @media (min-width: 991.98px) {
-  // ie11 -otherwise svg does not show
+  // IMPORTANT: IE11 -otherwise svg does not show
   .navbar-brand img {
-    width: 216px !important;
+    width: $menu-primary-logo-width-lg !important;
   }
 }
 
@@ -367,7 +371,7 @@ body {
 }
 // Logo/brand: Image
 .navbar-brand img {
-  height: 20px;
+  height: $menu-primary-logo-height-sm;
 }
 // menu links
 .navbar .navbar-nav .nav-link {
