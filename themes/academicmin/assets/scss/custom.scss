@@ -138,10 +138,10 @@ span.nobreak {
 //
 // Font Weight
 //
-.font-200 { font-weight: 200 !important; }
-.font-400 { font-weight: 400 !important; }
-.font-700 { font-weight: 700 !important; }
-.font-900 { font-weight: 900 !important; }
+.font-200 { font-weight: 200; }
+.font-400 { font-weight: 400; }
+.font-700 { font-weight: 700; }
+.font-900 { font-weight: 900; }
 
 //
 // Anchors
@@ -178,10 +178,16 @@ a {
 // Text Highlights and Emphasis
 //
 .highlight {
-  &-200 .highlight { font-weight: 200 !important; }
-  &-400 .highlight { font-weight: 400 !important; }
-  &-700 .highlight { font-weight: 700 !important; }
-  &-900 .highlight { font-weight: 900 !important; }
+  // As parent with children
+  &-200 .highlight { font-weight: 200; }
+  &-400 .highlight { font-weight: 400; }
+  &-700 .highlight { font-weight: 700; }
+  &-900 .highlight { font-weight: 900; }
+  // Child override parent
+  &.font-200 { font-weight: 200; }
+  &.font-400 { font-weight: 400; }
+  &.font-700 { font-weight: 700; }
+  &.font-900 { font-weight: 900; }
   padding: 0 .25rem;
   &.primary2 {
     color: $sta-text;
@@ -191,8 +197,25 @@ a {
     color: $sta-text;
     background: $primary2;
   }
-
+  &a {
+    // text-decoration: none !important;
+    &:hover {
+      color: $sta-text1;
+      background: $primary2;
+      text-decoration: none !important;
+    }
+  }
 }
+a.highlight {
+    // text-decoration: none !important;
+    &:hover {
+      color: $sta-text1;
+      background: $primary2;
+      text-decoration: none !important;
+    }
+  }
+
+
 .dark {
   .highlight {
     &.primary2 {

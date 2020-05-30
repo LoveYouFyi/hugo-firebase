@@ -86,7 +86,7 @@ border_bottom = false
 <div class="hero-title-2">Creator and Maintainer</div>
 
 <h3>
-  <a href="https://loveyouforms.com" target="_blank" rel="noopener" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
+  <a href="https://loveyouforms.com" target="_blank" rel="noopener" class="highlight font-400">LoveYouForms.com</a>
 </h3>
 <br>
 <a href="https://github.com/LoveYoufyi" target="_blank" rel="noopener"><i class="fab fa-github" style="font-size:2.5rem;"></i></a>
