@@ -22,6 +22,10 @@ text3 = "#f8f8f2" # previous #f5f5f5
 text4 = "#6d6d6d" # previous #f5f5f5
 
 # Menu
+menu_primary_logo_height_sm = "20px"
+menu_primary_logo_height_md = "20px"
+menu_primary_logo_height_lg = "20px"
+menu_primary_logo_width_lg = "216px"
 menu_primary = "#fff"
 menu_text = "yellow"
 menu_text_active = "#2962ff"

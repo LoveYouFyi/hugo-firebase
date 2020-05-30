@@ -29,6 +29,10 @@ $sta-text2: {{ $scr.Get "text2" }};
 $sta-text3: {{ $scr.Get "text3" }};
 $sta-text4: {{ $scr.Get "text4" }};
 
+$sta-menu-primary-logo-height-sm: {{ $scr.Get "menu_primary_logo_height_sm" }};
+$sta-menu-primary-logo-height-md: {{ $scr.Get "menu_primary_logo_height_md" }};
+$sta-menu-primary-logo-height-lg: {{ $scr.Get "menu_primary_logo_height_lg" }};
+$sta-menu-primary-logo-width-lg: {{ $scr.Get "menu_primary_logo_width_lg" }};
 $sta-menu-primary: {{ $scr.Get "menu_primary" }};
 $sta-menu-text: {{ $scr.Get "menu_text" }};
 $sta-menu-text-active: {{ $scr.Get "menu_text_active" }};

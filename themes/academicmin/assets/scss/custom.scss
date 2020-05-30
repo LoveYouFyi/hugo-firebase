@@ -3,6 +3,10 @@
 // Mixins & Variables
 //
 $navbarHeight: 60px;
+$menu-primary-logo-height-sm: $sta-menu-primary-logo-height-sm;
+$menu-primary-logo-height-md: $sta-menu-primary-logo-height-md;
+$menu-primary-logo-height-lg: $sta-menu-primary-logo-height-lg;
+$menu-primary-logo-width-lg: $sta-menu-primary-logo-width-lg;
 
 // Font Size & Line Height
 $fontSize-base: 1rem; // 16px if base 16
@@ -136,6 +140,14 @@ span.nobreak {
 }
 
 //
+// Font Weight
+//
+.font-200 { font-weight: 200; }
+.font-400 { font-weight: 400; }
+.font-700 { font-weight: 700; }
+.font-900 { font-weight: 900; }
+
+//
 // Anchors
 //
 
@@ -170,8 +182,17 @@ a {
 // Text Highlights and Emphasis
 //
 .highlight {
+  // As parent with children
+  &-200 .highlight { font-weight: 200; }
+  &-400 .highlight { font-weight: 400; }
+  &-700 .highlight { font-weight: 700; }
+  &-900 .highlight { font-weight: 900; }
+  // Child override parent
+  &.font-200 { font-weight: 200; }
+  &.font-400 { font-weight: 400; }
+  &.font-700 { font-weight: 700; }
+  &.font-900 { font-weight: 900; }
   padding: 0 .25rem;
-  font-weight: 700;
   &.primary2 {
     color: $sta-text;
     background: $primary1;
@@ -180,8 +201,25 @@ a {
     color: $sta-text;
     background: $primary2;
   }
-
+  &a {
+    // text-decoration: none !important;
+    &:hover {
+      color: $sta-text1;
+      background: $primary2;
+      text-decoration: none !important;
+    }
+  }
 }
+a.highlight {
+    // text-decoration: none !important;
+    &:hover {
+      color: $sta-text1;
+      background: $primary2;
+      text-decoration: none !important;
+    }
+  }
+
+
 .dark {
   .highlight {
     &.primary2 {
@@ -280,7 +318,7 @@ a {
   }
   .navbar-brand img {
     max-width: 100%;
-    height: 20px;
+    height: $menu-primary-logo-height-lg;
   }
   //
   // 'docs' Table of contents for 'docs' content type
@@ -292,9 +330,9 @@ a {
 } // End 'Mobile Only'
 
 @media (min-width: 991.98px) {
-  // ie11 -otherwise svg does not show
+  // IMPORTANT: IE11 -otherwise svg does not show
   .navbar-brand img {
-    width: 216px !important;
+    width: $menu-primary-logo-width-lg !important;
   }
 }
 
@@ -333,7 +371,7 @@ body {
 }
 // Logo/brand: Image
 .navbar-brand img {
-  height: 20px;
+  height: $menu-primary-logo-height-sm;
 }
 // menu links
 .navbar .navbar-nav .nav-link {
@@ -716,21 +754,20 @@ body {
 }
 
 //
-// Hero Widget
+// Hero Widgets
 //
 
+
+.wg-hero,
 .wg-hero-center {
-  * { // everything font-weight 
-    font-weight: 200;
-  }
-  h1,h2,h3,h4,h5,h6,p,div,pre,code {
+ h1,h2,h3,h4,h5,h6,p,div,pre,code {
     text-align: center;
   }
   p {
     margin-bottom: .75rem;
   }
   a {
-    font-weight: 400;
+//    font-weight: 400;
     &.hero-cta-alt {
       color: $sta-secondary !important;
       &.active,

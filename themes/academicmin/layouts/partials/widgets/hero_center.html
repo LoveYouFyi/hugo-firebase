@@ -2,6 +2,8 @@
 {{ $page := .page }}
 {{ $bg := $page.Params.design.background }}
 {{ $width := $page.Params.hero_media_width }}
+{{ $fontweight := $page.Params.font.weight }}
+{{ $fonthighlight := $page.Params.font.highlight.weight }}
 
     {{/* Hero image */}}
       {{ if $page.Params.hero_media }}
@@ -18,7 +20,7 @@
     {{ end }}
 
     {{ with $page.Content }}
-    <div class="hero-center">{{ . }}</div>
+    <div class="hero-center {{ $fontweight }} {{ $fonthighlight }}">{{ . }}</div>
     {{ end }}
 
     {{/* Call-to-action link */}}

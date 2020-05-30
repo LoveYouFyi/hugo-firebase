@@ -7,14 +7,20 @@ light = false
 # Primary
 base = "#26282a"
 primary = "#26282a"
+secondary = "#26282a"
 
 # Text
 text = "#f8f8f2"
 text1 = "#26282a"
 text2 = "#f8f8f2"
 text3 = "#f8f8f2"
+text4 = "#f8f8f2"
 
 # Menu
+menu_primary_logo_height_sm = "26px"
+menu_primary_logo_height_md = "26px"
+menu_primary_logo_height_lg = "26px"
+menu_primary_logo_width_lg = "216px" # IE11 requires width for svg or will not show
 menu_primary = "#fff"
 menu_text = "yellow"
 menu_text_active = "#2962ff"

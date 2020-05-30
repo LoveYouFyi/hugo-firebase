@@ -7,11 +7,16 @@ weight = 10  # Order that this section will appear.
 
 # title = "Love You Forms"
 
-# Hero image (optional). Enter filename of an image in the `static/img/` folder.
+# Hero image optional. Enter filename of an image in the `static/img/` folder.
 hero_media = "nils-erik-hendrick-photo.png"
 hero_media_width = "280px"
 
 border_bottom = false
+
+[font] 
+  weight = "font-400" # font-200, font-400, font-700, font-900 
+  [font.highlight]
+    weight = "highlight-700" # font-200, font-400, font-700, font-900 
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -60,11 +65,11 @@ border_bottom = false
 </div>
 
 <div class="hero-title-2">
-  Software Developer 
+  <span>Software Developer</span>
   <span class="highlight primary3">JavaScript</span>
   <span class="highlight primary3">Nodejs</span>
   <span class="highlight primary3">React</span>
-  Php and Drupal
+  <span>Web and Mobile</span>
 </div>
 <h3>
   <span class="highlight primary3">Hewlett-Packard</span>
@@ -81,7 +86,7 @@ border_bottom = false
 <div class="hero-title-2">Creator and Maintainer</div>
 
 <h3>
-  <a href="https://loveyouforms.com" target="_blank" rel="noopener" class="highlight" style="font-weight: normal;">LoveYouForms.com</a>
+  <a href="https://loveyouforms.com" target="_blank" rel="noopener" class="highlight font-400">LoveYouForms.com</a>
 </h3>
 <br>
 <a href="https://github.com/LoveYoufyi" target="_blank" rel="noopener"><i class="fab fa-github" style="font-size:2.5rem;"></i></a>
