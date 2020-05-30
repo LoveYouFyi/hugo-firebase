@@ -69,7 +69,7 @@ border_bottom = false
   <span class="highlight primary3">JavaScript</span>
   <span class="highlight primary3">Nodejs</span>
   <span class="highlight primary3">React</span>
-  <span>Mobile and Web</span>
+  <span>Web and Mobile</span>
 </div>
 <h3>
   <span class="highlight primary3">Hewlett-Packard</span>
