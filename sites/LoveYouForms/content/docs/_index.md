@@ -26,7 +26,7 @@ Documentation is in progress - more coming soon.
 
 ## Motivation
 
-To make it fast and simple to handle, receive, and view form submissions for **unlimited web forms** of **unlimited websites** &mdash; **from a single cloud application** that requires minimal maintenance. 
+To make it fast and simple to capture, handle, and view form submissions for **unlimited web forms** of **unlimited websites** &mdash; **from a single cloud application** that requires minimal maintenance. 
 
 Depending on your scenario, you get webforms for your web-apps for **free, near-free, or at an extremely reduced cost**. You get significant time-savings compared to developing, and deploying or maintaining a new form-handling app for each web-app.
 
