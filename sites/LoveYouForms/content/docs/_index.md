@@ -20,13 +20,14 @@ type: docs  # Do not modify.
     #weight: 13
 ---
 
-## Docs Under Construction!!!
+## Docs Under Construction!
 
-Documentation is in progress - more coming soon.
+1) Documentation in progress.
+2) **To view app code, select the GitHub link from the menu.**
 
 ## Motivation
 
-To make it fast and simple to capture, handle, and view form submissions for **unlimited web forms** of **unlimited websites** &mdash; **from a single cloud application** that requires minimal maintenance. 
+To make it fast and simple to capture, handle, and view form submissions for **unlimited web forms** of **unlimited websites** &mdash; **from a single cloud application** that requires minimal maintenance.
 
 Depending on your scenario, you get webforms for your web-apps for **free, near-free, or at an extremely reduced cost**. You get significant time-savings compared to developing, and deploying or maintaining a new form-handling app for each web-app.
 
@@ -39,8 +40,8 @@ Your own form handling application:
 * **Manage Unlimited Websites** &mdash; each with its own settings, email recipients, and Google Sheets spreadsheet sync.
 * **Form Submissions** &mdash; captures and saves form-submitted data to your database.
 * **Email Sending** &mdash; sends emails with the form data to one or more email addresses.
-* **Google Sheets** &mdash; syncs form submissions to Google Sheets so you have a spreadsheet to view all form submissions. 
-* **Spam Filter** &mdash; option for using Akismet prevents emails from being sent when a form submission is flagged as spam, but still syncs the data to Google Sheets for your periodic review in case a legitimate submission was mistakenly flagged as spam. 
+* **Google Sheets** &mdash; syncs form submissions to Google Sheets so you have a spreadsheet to view all form submissions.
+* **Spam Filter** &mdash; option for using Akismet prevents emails from being sent when a form submission is flagged as spam, but still syncs the data to Google Sheets for your periodic review in case a legitimate submission was mistakenly flagged as spam.
 
 ### Technical Explanation
 
@@ -59,6 +60,6 @@ The app runs on Google's Firebase platform. So the servers, Node.js environment,
 
 Use it for websites which primary motivation is to capture form submissions from anonymous visitors, that is, not authenticated / not logged in. Use it for capturing data from contact forms, lead-generation forms, email addresses, feedback, etc.
 
-Use it when relying on client-side data validation serves your needs. 
+Use it when relying on client-side data validation serves your needs.
 
 The app is not presently intended for use when needs require robust server-side data validation. Though this can be achieved through further development.

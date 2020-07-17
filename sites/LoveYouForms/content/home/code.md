@@ -1,7 +1,7 @@
 +++
 widget = "blank"
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
+active = false  # Activate this widget? true/false
 weight = 20  # Order that this section will appear in.
 
 title = "<a href='#code'></a><h1>Code for Node.js Firebase Cloud Functions</h1>"
@@ -63,7 +63,7 @@ const sortObjectsAsc = (array, propKey) => array.sort((a, b) => {
   const value = val => typeof val === 'string' ? val.toUpperCase() : val;
   const valueA = value(a[propKey]);
   const valueB = value(b[propKey]);
-  
+
   if (valueA > valueB ) return 1;
   if (valueA < valueB) return -1;
   return 0; // if equal
@@ -83,7 +83,7 @@ const objectValuesByKey = (array, propKey) => array.reduce((a, c) => {
 
 exports.formHandler = functions.https.onRequest(async (req, res) => {
 
-  let messages; // declared here so catch has access to config messages 
+  let messages; // declared here so catch has access to config messages
 
   try {
 
@@ -91,15 +91,15 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
     // Validate: request content-type; cors authorized app; form submit disabled
     // Stop processing if checks fail
     ////////////////////////////////////////////////////////////////////////////
-   
+
     // Request Content-Type: stop processing if content type is not 'text/plain'
     const contentType = req.headers['content-type'];
-    if (typeof contentType === 'undefined' 
+    if (typeof contentType === 'undefined'
         || contentType.toLowerCase() !== 'text/plain') {
       console.warn(`Request header 'content-type' must be 'text/plain'`);
       return res.end();
     }
-    
+
     const formResults = JSON.parse(req.body); // parse req.body json-text-string
 
     const appRef = await db.collection('app').doc(formResults.appKey).get();
@@ -113,7 +113,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       // Messages: use global or app-specific messages
       // global boolean 0/false, 1/true, or '2' bypass global & use app boolean
       if (globalApp.condition.messageGlobal === 1
-          || (globalApp.condition.messageGlobal === 2 
+          || (globalApp.condition.messageGlobal === 2
               && !!app.condition.messageGlobal)
         ) {
         messages = globalApp.message;
@@ -123,13 +123,13 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       // CORS validation: stop cloud function if check does not pass
       // global boolean 0/false, 1/true, or '2' bypass global to use app boolean
       if (globalApp.condition.corsBypass === 0
-          || (globalApp.condition.corsBypass === 2 
+          || (globalApp.condition.corsBypass === 2
               && !app.condition.corsBypass)
         ) {
         // url requests restricted to match the app
         res.setHeader('Access-Control-Allow-Origin', app.appInfo.appUrl);
         // end processing if app url does not match req.headers.origin url
-        if (req.headers.origin !== app.appInfo.appUrl) { 
+        if (req.headers.origin !== app.appInfo.appUrl) {
           console.warn('CORS Access Control: Origin Url does not match App Url.');
           // no error response sent because request not from approved app
           return res.end();
@@ -141,7 +141,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       // Form Submit Enabled: stop cloud function if submitForm disabled
       // global boolean 0/false, 1/true, or '2' bypass global to use app boolean
       if (globalApp.condition.submitForm === 0
-          || (globalApp.condition.submitForm === 2 
+          || (globalApp.condition.submitForm === 2
               && !app.condition.submitForm)
         ) {
         console.warn(`Form submit disabled for app "${app.appInfo.appName}"`);
@@ -153,11 +153,11 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       // no error response sent because submit not from approved app
       return res.end();
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Props/Fields
     // Compile database and form fields to be handled as object entries, and
-    // add to structured object 
+    // add to structured object
     ////////////////////////////////////////////////////////////////////////////
 
     const appKey = app.id;
@@ -174,9 +174,9 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       a[doc.id] = doc.data().value;
       return a;
     }, {});
-    
+
     //
-    // Props All: consolidate props and fields last-in overwrites previous 
+    // Props All: consolidate props and fields last-in overwrites previous
     //
     const propsAll = { appKey, ...formFieldsDefault, ...formResults, ...appInfo };
 
@@ -219,8 +219,8 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
 
     // Props Whitelist:
     // Array of prop keys allowed for database or code actions last-in overwrites previous
-    const propsWhitelist = [ ...formFieldsRequired, ...formTemplateFieldsSorted, 
-      ...Object.keys(appInfo) 
+    const propsWhitelist = [ ...formFieldsRequired, ...formTemplateFieldsSorted,
+      ...Object.keys(appInfo)
     ];
 
     //
@@ -229,8 +229,8 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
     //
     const propsAllowedEntries = Object.entries(propsAll).reduce((a, [key, value]) => {
       if (propsWhitelist.includes(key)) {
-        a[key] = value; 
-      } 
+        a[key] = value;
+      }
       return a;
     }, {});
     //
@@ -246,7 +246,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
       const props =  { toUids: '', templateData: {} }
 
       // compare database fields with form-submitted props and build object
-      const setProps = propsToParse => 
+      const setProps = propsToParse =>
         Object.entries(propsToParse).forEach(([prop, data]) => {
           data = trim(data);
           props[prop] = data;
@@ -265,20 +265,20 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
 
       const getProps = ({ templateData, urlRedirect = false, ...key } = props) => ({
         data: {
-          appKey: key.appKey, 
-          createdDateTime: FieldValue.serverTimestamp(), 
+          appKey: key.appKey,
+          createdDateTime: FieldValue.serverTimestamp(),
           from: key.appFrom,
           ...key.spam && { spam: key.spam }, // only defined if akismet enabled
-          toUids: [ key.toUids ], 
+          toUids: [ key.toUids ],
           replyTo: templateData.email,
-          template: { 
-            name: key.templateName, 
+          template: {
+            name: key.templateName,
             data: templateData
           }
         },
         urlRedirect: urlRedirect
       });
- 
+
       return {
         set: props => {
           setProps(props);
@@ -296,20 +296,20 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
 
 
     ////////////////////////////////////////////////////////////////////////////
-    // Akismet Spam Filter 
-    // If enabled: 
+    // Akismet Spam Filter
+    // If enabled:
     //  1) Checks if spam
-    //     a. minimally checks IP Address and User Agent 
+    //     a. minimally checks IP Address and User Agent
     //     b. checks fields defined as 'content' and 'other' based on config
     //  2) Sets props
-    //     a. spam 
+    //     a. spam
     //     b. toUidsSpamOverride (if spam, string overrides UID to prevent email)
     //
     let akismetEnabled = false;
     if (globalApp.condition.spamFilterAkismet === 1
-        || (globalApp.condition.spamFilterAkismet === 2 
+        || (globalApp.condition.spamFilterAkismet === 2
             && !!app.condition.spamFilterAkismet)
-    ) { 
+    ) {
       akismetEnabled = true;
     }
 
@@ -323,17 +323,17 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
         // Returns akismet props either as string or {}
         // ternary with reduce
         const akismetProps = fieldGroup => accumulatorType =>
-          // if database contains fieldsAkismet and [fieldGroup] array 
+          // if database contains fieldsAkismet and [fieldGroup] array
           ( typeof formTemplateRef.data().fieldsAkismet !== 'undefined'
             && typeof formTemplateRef.data().fieldsAkismet[fieldGroup] !== 'undefined'
             && formTemplateRef.data().fieldsAkismet[fieldGroup].length > 0)
           // if true then reduce
           ? (formTemplateRef.data().fieldsAkismet[fieldGroup].reduce((a, field) => {
             // skip if field not found in props.get()...
-            if (typeof props.get().data.template.data[field] === 'undefined') { 
-              return a 
+            if (typeof props.get().data.template.data[field] === 'undefined') {
+              return a
             }
-            // accumulate as 'string' or {} based on accumulatorType 
+            // accumulate as 'string' or {} based on accumulatorType
             if (typeof accumulatorType === 'string') {
               return a + props.get().data.template.data[field] + " ";
             } else if (accumulatorType.constructor === Object) {
@@ -358,7 +358,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
         if (typeof isSpam === 'boolean' && isSpam) {
           props.set({spam: 'true' });
           props.set({toUidsSpamOverride: "SPAM_SUSPECTED_DO_NOT_EMAIL" });
-        } 
+        }
         // if spam not suspected
         else if (typeof isSpam === 'boolean' && !isSpam) {
           props.set({spam: 'false' });
@@ -408,7 +408,7 @@ exports.formHandler = functions.https.onRequest(async (req, res) => {
     });
 
   } catch(error) {
-    
+
     console.error(logErrorInfo(error));
 
     return res.status(500).send({
@@ -438,30 +438,30 @@ exports.firestoreToSheets = functions.firestore.document('submitForm/{formId}')
     ////////////////////////////////////////////////////////////////////////////
 
     // Form Submission: values from Snapshot.data()
-    const { appKey, createdDateTime, template: { data: { ...templateData }, 
+    const { appKey, createdDateTime, template: { data: { ...templateData },
       name: templateName  } } = snapshot.data();
 
     // App Doc
     const appRef = await db.collection('app').doc(appKey).get();
     const app = appRef.data();
- 
+
     // Template Field Ids and Header Row Sheet Columns
     // Database needs to have Fields Ids and Header Columns sorted to match
     // templateData array is sorted to match the order of headerRowSheet
     const formTemplateRef = await db.collection('formTemplate').doc(templateName).get();
     const formTemplate = formTemplateRef.data();
 
-    // Fields Ids Sorted: required for sorting templateData so data row that is sent 
+    // Fields Ids Sorted: required for sorting templateData so data row that is sent
     // to sheets will be sorted in the same order as the sheet's column header
     const formTemplateFieldsIdsSorted = objectValuesByKey(
       sortObjectsAsc(formTemplate.fields, "position"), "id");
-    
-    // Fields Sheet Headers Sorted: required for spreadsheet column headers when 
+
+    // Fields Sheet Headers Sorted: required for spreadsheet column headers when
     // adding a new sheet to a spreadsheet
     // Sheets requires a nested array of strings [ [ 'Date', 'Time', etc ] ]
     const formTemplateFieldsSheetHeadersSorted = [
       [
-        'Date', 'Time', 
+        'Date', 'Time',
         ...objectValuesByKey(
           sortObjectsAsc(formTemplate.fields, "position"), "sheetHeader")
       ]
@@ -476,8 +476,8 @@ exports.firestoreToSheets = functions.firestore.document('submitForm/{formId}')
     const dateTime = createdDateTime.toDate(); // toDate() is firebase method
     const createdDate = moment(dateTime).tz(app.appInfo.appTimeZone).format('L');
     const createdTime = moment(dateTime).tz(app.appInfo.appTimeZone).format('h:mm A z');
-    
-    // Template Data Sorted: returns an object that contains the new 
+
+    // Template Data Sorted: returns an object that contains the new
     // formSubmit record's data sort-ordered to match formTemplate fields positions
     const templateDataSorted = formTemplateFieldsIdsSorted.reduce((a, fieldName) => {
       // if fieldName data not exist set empty string since config sort order requires it
@@ -523,7 +523,7 @@ exports.firestoreToSheets = functions.firestore.document('submitForm/{formId}')
         ...values && { values }
       }
     });
-    
+
     // Row: Blank insert (sheetId argument: existing vs new sheet)
     const blankRowInsertAfterHeader = sheetId => ({
       auth: jwtClient,
@@ -571,7 +571,7 @@ exports.firestoreToSheets = functions.firestore.document('submitForm/{formId}')
 
     } else {
       // Create new sheet, insert heder and new row data
-      
+
       // Request object for adding sheet to existing spreadsheet
       const addSheet = () => ({
         auth: jwtClient,
@@ -588,7 +588,7 @@ exports.firestoreToSheets = functions.firestore.document('submitForm/{formId}')
                     "columnCount": 26
                   },
                 }
-              } 
+              }
             }
           ]
         }
@@ -623,7 +623,7 @@ exports.firestoreToSheets = functions.firestore.document('submitForm/{formId}')
     } // end 'else' add new sheet
 
   } catch(error) {
-    
+
     console.error(logErrorInfo(error));
 
   }
@@ -651,7 +651,7 @@ const schemaDefault = (col, schema) => functions.firestore.document(`${col}/{id}
     appRef.set(schemaData); // update record with 'set' which is for existing doc
 
   } catch(error) {
-    
+
     console.error(logErrorInfo(error));
 
   }
